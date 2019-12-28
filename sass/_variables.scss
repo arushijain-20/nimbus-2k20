@@ -1,0 +1,50 @@
+// ------- COLOR --------
+// $color-primary: #a48727;    // gold
+// $color-secondary: #332d2d;  // brown
+// $color-tertiary: #11283d;
+// $color-important: #cd2a20;   // dark-blue
+// $color-black: black;
+// $color-white: white;
+
+
+$color-primary: #D8D9D7;    // gold
+$color-secondary: #332d2d;  // brown
+$color-tertiary: #0D0000;
+$color-tertiary-2: #594F4F;
+$color-important: #cd2a20;   // dark-blue
+$color-black: black;
+$color-white: #F2F2F0;
+
+// $color-primary: #BF4F36;    // gold
+// $color-secondary: #8C8958;  // brown
+// $color-tertiary: #59433B;
+// $color-tertiary-2: #F2EBDF;
+// $color-important: #cd2a20;   // dark-blue
+// $color-black: black;
+// $color-white: #F2F2F0;
+
+// $color-primary: #737272;    // gold
+// $color-secondary: #131826;  // brown
+// $color-tertiary: #737272;
+// $color-tertiary-2: #8F92A6;
+// $color-important: #cd2a20;   // dark-blue
+// $color-black: black;
+// $color-white: #F2F2F0;
+
+$color-green: green;
+$color-red: red;
+
+// ------- FONT & FONT-SIZE -------
+// @font-face{
+//     font-family: 'Montserrat';
+//     src: local('Montserrat'), url(
+//         '../fonts/Montserrat/Montserrat-Medium.ttf'
+//     ) format('truetype');
+// }
+
+$font-montserrat: 'Arial';
+$font-size-medium: 2rem;
+$font-size-veryLarge: 4rem;
+$font-size-large: 3rem;
+$font-size-small: 1rem;
+$font-size-general: 1.5rem;
