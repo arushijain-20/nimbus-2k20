@@ -29,7 +29,7 @@ app.get('/events',function (req,res){
 });
 app.get('/',function (req,res){
   console.log("okay");
-  res.sendFile(__dirname+'/public/main.html');
+  res.sendFile(__dirname+'/public/index.html');
 });
 app.get('/team',function (req,res){
   console.log("okay");

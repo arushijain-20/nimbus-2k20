@@ -9,16 +9,15 @@ const extractPlugin = new ExtractCssPlugin({
 
 module.exports = {
     entry: {
-        main: './js/entryPoints/main.js',
-        register: './js/entryPoints/register.js',
-        events: './js/entryPoints/events.js',
-        sponsers: './js/entryPoints/sponsers.js',
-        team: './js/entryPoints/team.js',
+        main: './src/js/entryPoints/main.js',
+        register: './src/js/entryPoints/register.js',
+        events: './src/js/entryPoints/events.js',
+        sponsors: './src/js/entryPoints/sponsors.js',
+        team: './src/js/entryPoints/team.js',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'js/[name].bundle.js',
-        // publicPath: 'public'
     },
     module:{
         rules:[
@@ -34,7 +33,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [{loader: ExtractCssPlugin.loader, options:{publicPath: 'css/'}}, 'css-loader', 'sass-loader']
+                use: [{loader: ExtractCssPlugin.loader, options:{publicPath: '/'}}, 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.css$/,
+                use: [{loader: ExtractCssPlugin.loader, options:{publicPath: '/'}}, 'css-loader']
             },
             {
                 test: /\.html$/,
@@ -61,32 +64,34 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
+
         extractPlugin,
+
         new HtmlWebpackPlugin({
-            filename: 'main.html',
-            template: 'main.html',
+            filename: 'index.html',
+            template: './src/index.html',
             chunks: ['main'],
             
         }),
         new HtmlWebpackPlugin({
             filename: 'events.html',
-            template: 'events.html',
+            template: './src/events.html',
             chunks: ['events']
         }),
         new HtmlWebpackPlugin({
             filename: 'team.html',
-            template: 'team.html',
+            template: './src/team.html',
             chunks: ['team']
         }),
         new HtmlWebpackPlugin({
             filename: 'register.html',
-            template: 'register.html',
+            template: './src/register.html',
             chunks: ['register']
         }),
         new HtmlWebpackPlugin({
             filename: 'sponsors.html',
-            template: 'sponsors.html',
-            chunks: ['sponsers']
+            template: './src/sponsors.html',
+            chunks: ['sponsors']
         }),
         new CleanWebpackPlugin({
             cleanAfterEveryBuildPatterns: ['public']
