@@ -61,6 +61,9 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
+        new webpack.ProvidePlugin({
+            anime: 'animejs',
+        }),
         extractPlugin,
         new HtmlWebpackPlugin({
             filename: 'main.html',
