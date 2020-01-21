@@ -1,0 +1,74 @@
+@import "../common";
+
+:root {
+  font-size: 14px;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background: linear-gradient(-45deg, #eee 50%, white);
+  background: url("../../img/bg-hills.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.container {
+  height: 80vh;
+  width: 80vw;
+  opacity: 0.95;
+  margin-top: 6rem;
+  // background: #fff;
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  grid-template-areas: "img form";
+  box-shadow: 9px 9px 16px #0003;
+
+  .image-container {
+    grid-area: img;
+    // background: url("../../img/bg.jpg");
+    // background: #fff1;
+    background-size: cover;
+  }
+  .form-container {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+
+    .form-heading {
+      // grid-area: head;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      h1 {
+        font-weight: 100;
+        font-size: 2.5rem;
+      }
+    }
+    label {
+      font-weight: bold;
+    }
+    .register-form {
+      // grid-area: body;
+      // background: white;
+
+      .form-control {
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    margin-top: 0;
+    grid-template-areas: "form form";
+  }
+}

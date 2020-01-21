@@ -1,3 +1,6 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../sass/pages/register.scss";
+
 // var emailPattern = new RegExp("[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,5}");
 
 // var errorText = "Please Enter a valid ";
@@ -26,7 +29,7 @@
 //   var city = document.forms["registration-form"].city;
 //   var college = document.forms["registration-form"].college;
 //   var phone = document.forms["registration-form"].phone;
-  
+
 //   var year = -1;
 //   var events = [];
 //   // var years = document.getElementsByName("year");
@@ -69,17 +72,15 @@
 //   if (phone.value.trim().length != 10) {
 //     $('#error-message').html(errorText+"Phone Number");
 //     $(phone).css("border-bottom","2px solid #f00");
-//     return  false;    
+//     return  false;
 //   }
 //   // if(year === -1 || Number(year) != Number(year) || Number(year) < 0 || Number(year) > 5){
 //   //   status=false;
 //   //   alert("Select a Year");
 //   // }
-   
 
 //     return true;
 // }
-
 
 // document.getElementsByTagName("form")[0].addEventListener("submit",function(e){
 //   e.preventDefault();
@@ -101,8 +102,6 @@
 //       xmlhttp.send(JSON.stringify(objectToSend));
 //       console.log(JSON.stringify(objectToSend));
 
-
-
 //       xmlhttp.onreadystatechange = function(){
 //             if(xmlhttp.readyState == 4){
 //               console.log('xmlhttp.responseText');
@@ -120,18 +119,17 @@
 //                 $("#email").val("");
 //                 $("#phone").val("");
 //                 $("#college").val("");
-//                 $("#city").val(""); 
-//                 // $('#eventOpt').selectedIndex=-1;              
+//                 $("#city").val("");
+//                 // $('#eventOpt').selectedIndex=-1;
 //                 $('.registered-message-container').show();
 //                 // $('.confirm').addClass('yes');
 //                 setTimeout(function(){
 //                   window.location.reload(1);
-//                 }, 1000);            
+//                 }, 1000);
 //               }
 //             }
 //           }
 //   }
-
 
 // });
 
@@ -140,4 +138,3 @@
 //     window.open('./pdf/Policy.doc');
 //     // console.log('hey');
 //   })
-
