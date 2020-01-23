@@ -59,7 +59,93 @@
 
       .form-control {
       }
+
+      label[for="hostel_acc"] {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        // display: none;
+      }
+      .chk_circle {
+        position: absolute;
+        height: 1.5rem;
+        width: 1.5rem;
+        border: 2px solid #00aeff99;
+        // top: 50%;
+        top: 1.25rem;
+        right: 1.25rem;
+        border-radius: 50%;
+        // transform: translate(0, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+          content: "";
+          height: 1.4rem;
+          width: 1.4rem;
+          background: #00aeffbb;
+          box-shadow: 0 0 10px 2px #00aeff55;
+          border-radius: 50%;
+          opacity: 0;
+          transition: 0.3s;
+        }
+      }
+      #hostel_acc {
+        width: 100%;
+        position: relative;
+        cursor: pointer;
+        display: none;
+
+        & > label > .card::before {
+          content: "hello";
+          display: inline-block;
+        }
+
+        &:hover ~ label .card {
+          // border: 2px solid #00aeff99;
+          box-shadow: 0 0 5px #00aeff55;
+        }
+        &:hover ~ .chk_circle::after {
+          opacity: 1;
+        }
+        &:checked ~ label .card {
+          border: 2px solid #00aeff99;
+          background: #00aeff33;
+          position: relative;
+
+          .chk_circle::after {
+            opacity: 1;
+          }
+
+          &::after {
+            content: "you will be redirected to payment gateway to pay $9999 as fees.";
+            padding: 0 1.25rem;
+            transition: 0.5s;
+            opacity: 0;
+            animation: slide-down 0.3s forwards;
+            font-weight: 100;
+            color: #6c757d;
+          }
+        }
+      }
     }
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    height: 0;
+  }
+  50% {
+    height: 1.5rem;
+    opacity: 0;
+    transform: translate(0, -1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }
 
