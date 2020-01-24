@@ -156,7 +156,7 @@ submitBtn.click(function(event){
         email,
         phone
     }
-    fetch('http://127.0.0.1:3000/adduser', {
+    fetch('https://festnimbus.com/adduser', {
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
