@@ -138,3 +138,38 @@ import "../../sass/pages/register.scss";
 //     window.open('./pdf/Policy.doc');
 //     // console.log('hey');
 //   })
+
+var submitBtn = $('#submit-button');
+submitBtn.click(function(event){
+    event.preventDefault();
+    var fname = $('#fname').val();
+    var team = $('#team').val();
+    var college = $('#college').val();
+    var city = $('#city').val();
+    var email = $('#email').val();
+    var phone = $('#phone').val();
+    var data = {
+        fname,
+        team,
+        college,
+        city,
+        email,
+        phone
+    }
+    fetch('http://127.0.0.1:3000/adduser', {
+        method: 'POST',
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }).then(res=>{
+        console.log('asdfadsf');
+        return res.json();
+    })
+    .then(data=>{
+        // console.log(data);
+        $('.response').text(data.message);
+    }).catch(err=>{
+        $('.response').text('Some error occured');
+    })
+})
