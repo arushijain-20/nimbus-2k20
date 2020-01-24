@@ -1,16 +1,32 @@
 @import '../common';
 
-body{
-    background: url('../../img/bg.jpg');
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
 }
-.heading{
-    width: 100vw;
-    height: 100vh;
-    @extend .middle;
-    font-size: 12rem;
-    color: #fff;
-    text-align: center;
-    span{
-        display: inline-block;
-    }    
+
+body {
+  background: #fbfbfb;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas {
+  background: #fff;
+  box-shadow: 0 0 1px rgba(0, 0, 0, .125), 0 2px 4px rgba(0, 0, 0, .125), 0 1px 4px rgba(0, 0, 0, .05);
+}
+
+.canvas--ghost {
+  display: none;
 }
