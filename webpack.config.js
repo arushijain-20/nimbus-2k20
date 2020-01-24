@@ -80,6 +80,9 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     }),
+    new webpack.ProvidePlugin({
+      anime: "animejs",
+    }),
 
     extractPlugin,
 
