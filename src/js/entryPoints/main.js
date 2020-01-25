@@ -1,29 +1,56 @@
-import '../../sass/pages/main.scss'
-import anime from 'animejs'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../sass/pages/main.scss";
+import anime from "animejs";
+
+// anime({
+//   targets: ".theme-title .char",
+//   // opacity: [0, 1],
+//   translateY: [
+//     { value: 0, duration: 200 },
+//     { value: -10, duration: 200 },
+//     { value: 10, duration: 200 },
+//     { value: 0, duration: 200 }
+//   ],
+//   // duration: 2000,
+//   easing: "easeOutCubic",
+//   delay: anime.stagger(100, {}),
+//   // endDelay: 4000,
+//   loop: true
+//   // direction: "alternate"
+// });
+
+anime({
+  targets: ".theme-title .char",
+  rotateY: [0, 360],
+  delay: anime.stagger(100, { start: 1000 }),
+  endDelay: 1000,
+  loop: true
+});
 
 const TAU = Math.PI * 2;
-
-const canvas = document.querySelector('.js-draw');
-
+const canvas = document.querySelector(".js-draw");
 class Stage {
   constructor(canvas, width, height) {
     this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
+    this.ctx = canvas.getContext("2d");
 
     this.width = width;
     this.height = height;
 
     this.options = {
       rotation: Math.atan2(width, height) + Math.PI / 2,
-      backgroundColor: '#171715',
-      lineColor: '#FDFFFC',
-      pointColor1: '#41EAD4',
-      pointColor2: '#F71735',
+      backgroundColor: "#171715",
+      lineColor: "#FDFFFC",
+      pointColor1: "#41EAD4",
+      pointColor2: "#F71735"
     };
 
     this.points = [];
 
-    this.line = { from: { x: 0, y: height * 0.5 }, to: { x: width, y: height * 0.5 } };
+    this.line = {
+      from: { x: 0, y: height * 0.5 },
+      to: { x: width, y: height * 0.5 }
+    };
 
     this.animation = null;
   }
@@ -70,19 +97,19 @@ class Stage {
 
   generate() {
     this.points = new Array(100).fill().map((_, i) => {
-      const r = (this.heightHalf * 0.5) + Math.random() * (this.heightHalf / 2);
-      const c = i % 2 === 0 ? this.options.pointColor1 : this.options.pointColor2;
+      const r = this.heightHalf * 0.5 + Math.random() * (this.heightHalf / 2);
+      const c =
+        i % 2 === 0 ? this.options.pointColor1 : this.options.pointColor2;
 
       const point = {
         r,
         a: Math.random() * TAU,
-        s: 0.0005 + (Math.random() * 0.0008),
-        c,
+        s: 0.0005 + Math.random() * 0.0008,
+        c
       };
 
       return point;
     });
-    
   }
 
   setSize(w, h) {
@@ -110,7 +137,7 @@ class Stage {
   }
 
   animate() {
-    const diff = -Math.PI + (Math.random() * TAU);
+    const diff = -Math.PI + Math.random() * TAU;
     const angle = this.rotation + diff;
 
     this.animation = anime({
@@ -118,10 +145,10 @@ class Stage {
       duration: 3000,
       delay: 500,
       rotation: angle,
-      easing: 'easeInOutSine',
+      easing: "easeInOutSine",
       complete: () => {
         this.animate();
-      },
+      }
     });
   }
 
@@ -142,19 +169,23 @@ class Stage {
     const hh = this.canvas.height * 0.5;
 
     point.a += point.s;
-    point.x = wh + (Math.cos(point.a) * point.r);
-    point.y = hh + (Math.sin(point.a) * point.r);
+    point.x = wh + Math.cos(point.a) * point.r;
+    point.y = hh + Math.sin(point.a) * point.r;
 
     const denominator = Math.hypot(to.x - from.x, to.y - from.y);
-    const numerator = ((to.y - from.y) * point.x) - ((to.x - from.x) * point.y) + (to.x * from.y) - (to.y * from.x);
+    const numerator =
+      (to.y - from.y) * point.x -
+      (to.x - from.x) * point.y +
+      to.x * from.y -
+      to.y * from.x;
     const distance = numerator / denominator;
 
-    const pointAngle = Math.atan2(to.y - from.y, to.x - from.x) + (Math.PI / 2);
+    const pointAngle = Math.atan2(to.y - from.y, to.x - from.x) + Math.PI / 2;
     const pointRadius = 0.5 + Math.abs(distance / this.heightHalf) * 3;
     const lineWidth = 0.5 + (Math.abs(distance / this.heightHalf) - 0.5);
 
-    const toX = point.x + (Math.cos(pointAngle) * distance);
-    const toY = point.y + (Math.sin(pointAngle) * distance);
+    const toX = point.x + Math.cos(pointAngle) * distance;
+    const toY = point.y + Math.sin(pointAngle) * distance;
 
     this.ctx.save();
     this.ctx.globalAlpha = point.o;
@@ -166,17 +197,19 @@ class Stage {
     this.ctx.arc(point.x, point.y, pointRadius, 0, TAU);
     this.ctx.fill();
     this.ctx.closePath();
-  };
+  }
 
   updateSeparator() {
-    this.line.from.x = this.widthHalf + (Math.cos(this.rotation) * this.width);
-    this.line.from.y = this.heightHalf + (Math.sin(this.rotation) * this.width);
-    this.line.to.x = this.widthHalf + (Math.cos(this.rotation + Math.PI) * this.width);
-    this.line.to.y = this.heightHalf + (Math.sin(this.rotation + Math.PI) * this.width);
+    this.line.from.x = this.widthHalf + Math.cos(this.rotation) * this.width;
+    this.line.from.y = this.heightHalf + Math.sin(this.rotation) * this.width;
+    this.line.to.x =
+      this.widthHalf + Math.cos(this.rotation + Math.PI) * this.width;
+    this.line.to.y =
+      this.heightHalf + Math.sin(this.rotation + Math.PI) * this.width;
   }
 
   run() {
-    this.ctx.globalCompositeOperation = 'source-over';
+    this.ctx.globalCompositeOperation = "source-over";
     this.ctx.fillStyle = this.options.backgroundColor;
     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -187,14 +220,14 @@ class Stage {
     this.ctx.save();
     this.ctx.translate(this.widthHalf, this.heightHalf);
     this.ctx.rotate(this.rotation);
-    this.ctx.globalCompositeOperation = 'difference';
+    this.ctx.globalCompositeOperation = "difference";
     this.ctx.fillStyle = this.options.lineColor;
     this.ctx.fillRect(-this.hypo / 2, 0, this.hypo, this.hypo);
     this.ctx.restore();
 
     const circleRadius = 10;
     this.ctx.beginPath();
-    this.ctx.fillStyle = '#fce9d5';
+    this.ctx.fillStyle = "#fce9d5";
     this.ctx.arc(this.widthHalf, this.heightHalf, circleRadius, 0, TAU);
     this.ctx.fill();
     this.ctx.closePath();
@@ -214,10 +247,9 @@ const stage = new Stage(canvas, window.innerWidth, window.innerHeight);
 
 stage.init();
 stage.run();
-stage.animate();
+setTimeout(() => stage.animate(), 3000);
 
-
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   stage.setSize(window.innerWidth, window.innerHeight);
   stage.generate();
 });
@@ -274,8 +306,6 @@ window.addEventListener('resize', () => {
 
 // const ghost = new Stage(document.querySelector('.js-ghost'), tileWidth, tileWidth);
 // const stage = new Stage(document.querySelector('.js-draw'), stageWidth, stageHeight);
-
-
 
 // let rotations = [];
 // const color = '#000';
@@ -416,4 +446,3 @@ window.addEventListener('resize', () => {
 
 // reset();
 // animate();
-

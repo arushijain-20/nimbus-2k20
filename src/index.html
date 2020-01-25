@@ -2,19 +2,60 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>NIMBUS 2k'20</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <!-- <canvas class="js-draw"></canvas> -->
-        <div class="container">
-            <canvas class="canvas canvas--ghost js-ghost" width="100" height="100"></canvas>
-            <canvas class="canvas js-draw" width="500" height="500"></canvas>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>NIMBUS 2k'20</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <!-- <canvas class="js-draw"></canvas> -->
+    <div class="container-fluid p-0 position-absolute pg1-bg">
+      <canvas
+        class="canvas canvas--ghost js-ghost"
+        width="100"
+        height="100"
+      ></canvas>
+      <canvas class="canvas js-draw" width="500" height="500"></canvas>
+    </div>
+
+    <div class="container position-relative pg1">
+      <div class="row w-100 position-relative">
+        <div class="col nim-name-con  align-center">
+          <svg width="700" class="nim-name">
+            <text x="0" y="100">
+              NIMBUS
+            </text>
+          </svg>
         </div>
-    </body>
+        <div class="col nim-yr-con  align-center">
+          <svg class="nim-yr">
+            <text x="0" y="100">
+              2K20
+            </text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col theme-title">
+          <span class="text-white display-3">
+            <span class="char">S</span>
+            <span class="char">E</span>
+            <span class="char">M</span>
+            <span class="char">B</span>
+            <span class="char">L</span>
+            <span class="char">E</span>
+            <span class="char">N</span>
+            <span class="char">C</span>
+            <span class="char">E</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
