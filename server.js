@@ -10,13 +10,19 @@ var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Connecting to mongodb loaclhost database
-mongoose.connect(process.env.MONGODB_URI||"mongodb://localhost:27017/nimbus" ,{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI||"mongodb://localhost:27017/nimbus" ,{ useNewUrlParser: true, useUnifiedTopology: true });
 
 
 //Using Body parser for middleware
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({strict:false}));
+app.use(bodyParser.json());
 
+app.use((req, res, next)=>{
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.get('/register',function (req,res){
   console.log("okay");
@@ -42,19 +48,21 @@ app.get('/sponsors',function (req,res){
 //Post Method
 app.post('/adduser',function(req, res){
     var data = req.body;
-    console.log(req.body.team);
+    // console.log(req.body);
       var user=new User(data);
-      console.log(user);
-      user.save(function(err,user,numAffected){
-      if(err){
-            console.log(err);
-            res.send('500');
-          }
-       else{
+      user.save()
+      .then((result)=>{
         console.log("added",user);
-        res.send(user);
-       }
-});
+        res.status(200).json({
+          message: 'successfully registered'
+        })
+      })
+      .catch((err)=>{
+          console.log(err);
+          res.status(500).json({
+            message: 'some error occured'
+          })
+      })
 });
 
 // Listening to port-number
