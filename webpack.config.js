@@ -60,7 +60,7 @@ module.exports = {
         use: ["html-loader"]
       },
       {
-        test: /\.(png|jpeg|gif|jpg)$/,
+        test: /\.(png|jpeg|gif|jpg|svg)$/,
         use: [
           {
             loader: "file-loader",
@@ -81,7 +81,7 @@ module.exports = {
       jQuery: "jquery"
     }),
     new webpack.ProvidePlugin({
-      anime: "animejs",
+      anime: "animejs"
     }),
 
     extractPlugin,
