@@ -74,6 +74,69 @@ body {
 .nim-yr-con {
   text-align: center;
 }
+
+.nithlogo {
+  z-index: 3001;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 5rem;
+  top: 4rem;
+  left: -5rem;
+  &::after {
+    content: "NIT Hamirpur";
+    width: 10rem;
+    font-size: 2rem;
+    transition: all 0.5s;
+    display: inline-block;
+    color: white;
+    position: absolute;
+    left: 6rem;
+    line-height: 1em;
+  }
+  // &:hover::after {
+  //   left: 6.5rem;
+  // }
+  img {
+    width: 100%;
+    filter: invert(1);
+  }
+}
+
+.pixologo {
+  z-index: 3001;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 5rem;
+  bottom: 4rem;
+  right: -5rem;
+  &::before {
+    content: "Pixonoids";
+    font-size: 2rem;
+    transition: all 0.5s;
+    display: inline-block;
+    color: white;
+    position: absolute;
+    // right: 6rem;
+    right: 5rem;
+    opacity: 0;
+    line-height: 1em;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    right: 6rem;
+  }
+  &:hover img {
+    transform: rotate(45deg);
+  }
+  img {
+    width: 100%;
+    transition: all 0.5s;
+  }
+}
+
 .logo {
   perspective: 400px;
   transform-style: preserve-3d;
@@ -194,6 +257,32 @@ text:hover {
     margin-top: 10rem;
     .theme-title {
       margin-top: 5rem;
+    }
+  }
+
+  .pixologo {
+    right: 50%;
+    bottom: 5rem;
+    transform: translate(50%, 0);
+    &::before {
+      right: -2rem;
+      bottom: -3rem;
+    }
+    &:hover::before {
+      right: -2rem;
+      bottom: -2rem;
+    }
+  }
+
+  .nithlogo {
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%, 0);
+
+    &::after {
+      left: -3.5rem;
+      bottom: -3rem;
+      width: 15rem;
     }
   }
 }
