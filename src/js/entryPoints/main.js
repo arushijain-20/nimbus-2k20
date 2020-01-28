@@ -19,6 +19,39 @@ import anime from "animejs";
 //   // direction: "alternate"
 // });
 
+// var shake = anime({
+//   targets: ".icon",
+//   // rotate: [45, 0],
+//   rotateX: [90, 0],
+//   delay: anime.stagger(200, { start: 500, from: "center" })
+// });
+
+var blink = anime({
+  targets: ".icon",
+  easing: "easeOutCubic",
+  keyframes: [
+    { rotateX: 0, scaleX: 1 },
+    { rotateX: 90, scaleX: 1.5 },
+    { rotateX: 0, scaleX: 1 }
+  ],
+  duration: 500,
+  delay: anime.stagger(2000, { start: 1000, from: "last" }),
+  loop: true
+});
+
+// document.querySelectorAll(".icon").forEach(node => {
+//   node.addEventListener("mouseover", function(e) {
+//     console.log(e.fromElement);
+
+//     anime({
+//       targets: e.fromElement,
+//       scaleY: [1, 1.5],
+//       scaleX: [1, 1.2],
+//       duration: 500
+//     });
+//   });
+// });
+
 anime({
   targets: ".theme-title .char",
   rotateY: [0, 360],

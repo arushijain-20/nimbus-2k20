@@ -10,6 +10,7 @@ body {
 
 body {
   background: #fbfbfb;
+  font-family: "bebas neue";
 }
 
 .nav {
@@ -37,6 +38,9 @@ body {
       color: red;
       padding: 0.5rem 3rem;
     }
+  }
+  @include respond(tab-port) {
+    display: none;
   }
 }
 
@@ -101,16 +105,42 @@ body {
     width: 100%;
     filter: invert(1);
   }
+
+  @include respond(tab-port) {
+    left: 5rem;
+    top: 4rem;
+
+    &::after {
+      // left: -3.5rem;
+      // bottom: -3rem;
+      // width: 15rem;
+    }
+  }
 }
 
 .pixologo {
   z-index: 3001;
+  display: none !important;
   position: absolute;
   display: flex;
   align-items: center;
   width: 5rem;
   bottom: 4rem;
   right: -5rem;
+  @include respond(tab-port) {
+    display: none;
+    right: 50%;
+    bottom: 5rem;
+    transform: translate(50%, 0);
+    &::before {
+      right: -2rem;
+      bottom: -3rem;
+    }
+    &:hover::before {
+      right: -2rem;
+      bottom: -2rem;
+    }
+  }
   &::before {
     content: "Pixonoids";
     font-size: 2rem;
@@ -157,8 +187,65 @@ body {
     // ,wiggle 2s 4s ease-in-out alternate infinite;
   }
 }
+
+.social {
+  z-index: 3005;
+  position: absolute;
+  display: flex;
+  color: white;
+  flex-direction: column;
+  bottom: 5rem;
+  left: -5rem;
+
+  .icon {
+    width: 4rem;
+    margin: 1rem 0;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @include respond(tab-port) {
+    bottom: 0;
+    left: 0;
+    margin-bottom: 2rem;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    .icon {
+      margin: 1rem 1rem;
+    }
+  }
+}
+
+.date {
+  writing-mode: tb-rl;
+  position: absolute;
+  right: -5rem;
+  bottom: 3rem;
+  font-family: "bebas neue";
+  opacity: 0.8;
+  letter-spacing: 0.5rem;
+  color: white;
+  font-size: 2rem;
+
+  @include respond(tab-port) {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    writing-mode: lr;
+  }
+}
+
 .nim-name-con {
   text-align: center;
+  font-family: monospace;
   margin-bottom: -5rem;
 }
 
@@ -170,8 +257,15 @@ body {
 }
 .theme {
   margin-top: 7rem;
+  font-family: sans-serif;
   .theme-title {
     margin-top: 5rem;
+  }
+  @include respond(tab-port) {
+    margin-top: 10rem;
+    .theme-title {
+      margin-top: 10rem;
+    }
   }
 }
 text {
@@ -249,40 +343,5 @@ text:hover {
   55% {
     stroke-dashoffset: 600;
     fill: #fff0;
-  }
-}
-
-@media (max-width: 980px) {
-  .theme {
-    margin-top: 10rem;
-    .theme-title {
-      margin-top: 5rem;
-    }
-  }
-
-  .pixologo {
-    right: 50%;
-    bottom: 5rem;
-    transform: translate(50%, 0);
-    &::before {
-      right: -2rem;
-      bottom: -3rem;
-    }
-    &:hover::before {
-      right: -2rem;
-      bottom: -2rem;
-    }
-  }
-
-  .nithlogo {
-    left: 50%;
-    top: 12%;
-    transform: translate(-50%, 0);
-
-    &::after {
-      left: -3.5rem;
-      bottom: -3rem;
-      width: 15rem;
-    }
   }
 }
