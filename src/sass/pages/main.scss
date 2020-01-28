@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 1rem 10rem;
+  padding: 0rem 2rem;
   // mix-blend-mode: difference;
   // background: #fff9;
   li {
@@ -84,12 +84,13 @@ body {
   position: absolute;
   display: flex;
   align-items: center;
-  width: 5rem;
+  width: 6rem;
   top: 4rem;
   left: -5rem;
   &::after {
     content: "NIT Hamirpur";
     width: 10rem;
+    margin-left: 1rem;
     font-size: 2rem;
     transition: all 0.5s;
     display: inline-block;
@@ -98,9 +99,9 @@ body {
     left: 6rem;
     line-height: 1em;
   }
-  // &:hover::after {
-  //   left: 6.5rem;
-  // }
+  &:hover::after {
+    left: 6.5rem;
+  }
   img {
     width: 100%;
     filter: invert(1);
