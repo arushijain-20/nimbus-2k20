@@ -44,7 +44,7 @@ body {
   }
 }
 
-.container {
+#main {
   width: 100vw;
   height: 100vh;
 
@@ -86,7 +86,7 @@ body {
   align-items: center;
   width: 6rem;
   top: 4rem;
-  left: -5rem;
+  left: 5rem;
   &::after {
     content: "NIT Hamirpur";
     width: 10rem;
@@ -110,12 +110,6 @@ body {
   @include respond(tab-port) {
     left: 5rem;
     top: 4rem;
-
-    &::after {
-      // left: -3.5rem;
-      // bottom: -3rem;
-      // width: 15rem;
-    }
   }
 }
 
@@ -127,7 +121,7 @@ body {
   align-items: center;
   width: 5rem;
   bottom: 4rem;
-  right: -5rem;
+  right: 5rem;
   @include respond(tab-port) {
     display: none;
     right: 50%;
@@ -196,7 +190,7 @@ body {
   color: white;
   flex-direction: column;
   bottom: 5rem;
-  left: -5rem;
+  left: 5rem;
 
   .icon {
     width: 4rem;
@@ -228,7 +222,7 @@ body {
 .date {
   writing-mode: tb-rl;
   position: absolute;
-  right: -5rem;
+  right: 5rem;
   bottom: 3rem;
   font-family: "bebas neue";
   opacity: 0.8;
@@ -286,9 +280,6 @@ text {
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
   animation: stroke_on 10s 5s infinite;
-}
-text:hover {
-  // fill: #fff;
 }
 
 .char {
