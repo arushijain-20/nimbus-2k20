@@ -2,30 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../../sass/pages/main.scss";
 import anime from "animejs";
 
-// anime({
-//   targets: ".theme-title .char",
-//   // opacity: [0, 1],
-//   translateY: [
-//     { value: 0, duration: 200 },
-//     { value: -10, duration: 200 },
-//     { value: 10, duration: 200 },
-//     { value: 0, duration: 200 }
-//   ],
-//   // duration: 2000,
-//   easing: "easeOutCubic",
-//   delay: anime.stagger(100, {}),
-//   // endDelay: 4000,
-//   loop: true
-//   // direction: "alternate"
-// });
-
-// var shake = anime({
-//   targets: ".icon",
-//   // rotate: [45, 0],
-//   rotateX: [90, 0],
-//   delay: anime.stagger(200, { start: 500, from: "center" })
-// });
-
 var blink = anime({
   targets: ".icon",
   easing: "easeOutCubic",
@@ -284,8 +260,11 @@ const stage = new Stage(canvas, window.innerWidth, window.innerHeight);
 stage.init();
 stage.run();
 setTimeout(() => stage.animate(), 6000);
-stage.setSize(screen.width, screen.height);
-stage.generate();
+
+if (window.innerWidth < 980) {
+  stage.setSize(screen.width, screen.height);
+  stage.generate();
+}
 
 window.addEventListener("resize", () => {
   stage.setSize(window.innerWidth, window.innerHeight);

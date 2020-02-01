@@ -77,8 +77,8 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
+      jQuery: "jquery",
+      $: "jquery"
     }),
     new webpack.ProvidePlugin({
       anime: "animejs"

@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.0.0",
+    "@primer/css": "^14.2.0",
     "animejs": "^3.1.0",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
@@ -42,6 +43,7 @@
     "jquery": "^3.4.1",
     "materialize": "^1.0.0",
     "mongoose": "^5.8.3",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "scroll-out": "^2.2.8"
   }
 }
