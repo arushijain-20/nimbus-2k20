@@ -12,37 +12,54 @@ var ex = {
   body: {
     head: "Event Heading",
     desc:
-      "Event Description goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga quae expedita maxime aspernatur, harum voluptates tempore voluptatum praesentium molestiae illum, nesciunt saepe unde consequuntur blanditiis esse totam eligendi et?",
-    date: new Date(),
-    venue: "Lecture Hall"
+      "Event Description goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga quae expedita maxime aspernatur, harum voluptates tempore voluptatum praesentium molestiae illum, nesciunt saepe unde consequuntur blanditiis esse totam eligendi et?"
   },
+  date: new Date("27 mar 2020"),
+  venue: "Lecture Hall",
   team: {
     name: "Pixonoids"
   }
 };
+var exx = { ...ex, date: new Date("27 jan 2020") };
 
 // Render Elements on Screen
+createEvent(exx);
 let totalDays = 3;
 for (let i = 0; i < totalDays; ++i) {
   createDayHeader(i);
-  for (let j = 0; j < 2; ++j) {
+  for (let j = 0; j < 5; ++j) {
     createEvent(ex);
   }
-  createBreak();
+  createBreak(ex);
 }
+
+// Scroll the live element into view
+setTimeout(() => {
+  var live = document.querySelector(".coming");
+  if (live) {
+    console.log(live);
+    live.scrollIntoView();
+  }
+}, 2000);
 
 // Generator Functions
 function createEvent(ev) {
   let node = document.createElement("div");
-  node.className = "ml-6 pl-3";
+  node.className = "ml-6 pl-3 node";
 
   let TimelineItem = document.createElement("div");
   TimelineItem.className = "TimelineItem";
+  if (ev.date < new Date()) TimelineItem.classList.add("past");
+  else TimelineItem.classList.add("coming");
 
   let TimelineItem_avatar = document.createElement("div");
   TimelineItem_avatar.className = "TimelineItem-avatar";
+
   let TimelineItem_badge = document.createElement("div");
   TimelineItem_badge.className = "TimelineItem-badge";
+  if (ev.date < new Date()) TimelineItem.classList.add("past");
+  else TimelineItem.classList.add("coming");
+
   let TimelineItem_body = document.createElement("div");
   TimelineItem_body.className = "TimelineItem-body";
 
@@ -53,8 +70,9 @@ function createEvent(ev) {
   width="40"
   alt="${ev.team.name}"
   title="${ev.team.name}"
-  src="./img/ig.png"
-    />`;
+  src="./img/event.png"
+    />
+    `;
 
   TimelineItem_badge.innerHTML = `<div data-scroll class="box-shadow-large badge-but p-2 circle bg-gray-dark"></div>`;
 
@@ -68,11 +86,11 @@ function createEvent(ev) {
     <ul class="position-absolute bottom-0 pb-3 text-small text-gray list-style-none ">
       <li class="d-inline-flex flex-items-center  text-bold mr-1">
         <img width=20 class="mr-1" src="./img/clock.png">
-        ${ev.body.date.toDateString()}
+        ${ev.date.toDateString()}
       </li>
       <li class="d-inline-flex flex-items-center text-bold ">
         <img width=18 class="mr-1" src="./img/loc.png">
-        ${ev.body.venue}
+        ${ev.venue}
       </li>
     </ul>
   </div>
@@ -88,9 +106,11 @@ function createEvent(ev) {
   timeline.appendChild(node);
 }
 
-function createBreak() {
+function createBreak(ev) {
   let br = document.createElement("div");
   br.className = "TimelineItem-break ml-0";
+  if (ev.date > new Date()) br.classList.add("past");
+  // else br.classList.add("coming");
   timeline.append(br);
 }
 
@@ -98,7 +118,7 @@ function createDayHeader(day) {
   let nextDay = document.createElement("div");
   nextDay.className = "ml-6 pl-3";
   nextDay.innerHTML = `
-    <div class="TimelineItem">
+    <div class="TimelineItem ${day == 2 ? "past" : ""}">
       <div class="TimelineItem-avatar"></div>
 
         <div class="TimelineItem-badge">
@@ -159,7 +179,6 @@ ScrollOut({
       });
     }
     if (el.classList.contains("avatar")) {
-      console.log(el);
       anime({
         targets: el,
         translateX: [-40, 0],

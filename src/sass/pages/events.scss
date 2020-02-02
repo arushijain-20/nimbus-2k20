@@ -1,7 +1,12 @@
 @import "../common.scss";
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #fff;
+  scroll-behavior: smooth;
 }
 .container {
   width: 75%;
@@ -18,11 +23,42 @@ body {
     font-size: 6rem;
     font-weight: 100;
   }
+  img {
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+}
+
+.node {
+  @include respond(tab-port) {
+    margin-left: 1rem !important;
+
+    .TimelineItem-avatar {
+      left: -18px;
+      top: 50px;
+    }
+  }
 }
 
 .card {
   cursor: pointer;
   &:hover {
     background: #eef;
+  }
+}
+
+.past {
+  filter: grayscale(0.7);
+  .TimelineItem-badge {
+    // background-color: #0366d6;
+    // border: none;
+    .badge-but {
+      background-color: #fff !important;
+    }
+  }
+  &:before {
+    background-color: #0366d699;
+    box-shadow: 0 0 5px #0366d655;
   }
 }
