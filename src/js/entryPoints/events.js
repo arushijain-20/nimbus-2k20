@@ -23,7 +23,7 @@ var ex = {
 var exx = { ...ex, date: new Date("27 jan 2020") };
 
 // Render Elements on Screen
-createEvent(exx);
+// createEvent(exx);
 let totalDays = 3;
 for (let i = 0; i < totalDays; ++i) {
   createDayHeader(i);
@@ -34,13 +34,13 @@ for (let i = 0; i < totalDays; ++i) {
 }
 
 // Scroll the live element into view
-setTimeout(() => {
-  var live = document.querySelector(".coming");
-  if (live) {
-    console.log(live);
-    live.scrollIntoView();
-  }
-}, 2000);
+// setTimeout(() => {
+//   var live = document.querySelector(".coming");
+//   if (live) {
+//     console.log(live);
+//     live.scrollIntoView();
+//   }
+// }, 2000);
 
 // Generator Functions
 function createEvent(ev) {
@@ -116,7 +116,8 @@ function createBreak(ev) {
 
 function createDayHeader(day) {
   let nextDay = document.createElement("div");
-  nextDay.className = "ml-6 pl-3";
+  nextDay.className = "ml-6 pl-3 node";
+  nextDay.id = `day${day}`;
   nextDay.innerHTML = `
     <div class="TimelineItem ${day == 2 ? "past" : ""}">
       <div class="TimelineItem-avatar"></div>
