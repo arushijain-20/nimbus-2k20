@@ -59,6 +59,7 @@ body {
       &:hover {
         color: #fff;
         background: #0366d6;
+        transform: scale(1.3);
       }
     }
 
@@ -83,6 +84,7 @@ body {
 
 .card {
   cursor: pointer;
+  max-width: 80rem;
   &:hover {
     background: #eef;
   }
@@ -91,8 +93,6 @@ body {
 .past {
   filter: grayscale(0.7);
   .TimelineItem-badge {
-    // background-color: #0366d6;
-    // border: none;
     .badge-but {
       background-color: #fff !important;
     }

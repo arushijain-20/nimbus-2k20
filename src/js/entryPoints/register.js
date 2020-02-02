@@ -164,7 +164,7 @@ submitBtn.click(function(event) {
     body: JSON.stringify(data)
   })
     .then(res => {
-      console.log("asdfadsf");
+      console.log("response coming..");
       return res.json();
     })
     .then(data => {

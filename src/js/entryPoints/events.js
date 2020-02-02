@@ -14,13 +14,13 @@ var ex = {
     desc:
       "Event Description goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga quae expedita maxime aspernatur, harum voluptates tempore voluptatum praesentium molestiae illum, nesciunt saepe unde consequuntur blanditiis esse totam eligendi et?"
   },
-  date: new Date("27 mar 2020"),
+  date: new Date("27 mar 2020 08:00"),
   venue: "Lecture Hall",
   team: {
     name: "Pixonoids"
   }
 };
-var exx = { ...ex, date: new Date("27 jan 2020") };
+var exx = { ...ex, date: new Date("27 jan 2020 08:00") };
 
 // Render Elements on Screen
 // createEvent(exx);
@@ -34,13 +34,13 @@ for (let i = 0; i < totalDays; ++i) {
 }
 
 // Scroll the live element into view
-// setTimeout(() => {
-//   var live = document.querySelector(".coming");
-//   if (live) {
-//     console.log(live);
-//     live.scrollIntoView();
-//   }
-// }, 2000);
+setTimeout(() => {
+  var live = document.querySelector(".coming");
+  if (live) {
+    console.log(live);
+    live.scrollIntoView();
+  }
+}, 2000);
 
 // Generator Functions
 function createEvent(ev) {
@@ -57,8 +57,8 @@ function createEvent(ev) {
 
   let TimelineItem_badge = document.createElement("div");
   TimelineItem_badge.className = "TimelineItem-badge";
-  if (ev.date < new Date()) TimelineItem.classList.add("past");
-  else TimelineItem.classList.add("coming");
+  if (ev.date < new Date()) TimelineItem_badge.classList.add("past");
+  else TimelineItem_badge.classList.add("coming");
 
   let TimelineItem_body = document.createElement("div");
   TimelineItem_body.className = "TimelineItem-body";
@@ -75,6 +75,7 @@ function createEvent(ev) {
     `;
 
   TimelineItem_badge.innerHTML = `<div data-scroll class="box-shadow-large badge-but p-2 circle bg-gray-dark"></div>`;
+  TimelineItem_badge.setAttribute("data-scroll", "");
 
   TimelineItem_body.innerHTML = `
   <div class="d-block box-shadow-medium px-3 pt-4 pb-6 position-relative rounded-1 overflow-hidden no-underline card" data-scroll href="#">
@@ -86,7 +87,8 @@ function createEvent(ev) {
     <ul class="position-absolute bottom-0 pb-3 text-small text-gray list-style-none ">
       <li class="d-inline-flex flex-items-center  text-bold mr-1">
         <img width=20 class="mr-1" src="./img/clock.png">
-        ${ev.date.toDateString()}
+        <!-- ${ev.date.toDateString()} -->
+        ${ev.date.toTimeString().split(" ")[0]}
       </li>
       <li class="d-inline-flex flex-items-center text-bold ">
         <img width=18 class="mr-1" src="./img/loc.png">
@@ -144,6 +146,7 @@ function createDayHeader(day) {
           of the
           <a href="#" class="text-bold link-gray-dark">Nimbus 2k20</a>
           <a href="#" class="link-gray">at NIT Hamirpur</a>
+          <a href="#" class="text-bold link-gray-dark">${27 + day} Mar 2020</a>
         </div>
       </div>
     </div>
