@@ -237,7 +237,7 @@ class Stage {
     this.ctx.fillRect(-this.hypo / 2, 0, this.hypo, this.hypo);
     this.ctx.restore();
 
-    const circleRadius = 10;
+    const circleRadius = 0;
     this.ctx.beginPath();
     this.ctx.fillStyle = "#fce9d5";
     this.ctx.arc(this.widthHalf, this.heightHalf, circleRadius, 0, TAU);

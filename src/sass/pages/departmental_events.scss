@@ -1,0 +1,53 @@
+@import "../common.scss";
+
+.dept-con {
+  background: #eee5;
+  min-height: 30rem;
+  padding: 2rem 2rem;
+  box-shadow: -2px 2px 5px #0003;
+  margin: 2rem auto;
+}
+.dept {
+  min-height: 100%;
+  background: #0009;
+  box-shadow: -2px 2px 5px #0003;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.events-con,
+.events {
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  // overflow: hidden;
+}
+.events-con {
+  margin-left: 2rem;
+}
+
+.ev {
+  margin: 1rem;
+  padding: 1rem;
+  min-height: 10rem;
+  min-width: 10rem;
+  background: #aaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -2px 2px 5px #0003;
+  // transition: all 0.3s;
+  @include respond(phone) {
+    min-width: 50vw;
+    min-height: 50vw;
+  }
+  &:hover {
+    // transform: scale(1.1);
+    // min-width: 25rem;
+    // min-height: 15rem;
+    box-shadow: -3px 3px 7px #0003;
+  }
+}
