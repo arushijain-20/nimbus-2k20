@@ -48,7 +48,6 @@ class Stage {
 
     this.options = {
       // rotation: Math.atan2(width, height) + Math.PI / 2,
-      // rotation: 2,
       rotation: Math.PI / 2,
       backgroundColor: "#171715",
       lineColor: "#FDFFFC",

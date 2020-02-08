@@ -1,5 +1,18 @@
 @import "../common";
 
+$nim-fill: #fff;
+$logo-fill: #fff;
+$theme-col: #fff;
+$sub-col: #fff;
+$date: #fff;
+$nith-txt: #fff;
+
+$overlay: 0.5;
+
+$nav-bg: #000;
+$nav-txt: #fff;
+$nav-txt-hover: #f00;
+
 html,
 body {
   margin: 0;
@@ -21,12 +34,10 @@ body {
   justify-content: flex-end;
   align-items: flex-end;
   padding: 0rem 2rem;
-  // mix-blend-mode: difference;
-  // background: #fff9;
   li {
     padding: 0.5rem 1.5rem;
-    background: #000;
-    color: #fff;
+    background: $nav-bg;
+    color: $nav-txt;
     font-weight: bold;
     // margin: 0 1rem;
     font-size: 2rem;
@@ -35,7 +46,7 @@ body {
     transition: all 0.3s;
 
     &:hover {
-      color: red;
+      color: $nav-txt-hover;
       padding: 0.5rem 3rem;
     }
   }
@@ -60,7 +71,7 @@ body {
     0 1px 4px rgba(0, 0, 0, 0.05);
 }
 .js-draw {
-  opacity: 0.5;
+  opacity: $overlay;
 }
 .pg1-bg {
   background: #000;
@@ -94,7 +105,7 @@ body {
     font-size: 2rem;
     transition: all 0.5s;
     display: inline-block;
-    color: white;
+    color: $nith-txt;
     position: absolute;
     left: 6rem;
     line-height: 1em;
@@ -174,7 +185,7 @@ body {
   svg {
     height: 100%;
     fill: #fff0;
-    stroke: #fff;
+    stroke: $logo-fill;
     stroke-width: 4px;
     stroke-dasharray: 1500;
     stroke-dashoffset: 1500;
@@ -196,7 +207,19 @@ body {
     width: 4rem;
     margin: 1rem 0;
     opacity: 0.7;
-
+    position: relative;
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   bottom: 0;
+    //   left: 0;
+    //   right: 0;
+    //   background: red;
+    //   opacity: 1;
+    //   mix-blend-mode: darken;
+    //   border-radius: 50%;
+    // }
     &:hover {
       opacity: 1;
     }
@@ -233,7 +256,7 @@ body {
   font-family: "bebas neue";
   opacity: 0.8;
   letter-spacing: 0.5rem;
-  color: white;
+  color: $date;
   font-size: 2rem;
 
   @include respond(tab-port) {
@@ -273,7 +296,7 @@ body {
   font-size: 2rem;
   margin-top: -1rem;
   font-family: sans-serif;
-  color: #fff;
+  color: $sub-col;
 }
 text {
   fill: #fff0;
@@ -281,7 +304,7 @@ text {
   // transition: 1s;
   // font-family: "";
   font-weight: 800;
-  stroke: #fff;
+  stroke: $nim-fill;
   stroke-width: 2px;
   stroke-dasharray: 600;
   stroke-dashoffset: 600;
@@ -314,11 +337,11 @@ text {
   }
   45% {
     stroke-dashoffset: 0;
-    fill: #fff;
+    fill: $logo-fill;
   }
   50% {
     stroke-dashoffset: 0;
-    fill: white;
+    fill: $logo-fill;
   }
   55% {
     stroke-dashoffset: 1500;
@@ -338,14 +361,15 @@ text {
   }
   45% {
     stroke-dashoffset: 0;
-    fill: #fff;
+    fill: $nim-fill;
   }
   50% {
     stroke-dashoffset: 0;
-    fill: white;
+    fill: $nim-fill;
   }
   55% {
     stroke-dashoffset: 600;
     fill: #fff0;
+    text-shadow: 0 0 5px fade-out($nim-fill, 0.3);
   }
 }
