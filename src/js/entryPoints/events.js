@@ -10,7 +10,7 @@ var timeline = document.querySelector(".timeline");
 
 var ex = {
   body: {
-    head: "Event Heading",
+    head: "Coming Soon",
     desc:
       "Event Description goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga quae expedita maxime aspernatur, harum voluptates tempore voluptatum praesentium molestiae illum, nesciunt saepe unde consequuntur blanditiis esse totam eligendi et?"
   },
@@ -27,7 +27,7 @@ var exx = { ...ex, date: new Date("27 jan 2020 08:00") };
 let totalDays = 3;
 for (let i = 0; i < totalDays; ++i) {
   createDayHeader(i);
-  for (let j = 0; j < 5; ++j) {
+  for (let j = 0; j < 1; ++j) {
     createEvent(ex);
   }
   createBreak(ex);

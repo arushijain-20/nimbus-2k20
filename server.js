@@ -36,6 +36,10 @@ app.get("/register", function(req, res) {
 
 app.get("/events", function(req, res) {
   console.log("okay");
+  res.sendFile(__dirname + "/public/departmental_events.html");
+});
+app.get("/schedule", function(req, res) {
+  console.log("okay");
   res.sendFile(__dirname + "/public/events.html");
 });
 app.get("/", function(req, res) {
