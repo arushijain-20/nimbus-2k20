@@ -1,4 +1,5 @@
 @import "../common";
+@import "../components/navbar.scss";
 
 $nim-fill: #fff;
 $logo-fill: #fff;
@@ -7,7 +8,7 @@ $sub-col: #fff;
 $date: #fff;
 $nith-txt: #fff;
 
-$overlay: 0.8;
+$overlay: 0.5;
 
 $nav-bg: #000;
 $nav-txt: #fff;
@@ -27,32 +28,10 @@ body {
 }
 
 .nav {
-  z-index: 3000;
-  width: 100%;
-  height: 10rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0rem 2rem;
-  li {
-    padding: 0.5rem 1.5rem;
-    background: $nav-bg;
-    color: $nav-txt;
-    font-weight: bold;
-    // margin: 0 1rem;
-    font-size: 2rem;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      color: $nav-txt-hover;
-      padding: 0.5rem 3rem;
-    }
-  }
-  @include respond(tab-port) {
-    display: none;
-  }
+  position: absolute;
+  right: 5rem;
+  top: 5.2rem;
+  z-index: 10000;
 }
 
 #main {
