@@ -49,10 +49,10 @@ class Stage {
     this.options = {
       // rotation: Math.atan2(width, height) + Math.PI / 2,
       rotation: Math.PI/2,
-      // backgroundColor: "#171715",
-      backgroundColor: "#17171500",
-      // lineColor: "#FDFFFC",
-      lineColor: "#171715",
+      // backgroundColor: "#001F68",
+      backgroundColor: "#171715",
+      lineColor: "#d1d1d1",
+      // lineColor: "#171715",
       pointColor1: "#41EAD4",
       pointColor2: "#F71735"
     };
@@ -202,6 +202,7 @@ class Stage {
 
     this.ctx.save();
     this.ctx.globalAlpha = point.o;
+    // to change the lineColor
     this.drawLine(point, { x: toX, y: toY }, this.options.lineColor, lineWidth);
     this.ctx.restore();
 
@@ -233,14 +234,14 @@ class Stage {
     this.ctx.save();
     this.ctx.translate(this.widthHalf, this.heightHalf);
     this.ctx.rotate(this.rotation);
-    this.ctx.globalCompositeOperation = "difference";
-    this.ctx.fillStyle = this.options.lineColor;
-    this.ctx.fillRect(-this.hypo / 2, 0, this.hypo, this.hypo);
+    // this.ctx.globalCompositeOperation = "difference";
+    // this.ctx.fillStyle = this.options.lineColor;
+    // this.ctx.fillRect(-this.hypo / 2, 0, this.hypo, this.hypo);
     this.ctx.restore();
 
     const circleRadius = 0;
     this.ctx.beginPath();
-    this.ctx.fillStyle = "#fce9d5";
+    this.ctx.fillStyle = this.options.backgroundColor;
     this.ctx.arc(this.widthHalf, this.heightHalf, circleRadius, 0, TAU);
     this.ctx.fill();
     this.ctx.closePath();
