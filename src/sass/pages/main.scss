@@ -1,4 +1,5 @@
 @import "../common";
+@import "../components/navbar.scss";
 
 $nim-fill: #fff;
 $logo-fill: #fff;
@@ -27,32 +28,10 @@ body {
 }
 
 .nav {
-  z-index: 3000;
-  width: 100%;
-  height: 10rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0rem 2rem;
-  li {
-    padding: 0.5rem 1.5rem;
-    background: $nav-bg;
-    color: $nav-txt;
-    font-weight: bold;
-    // margin: 0 1rem;
-    font-size: 2rem;
-    display: inline-block;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      color: $nav-txt-hover;
-      padding: 0.5rem 3rem;
-    }
-  }
-  @include respond(tab-port) {
-    display: none;
-  }
+  position: absolute;
+  right: 5rem;
+  top: 5.2rem;
+  z-index: 10000;
 }
 
 #main {
@@ -66,7 +45,7 @@ body {
 }
 
 .canvas {
-  background: #fff;
+  // background: #fff;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 2px 4px rgba(0, 0, 0, 0.125),
     0 1px 4px rgba(0, 0, 0, 0.05);
 }
@@ -126,17 +105,17 @@ body {
 
 .pixologo {
   z-index: 3001;
-  display: none !important;
+  // display: none !important;
   position: absolute;
   display: flex;
   align-items: center;
   width: 5rem;
   bottom: 4rem;
-  right: 5rem;
+  right: 3.5rem;
   @include respond(tab-port) {
-    display: none;
+    // display: none;
     right: 50%;
-    bottom: 5rem;
+    bottom: 14rem;
     transform: translate(50%, 0);
     &::before {
       right: -2rem;
@@ -252,7 +231,8 @@ body {
   writing-mode: tb-rl;
   position: absolute;
   right: 5rem;
-  bottom: 3rem;
+  bottom: 50%;
+  transform: translate(0,50%);
   font-family: "bebas neue";
   opacity: 0.8;
   letter-spacing: 0.5rem;
