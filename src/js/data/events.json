@@ -1,0 +1,74 @@
+[
+  {
+    "team": "C-HELIX",
+    "type": "Institutional",
+    "name": "Clash Of Cranes",
+    "desc": "In this event we will design tower crane using popsicle sticks, cotton strings and a simple adhesive that can sustain the maximum possible load with optimum radius and self weight.",
+    "img": "https://drive.google.com/open?id=1hgOsjFL47Wg6JD8MZcnmq4rViNDu2rvH",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "Designocrats",
+    "type": "Institutional",
+    "name": "The Wall Art war",
+    "desc": "The participants would be registering online with their ideas and the those who will be shortlisted will be painting them on the walls. The entries would be excepted in three catagories- The murals, The graffiti, The Doodle.",
+    "img": "https://drive.google.com/open?id=1p9lD-SGba59R1xO56NnTVDA_EIh_dO-U",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "Hermetica",
+    "type": "Institutional",
+    "name": "Chem -e- Car",
+    "desc": "Chemical energy driven car",
+    "img": "https://drive.google.com/open?id=1nsG3LXBt0CwLNSlxz29T0XTAXcaa4nOf",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "Medextrous",
+    "type": "Institutional",
+    "name": "Robowars",
+    "desc": "Robowar is an event where participants present there bots in the arena and then we will have the fight in between two bots and whosoever bot wins the fight, wins the game.",
+    "img": "https://drive.google.com/open?id=1qy74a7M0nNcyhsBuiuIi1JbaxiL0b7RD",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "Meta Morph",
+    "type": "Institutional",
+    "name": "Foam Glider",
+    "desc": "A light engineless aircraft designed to glide after being towed aloft or launched from \na catapult. Each group (maximum 5, minimum 2) of participants will be provided with the same \nset of materials and design choice of glider will be totally of their liking, as long as it meets the \ncriteria of maximum and minimum wing span (50-60 cm) and fuselage (65-75% of wing span).",
+    "img": "https://drive.google.com/open?id=1ui7xk24IY2WMwqkMcRVxFWR1T28EGwh_",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "OJAS",
+    "type": "Institutional",
+    "name": "Water Boat Racing",
+    "desc": "The arena consists of certain check obstacles. The robots should be able to\nnavigate through the obstacles.\n? The arena will be tank having water.\n? A robot completes the task after having reached the finish line, to the other\nend the arena\nAbout the competition \nIn 1st round one boat is provided to the participant, he/she has to navigate the\nboat from Start position to the Finish position in limited time, the participants who\nwill reach to ending position in time will be qualified for the 2nd round. 4\nparticipants will be qualified for the next round based on their timings.\nIn second round we will group the qualified participants in 2 teams. Each\ngroup has two members. We will provide two boat to each group and the member\nof each group will compete with his/her own member. One who will reach to the\nfinishing point will be qualified for the final round.\nIn final round the winners of the 2 groups will compete with each other. In\nthis round one competitor will start from starting point and other will from\nfinishing point, the one who will reach opposite end first will be the winner.",
+    "img": "https://drive.google.com/open?id=15zn1NQhRmXOlAfzwBBB6GJc-OTQg_4Yj",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "Team .EXE",
+    "type": "Institutional",
+    "name": "NITH-CTF 1.0 (Capture The Flag)",
+    "desc": "This event will be an on-site event at the Computer Centre. The event aims at\nbolstering the Cybersecurity culture among the college students. The basic motive of this\nevent is to introduce the enthusiasts to the different areas of Cybersecurity and to\nencourage them to participate in CTFs happening in different parts of India and\nworldwide.\n",
+    "img": "https://drive.google.com/open?id=1iGN_-y3sWnwm-fhyO4YDe1cM2PR-G16S",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  },
+  {
+    "team": "Vibhav",
+    "type": "Institutional",
+    "name": "Fill in the Blocks",
+    "desc": "With the goal of promoting innovation and technical skills among the students, Team Vibhav is conducting a \"Gripper Bot\" event that will play a role in hindering creative minds. In this scenario, the team needs to build a manually controlled bot that can perform simple tasks of grasping blocks while overcoming various obstacles and completing the run in the minimum time possible.",
+    "img": "https://drive.google.com/open?id=1Dlz2W3WnhZyuBm8eShabbyS_oHk47IqZ",
+    "venue": "Auditorium",
+    "date": "03/27/2020"
+  }
+]

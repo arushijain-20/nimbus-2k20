@@ -8,29 +8,124 @@ import ScrollOut from "scroll-out";
 
 var timeline = document.querySelector(".timeline");
 
-var ex = {
-  body: {
-    head: "Coming Soon",
+var events = [
+  {
+    team: "C-HELIX",
+    type: "Institutional",
+    name: "Clash Of Cranes",
     desc:
-      "Event Description goes here Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga quae expedita maxime aspernatur, harum voluptates tempore voluptatum praesentium molestiae illum, nesciunt saepe unde consequuntur blanditiis esse totam eligendi et?"
+      "In this event we will design tower crane using popsicle sticks, cotton strings and a simple adhesive that can sustain the maximum possible load with optimum radius and self weight.",
+    img: "https://drive.google.com/open?id=1hgOsjFL47Wg6JD8MZcnmq4rViNDu2rvH",
+    venue: "Auditorium",
+    date: "03/27/2020",
+    time: "12:00"
   },
-  date: new Date("27 mar 2020 08:00"),
-  venue: "Lecture Hall",
-  team: {
-    name: "Pixonoids"
+  {
+    team: "Designocrats",
+    type: "Institutional",
+    name: "The Wall Art war",
+    desc:
+      "The participants would be registering online with their ideas and the those who will be shortlisted will be painting them on the walls. The entries would be excepted in three catagories- The murals, The graffiti, The Doodle.",
+    img: "https://drive.google.com/open?id=1p9lD-SGba59R1xO56NnTVDA_EIh_dO-U",
+    venue: "Auditorium",
+    date: "03/27/2020",
+    time: "12:00"
+  },
+  {
+    team: "Hermetica",
+    type: "Institutional",
+    name: "Chem -e- Car",
+    desc: "Chemical energy driven car",
+    img: "https://drive.google.com/open?id=1nsG3LXBt0CwLNSlxz29T0XTAXcaa4nOf",
+    venue: "Auditorium",
+    date: "03/27/2020",
+    time: "12:00"
+  },
+  {
+    team: "Medextrous",
+    type: "Institutional",
+    name: "Robowars",
+    desc:
+      "Robowar is an event where participants present there bots in the arena and then we will have the fight in between two bots and whosoever bot wins the fight, wins the game.",
+    img: "https://drive.google.com/open?id=1qy74a7M0nNcyhsBuiuIi1JbaxiL0b7RD",
+    venue: "Auditorium",
+    date: "03/27/2020",
+    time: "12:00"
+  },
+  {
+    team: "Meta Morph",
+    type: "Institutional",
+    name: "Foam Glider",
+    desc:
+      "A light engineless aircraft designed to glide after being towed aloft or launched from \na catapult. Each group (maximum 5, minimum 2) of participants will be provided with the same \nset of materials and design choice of glider will be totally of their liking, as long as it meets the \ncriteria of maximum and minimum wing span (50-60 cm) and fuselage (65-75% of wing span).",
+    img: "https://drive.google.com/open?id=1ui7xk24IY2WMwqkMcRVxFWR1T28EGwh_",
+    venue: "Auditorium",
+    date: "03/28/2020",
+    time: "12:00"
+  },
+  {
+    team: "OJAS",
+    type: "Institutional",
+    name: "Water Boat Racing",
+    desc:
+      "The arena consists of certain check obstacles. The robots should be able to\nnavigate through the obstacles.\n? The arena will be tank having water.\n? A robot completes the task after having reached the finish line, to the other\nend the arena\nAbout the competition \nIn 1st round one boat is provided to the participant, he/she has to navigate the\nboat from Start position to the Finish position in limited time, the participants who\nwill reach to ending position in time will be qualified for the 2nd round. 4\nparticipants will be qualified for the next round based on their timings.\nIn second round we will group the qualified participants in 2 teams. Each\ngroup has two members. We will provide two boat to each group and the member\nof each group will compete with his/her own member. One who will reach to the\nfinishing point will be qualified for the final round.\nIn final round the winners of the 2 groups will compete with each other. In\nthis round one competitor will start from starting point and other will from\nfinishing point, the one who will reach opposite end first will be the winner.",
+    img: "https://drive.google.com/open?id=15zn1NQhRmXOlAfzwBBB6GJc-OTQg_4Yj",
+    venue: "Auditorium",
+    date: "03/28/2020",
+    time: "12:00"
+  },
+  {
+    team: "Team .EXE",
+    type: "Institutional",
+    name: "NITH-CTF 1.0 (Capture The Flag)",
+    desc:
+      "This event will be an on-site event at the Computer Centre. The event aims at\nbolstering the Cybersecurity culture among the college students. The basic motive of this\nevent is to introduce the enthusiasts to the different areas of Cybersecurity and to\nencourage them to participate in CTFs happening in different parts of India and\nworldwide.\n",
+    img: "https://drive.google.com/open?id=1iGN_-y3sWnwm-fhyO4YDe1cM2PR-G16S",
+    venue: "Auditorium",
+    date: "03/28/2020",
+    time: "12:00"
+  },
+  {
+    team: "Vibhav",
+    type: "Institutional",
+    name: "Fill in the Blocks",
+    desc:
+      'With the goal of promoting innovation and technical skills among the students, Team Vibhav is conducting a "Gripper Bot" event that will play a role in hindering creative minds. In this scenario, the team needs to build a manually controlled bot that can perform simple tasks of grasping blocks while overcoming various obstacles and completing the run in the minimum time possible.',
+    img: "https://drive.google.com/open?id=1Dlz2W3WnhZyuBm8eShabbyS_oHk47IqZ",
+    venue: "Auditorium",
+    date: "03/29/2020",
+    time: "12:00"
   }
-};
-var exx = { ...ex, date: new Date("27 jan 2020 08:00") };
+];
+
+// var events;
+// fetch("/js/data/events.json")
+//   .then(res => res.json())
+//   .then(data => {
+//     events = data;
+//   });
+
+// var exx = { ...ex, date: new Date("27 jan 2020 08:00") };
 
 // Render Elements on Screen
 // createEvent(exx);
-let totalDays = 3;
-for (let i = 0; i < totalDays; ++i) {
-  createDayHeader(i);
-  for (let j = 0; j < 1; ++j) {
-    createEvent(ex);
+// let totalDays = 3;
+// for (let i = 0; i < totalDays; ++i) {
+//   createDayHeader(i);
+//   for (let j = 0; j < 1; ++j) {
+//     createEvent(ex);
+//   }
+//   createBreak(ex);
+// }
+
+let i = 0;
+let current_day = "";
+for (const ev of events) {
+  if (ev.date != current_day) {
+    createDayHeader(++i);
+    current_day = ev.date;
   }
-  createBreak(ex);
+  createEvent(ev);
 }
 
 // Scroll the live element into view
@@ -49,7 +144,8 @@ function createEvent(ev) {
 
   let TimelineItem = document.createElement("div");
   TimelineItem.className = "TimelineItem";
-  if (ev.date < new Date()) TimelineItem.classList.add("past");
+  if (new Date(String(ev.date + " " + ev.time)) < new Date())
+    TimelineItem.classList.add("past");
   else TimelineItem.classList.add("coming");
 
   let TimelineItem_avatar = document.createElement("div");
@@ -57,7 +153,8 @@ function createEvent(ev) {
 
   let TimelineItem_badge = document.createElement("div");
   TimelineItem_badge.className = "TimelineItem-badge";
-  if (ev.date < new Date()) TimelineItem_badge.classList.add("past");
+  if (new Date(String(ev.date + " " + ev.time)) < new Date())
+    TimelineItem_badge.classList.add("past");
   else TimelineItem_badge.classList.add("coming");
 
   let TimelineItem_body = document.createElement("div");
@@ -68,8 +165,8 @@ function createEvent(ev) {
   class="avatar"
   height="40"
   width="40"
-  alt="${ev.team.name}"
-  title="${ev.team.name}"
+  alt="${ev.team}"
+  title="${ev.team}"
   src="./img/event.png"
     />
     `;
@@ -79,16 +176,20 @@ function createEvent(ev) {
 
   TimelineItem_body.innerHTML = `
   <div class="d-block box-shadow-medium px-3 pt-4 pb-6 position-relative rounded-1 overflow-hidden no-underline card" data-scroll href="#">
-    <div class="bg-blue position-absolute top-0 left-0 py-1 width-full"></div>
-    <h3 class="text-gray-dark">${ev.body.head}</h3>
+    <div class="bg-blue text-white position-absolute top-0 left-0 px-2 width-full" style="font-size:1rem; text-align:right; font-family:monospace; font-weight:bold;">${
+      ev.team
+    }</div>
+    <h3 class="text-gray-dark">${ev.name}</h3>
     <p class="text-gray">
-        ${ev.body.desc}
+        ${ev.desc}
     </p>
     <ul class="position-absolute bottom-0 pb-3 text-small text-gray list-style-none ">
       <li class="d-inline-flex flex-items-center  text-bold mr-1">
         <img width=20 class="mr-1" src="./img/clock.png">
-        <!-- ${ev.date.toDateString()} -->
-        ${ev.date.toTimeString().split(" ")[0]}
+        <!-- ${new Date(String(ev.date + " " + ev.time)).toDateString()} -->
+        ${
+          new Date(String(ev.date + " " + ev.time)).toTimeString().split(" ")[0]
+        }
       </li>
       <li class="d-inline-flex flex-items-center text-bold ">
         <img width=18 class="mr-1" src="./img/loc.png">
@@ -111,7 +212,8 @@ function createEvent(ev) {
 function createBreak(ev) {
   let br = document.createElement("div");
   br.className = "TimelineItem-break ml-0";
-  if (ev.date > new Date()) br.classList.add("past");
+  if (new Date(String(ev.date + " " + ev.time)) > new Date())
+    br.classList.add("past");
   // else br.classList.add("coming");
   timeline.append(br);
 }
@@ -121,7 +223,7 @@ function createDayHeader(day) {
   nextDay.className = "ml-6 pl-3 node";
   nextDay.id = `day${day}`;
   nextDay.innerHTML = `
-    <div class="TimelineItem ${day == 2 ? "past" : ""}">
+    <div class="TimelineItem">
       <div class="TimelineItem-avatar"></div>
 
         <div class="TimelineItem-badge">

@@ -42,6 +42,14 @@ app.get("/schedule", function(req, res) {
   console.log("okay");
   res.sendFile(__dirname + "/public/events.html");
 });
+app.get("/workshops", function(req, res) {
+  console.log("okay");
+  res.sendFile(__dirname + "/public/workshops.html");
+});
+app.get("/lectures", function(req, res) {
+  console.log("okay");
+  res.sendFile(__dirname + "/public/lectures.html");
+});
 app.get("/", function(req, res) {
   console.log("okay");
   res.sendFile(__dirname + "/public/index.html");
