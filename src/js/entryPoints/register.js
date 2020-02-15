@@ -1,6 +1,84 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../sass/pages/register.scss";
 
+import anime from "animejs";
+
+var submitBtn = $("#submit-button");
+submitBtn.click(function(event) {
+  event.preventDefault();
+  var fname = $("#fname").val();
+  var team = $("#team").val();
+  var college = $("#college").val();
+  var city = $("#city").val();
+  var email = $("#email").val();
+  var phone = $("#phone").val();
+  var data = {
+    fname,
+    team,
+    college,
+    city,
+    email,
+    phone
+  };
+  $(".bar").width("50%");
+  fetch("https://festnimbus.com/adduser", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(res => {
+      console.log("response coming..");
+      return res.json();
+    })
+    .then(data => {
+      if (data.message == "successfully registered") {
+        $(".response").addClass("success");
+        $(".bar").width("100%");
+        $(".bar").addClass("green");
+      } else {
+        $(".response").addClass("error");
+        $(".bar").width("100%");
+        $(".bar").addClass("red");
+      }
+      $(".response").text(data.message);
+    })
+    .catch(err => {
+      $(".response").addClass("error");
+      $(".response").text("Some error occured");
+    });
+});
+
+// navbar
+
+$(document).ready(function() {
+  var navIcon = $(".menu-toggle");
+  // console.log(navIcon);
+  var menu = $(".menu");
+  var active = false;
+  var navIcon = $(".menu-toggle");
+  navIcon.click(function() {
+    if (!active) {
+      active = true;
+      navIcon.addClass("menu-toggle-active");
+      menu.addClass("menuActive");
+    } else {
+      active = false;
+      navIcon.removeClass("menu-toggle-active");
+      menu.removeClass("menuActive");
+    }
+  });
+});
+
+// animations
+
+anime({
+  targets: "h1",
+  easing: "easeOutQuad",
+  opacity: [0, 1]
+});
+
 // var emailPattern = new RegExp("[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,5}");
 
 // var errorText = "Please Enter a valid ";
@@ -138,40 +216,3 @@ import "../../sass/pages/register.scss";
 //     window.open('./pdf/Policy.doc');
 //     // console.log('hey');
 //   })
-
-var submitBtn = $("#submit-button");
-submitBtn.click(function(event) {
-  event.preventDefault();
-  var fname = $("#fname").val();
-  var team = $("#team").val();
-  var college = $("#college").val();
-  var city = $("#city").val();
-  var email = $("#email").val();
-  var phone = $("#phone").val();
-  var data = {
-    fname,
-    team,
-    college,
-    city,
-    email,
-    phone
-  };
-  fetch("https://festnimbus.com/adduser", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-    .then(res => {
-      console.log("response coming..");
-      return res.json();
-    })
-    .then(data => {
-      // console.log(data);
-      $(".response").text(data.message);
-    })
-    .catch(err => {
-      $(".response").text("Some error occured");
-    });
-});

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700|Shrikhand");
 
-$nav-item-bg-clr: #1e1e1e;
-$nav-item-bg-clr-hvr: #1e1e1e;
+$nav-item-bg-clr: #1e1e1edd;
+$nav-item-bg-clr-hvr: #000e;
 $nav-item-txt-clr: white;
 $ts: 0.3s;
 $td: 0.05s;
@@ -14,7 +14,8 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   line-height: 1.4;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/ales-krivec-38565-unsplash.jpg);
+  // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/ales-krivec-38565-unsplash.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1473081556163-2a17de81fc97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
   background-size: cover;
 
   @media (min-width: 450px) {
@@ -72,6 +73,9 @@ body {
     color: #fff;
     background-color: $nav-item-bg-clr;
     border-radius: 2px;
+    &:hover {
+      background-color: $nav-item-bg-clr-hvr;
+    }
 
     @media (min-width: 450px) {
       font-size: 1.75rem;
@@ -95,6 +99,10 @@ body {
     font-size: 0.85rem;
     color: darken(#fff, 15%);
     background-color: darken($nav-item-bg-clr, 15%);
+
+    &:hover {
+      background-color: $nav-item-bg-clr-hvr;
+    }
 
     @media (min-width: 450px) {
       font-size: 1rem;

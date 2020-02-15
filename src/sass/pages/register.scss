@@ -1,7 +1,14 @@
 @import "../common";
+@import "../../sass/components/navbar.scss";
 
 :root {
   font-size: 14px;
+  font-family: roboto;
+}
+.menu-toggle {
+  // filter: invert(1);
+  right: 3rem;
+  top: 3rem;
 }
 
 .main {
@@ -16,11 +23,19 @@
   position: relative;
 }
 
+.blur {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: #0007;
+  backdrop-filter: blur(5px);
+}
+
 .container {
   height: 80vh;
   width: 80vw;
   opacity: 0.95;
-  margin-top: 6rem;
+  margin-top: 3rem;
   // background: #fff;
   display: grid;
   grid-template-columns: 4fr 5fr;
@@ -28,10 +43,32 @@
   box-shadow: 9px 9px 16px #0003;
 
   .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     grid-area: img;
-    // background: url("../../img/bg.jpg");
-    // background: #fff1;
+    color: white;
+    // background: url("../../img/bg-hills.jpg");
+    background: #2a0029;
     background-size: cover;
+    position: relative;
+
+    .nim-name {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 0.8rem;
+      display: none;
+      padding: 2rem 4rem;
+    }
+    .contact {
+      font-size: 0.8rem;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 1rem;
+      display: none;
+    }
   }
   .form-container {
     grid-area: form;
@@ -39,6 +76,21 @@
     flex-direction: column;
     justify-content: center;
     background: #fff;
+    position: relative;
+    overflow-x: hidden;
+
+    .btn-primary {
+      background-color: #4f002c;
+      border-color: #2a0029;
+      font-weight: bold;
+      margin-left: 0.2rem;
+    }
+    .btn-link {
+      color: #2a0029;
+      margin-left: 2rem;
+      font-size: 1.2rem;
+      width: 10rem;
+    }
 
     .form-heading {
       // grid-area: head;
@@ -63,6 +115,7 @@
       }
 
       .form-control {
+        font-family: roboto;
       }
 
       label[for="hostel_acc"] {
@@ -71,6 +124,18 @@
         overflow: hidden;
         cursor: pointer;
         // display: none;
+      }
+      .hostel_desc {
+        font-size: 1rem;
+        color: #6c757d;
+      }
+      .card {
+        font-family: roboto;
+      }
+      .card-title {
+        font-family: roboto;
+        font-weight: 600;
+        font-size: 1.2rem;
       }
       .chk_circle {
         position: absolute;
@@ -128,6 +193,7 @@
             content: "you will be redirected to payment gateway to pay $9999 as fees.";
             padding: 0 1.25rem;
             transition: 0.5s;
+            font-size: 1rem;
             opacity: 0;
             animation: slide-down 0.3s forwards;
             font-weight: 100;
@@ -140,8 +206,35 @@
 }
 
 .response {
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  margin: auto;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.success {
+  color: green;
+}
+.error {
   color: red;
-  font-style: italic;
+}
+
+.bar {
+  position: absolute;
+  height: 0.5rem;
+  bottom: 0;
+  left: 0;
+  // width: 100%;
+  width: 0;
+  transition: all 0.5s;
+  background: #ff573d;
+}
+.red {
+  background: red;
+}
+.green {
+  background: green;
 }
 
 @keyframes slide-down {

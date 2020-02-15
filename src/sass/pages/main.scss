@@ -109,11 +109,11 @@ body {
   position: absolute;
   display: flex;
   align-items: center;
-  width: 5rem;
-  bottom: 4rem;
+  width: 4.5rem;
+  bottom: 5.5rem;
   right: 3.5rem;
   @include respond(tab-port) {
-    // display: none;
+    display: none;
     right: 50%;
     bottom: 14rem;
     transform: translate(50%, 0);
@@ -128,20 +128,21 @@ body {
   }
   &::before {
     content: "Pixonoids";
-    font-size: 2rem;
+    font-family: roboto;
+    font-size: 1.7rem;
     transition: all 0.5s;
     display: inline-block;
     color: white;
     position: absolute;
     // right: 6rem;
-    right: 5rem;
+    right: 4rem;
     opacity: 0;
     line-height: 1em;
   }
 
   &:hover::before {
     opacity: 1;
-    right: 6rem;
+    right: 5rem;
   }
   &:hover img {
     transform: rotate(45deg);
@@ -232,7 +233,7 @@ body {
   position: absolute;
   right: 5rem;
   bottom: 50%;
-  transform: translate(0,50%);
+  transform: translate(0, 50%);
   font-family: "bebas neue";
   opacity: 0.8;
   letter-spacing: 0.5rem;

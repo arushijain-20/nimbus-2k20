@@ -33,6 +33,7 @@ body {
   background: url(../../img/wall.jpg);
   background-size: cover;
   background-attachment: fixed;
+  background-position: center;
   position: relative;
   overflow-x: hidden;
 }
@@ -74,8 +75,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 19em;
-  height: 28em;
+  width: 20em;
+  height: 22em;
   margin: 2.5em;
   overflow: hidden;
   transition: all 0.5s;
@@ -86,9 +87,9 @@ body {
   }
   .card-img {
     overflow: hidden;
-    height: 12em;
-    width: 19em;
-    border-radius: 0 0 45% 45%;
+    height: 15em;
+    width: 20em;
+    border-radius: 0 0 50% 50%;
     position: relative;
     // top: -10rem;
     transform: scale(1.2);

@@ -6,9 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
+
+    <label class="menu-toggle" for="menu-toggle-input">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+    <nav class="menu">
+      <ol>
+        <li class="menu-item"><a href="/">Home</a></li>
+        <li class="menu-item"><a href="/about">About</a></li>
+        <li class="menu-item">
+          <a href="/schedule">Events</a>
+          <ol class="sub-menu">
+            <li class="menu-item"><a href="/workshops">Workshops</a></li>
+            <li class="menu-item"><a href="/register">Register</a></li>
+            <li class="menu-item"><a href="/team">Team</a></li>
+          </ol>
+        </li>
+        <li class="menu-item">
+          <a href="/sponsors">Sponsors</a>
+          <ol class="sub-menu">
+            <li class="menu-item"><a href="/mega_events">Mega Events</a></li>
+            <li class="menu-item"><a href="/events">Departmental Events</a></li>
+            <li class="menu-item"><a href="/about">About Us</a></li>
+          </ol>
+        </li>
+        <li class="menu-item"><a href="/contact">Contact Us</a></li>
+      </ol>
+    </nav>
+
     <div class="main">
+      <div class="blur"></div>
       <div class="container px-0">
-        <div class="image-container d-none d-md-block"></div>
+        <div class="image-container d-none d-md-flex">
+          <div class="nim-name">NIMBUS</div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In molestias adipisci eveniet labore ipsa neque repellat sapiente quisquam laboriosam voluptates at, dignissimos distinctio! Molestiae natus cupiditate fuga, veritatis ipsa odio.
+          </p>
+          <div class="contact">
+            contact : +91 88888 88888
+          </div>
+        </div>
         <div class="form-container">
           <div class="form-heading px-5">
             <h1>Register <small class="text-muted">for Nimbus</small></h1>
@@ -119,7 +161,7 @@
                       <div class="chk_circle"></div>
                       <div class="card-body py-0">
                         <h4 class="card-title mb-0">Hostel Accomodation</h4>
-                        <p class="card-text text-muted font-weight-light">Check this if you wish to stay here.</p>
+                        <p class="card-text font-weight-light hostel_desc">Check this if you wish to stay here.</p>
                       </div>
                     </div>
                   </label>
@@ -132,7 +174,7 @@
                   required
                   type="submit"
                   id="submit-button"
-                  class="reg btn btn-primary form control"
+                  class="reg btn btn-lg btn-primary form control"
                 >
                 Register
                 </button>
@@ -143,6 +185,7 @@
                 >
               </div>
               <div class="response p-2"></div>
+              <div class="bar"></div>
             </div>
 
           </div>
