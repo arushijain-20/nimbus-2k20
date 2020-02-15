@@ -3,8 +3,8 @@ import "../../sass/pages/register.scss";
 
 import anime from "animejs";
 
-var submitBtn = $("#submit-button");
-submitBtn.click(function(event) {
+var form = $("#registration-form");
+form.submit(function(event) {
   event.preventDefault();
   var fname = $("#fname").val();
   var team = $("#team").val();
@@ -34,19 +34,27 @@ submitBtn.click(function(event) {
     })
     .then(data => {
       if (data.message == "successfully registered") {
-        $(".response").addClass("success");
+        $(".response")
+          .removeClass("error")
+          .addClass("success");
         $(".bar").width("100%");
-        $(".bar").addClass("green");
+        $(".bar")
+          .removeClass("red")
+          .addClass("green");
       } else {
-        $(".response").addClass("error");
+        $(".response")
+          .removeClass("success")
+          .addClass("error");
         $(".bar").width("100%");
-        $(".bar").addClass("red");
+        $(".bar")
+          .removeClass("green")
+          .addClass("red");
       }
       $(".response").text(data.message);
     })
     .catch(err => {
       $(".response").addClass("error");
-      $(".response").text("Some error occured");
+      $(".response").text("Some Error Occured");
     });
 });
 

@@ -66,22 +66,6 @@ var workshops = [
     date: "27-Mar-2020",
     img: "http://picsum.photos/202",
     link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/203",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/205",
-    link: "#"
   }
 ];
 

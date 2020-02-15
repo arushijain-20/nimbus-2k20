@@ -41,7 +41,7 @@
 
     <div class="main">
       <div class="blur"></div>
-      <div class="container px-0">
+      <fo class="container px-0">
         <div class="image-container d-none d-md-flex">
           <div class="nim-name">NIMBUS</div>
           <p>
@@ -55,9 +55,13 @@
           <div class="form-heading px-5">
             <h1>Register <small class="text-muted">for Nimbus</small></h1>
           </div>
-          <div
+          <form
             name="registration-form"
+            id="registration-form"
             class="register-form p-5"
+            action="/adduser"
+            method="POST"
+            
           >
             <div class="form-row">
               <div class="col-md-7">
@@ -188,7 +192,7 @@
               <div class="bar"></div>
             </div>
 
-          </div>
+          </form>
         </div>
         </div>
       </div>

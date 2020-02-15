@@ -25,6 +25,7 @@ body {
   width: 75%;
   margin: auto;
   padding: 2rem;
+  font-family: roboto;
 
   @include respond(tab-port) {
     width: 100%;

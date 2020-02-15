@@ -10,10 +10,14 @@ var app = express();
 app.use(express.static(path.join(__dirname, "public")));
 
 //Connecting to mongodb loaclhost database
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/nimbus",
-  { useNewUrlParser: true, useUnifiedTopology: true }
-);
+mongoose
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/nimbus", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(conn => {
+    console.log("Database Connected..");
+  });
 
 //Using Body parser for middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -30,42 +34,44 @@ app.use((req, res, next) => {
 });
 
 app.get("/register", function(req, res) {
-  console.log("okay");
+  console.log("Register");
   res.sendFile(path.resolve(__dirname + "/public/register.html"));
 });
 
 app.get("/events", function(req, res) {
-  console.log("okay");
+  console.log("events");
   res.sendFile(__dirname + "/public/departmental_events.html");
 });
 app.get("/schedule", function(req, res) {
-  console.log("okay");
+  console.log("schedule");
   res.sendFile(__dirname + "/public/events.html");
 });
 app.get("/workshops", function(req, res) {
-  console.log("okay");
+  console.log("workshops");
   res.sendFile(__dirname + "/public/workshops.html");
 });
 app.get("/lectures", function(req, res) {
-  console.log("okay");
+  console.log("lectures");
   res.sendFile(__dirname + "/public/lectures.html");
 });
 app.get("/", function(req, res) {
-  console.log("okay");
+  console.log("Home");
   res.sendFile(__dirname + "/public/index.html");
 });
 app.get("/team", function(req, res) {
-  console.log("okay");
+  console.log("team");
   res.sendFile(__dirname + "/public/team.html");
 });
 app.get("/sponsors", function(req, res) {
-  console.log("okay");
+  console.log("sponsors");
   res.sendFile(path.resolve(__dirname + "/public/sponsors.html"));
 });
+
 //Post Method
 app.post("/adduser", function(req, res) {
   var data = req.body;
-  // console.log(req.body);
+  console.log("post request");
+  console.log(req.body);
   var user = new User(data);
   user
     .save()
@@ -78,7 +84,7 @@ app.post("/adduser", function(req, res) {
     .catch(err => {
       console.log(err);
       res.status(500).json({
-        message: "some error occured"
+        message: "Some Error Occured"
       });
     });
 });

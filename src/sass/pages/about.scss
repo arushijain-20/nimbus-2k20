@@ -1,0 +1,33 @@
+@import "../common.scss";
+@import "../../sass/components/navbar.scss";
+
+body {
+  background: #000;
+}
+
+.heading {
+  font-family: roboto;
+  padding: 1rem 4rem;
+  h1 {
+    font-size: 5rem;
+    font-weight: 100;
+    color: white;
+  }
+}
+
+h1 {
+  font-size: 6rem;
+}
+.container {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+
+  p {
+    font-size: 2rem;
+  }
+}
