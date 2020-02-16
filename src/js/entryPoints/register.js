@@ -53,8 +53,10 @@ form.submit(function(event) {
       $(".response").text(data.message);
     })
     .catch(err => {
-      $(".response").addClass("error");
-      $(".response").text("Some Error Occured");
+      $(".response")
+        .removeClass("success")
+        .addClass("error");
+      $(".response").text("Could not Connect...");
     });
 });
 
