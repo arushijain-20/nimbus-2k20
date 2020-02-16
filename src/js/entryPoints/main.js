@@ -48,7 +48,7 @@ class Stage {
 
     this.options = {
       // rotation: Math.atan2(width, height) + Math.PI / 2,
-      rotation: Math.PI/2,
+      rotation: Math.PI / 2,
       // backgroundColor: "#001F68",
       backgroundColor: "#171715",
       lineColor: "#d1d1d1",
@@ -268,26 +268,34 @@ if (window.innerWidth < 980) {
   stage.generate();
 }
 
-$(document).ready(function(){
-    var navIcon = $('.menu-toggle');
-    // console.log(navIcon);
-    var menu = $('.menu');
-    var active =false;
-    var navIcon =$('.menu-toggle');
-    navIcon.click(function(){
-      if(!active){
-        active=true;
-        navIcon.addClass('menu-toggle-active')
-        menu.addClass('menuActive');
-      } else{
-        active=false;
-        navIcon.removeClass('menu-toggle-active');
-        menu.removeClass('menuActive');
-      }
-    })
-})
+$(document).ready(function() {
+  var navIcon = $(".menu-toggle");
+  // console.log(navIcon);
+  var menu = $(".menu");
+  var active = false;
+  var navIcon = $(".menu-toggle");
+  navIcon.click(function() {
+    if (!active) {
+      active = true;
+      navIcon.addClass("menu-toggle-active");
+      menu.addClass("menuActive");
+    } else {
+      active = false;
+      navIcon.removeClass("menu-toggle-active");
+      menu.removeClass("menuActive");
+    }
+  });
+});
 
 window.addEventListener("resize", () => {
   stage.setSize(window.innerWidth, window.innerHeight);
   stage.generate();
 });
+
+let k = 1;
+let links = document.querySelectorAll(".links>a");
+setInterval(() => {
+  links[k].scrollIntoView();
+  k++;
+  k = k % links.length;
+}, 3000);

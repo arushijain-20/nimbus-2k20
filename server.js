@@ -58,6 +58,10 @@ app.get("/", function(req, res) {
   console.log("Home");
   res.sendFile(__dirname + "/public/index.html");
 });
+app.get("/about", function(req, res) {
+  console.log("About");
+  res.sendFile(__dirname + "/public/about.html");
+});
 app.get("/team", function(req, res) {
   console.log("team");
   res.sendFile(__dirname + "/public/team.html");

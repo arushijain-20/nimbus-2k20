@@ -14,6 +14,10 @@ $nav-bg: #000;
 $nav-txt: #fff;
 $nav-txt-hover: #f00;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 html,
 body {
   margin: 0;
@@ -25,6 +29,40 @@ body {
 body {
   background: #fbfbfb;
   font-family: "bebas neue";
+  scroll-behavior: smooth;
+}
+
+.links {
+  color: white;
+  scroll-behavior: smooth;
+  position: absolute;
+  right: 12rem;
+  font-family: roboto;
+  opacity: 0.9;
+  top: 5rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-shadow: 0 0 5px #fff;
+
+  @include respond(tab-port) {
+    display: none;
+  }
+
+  height: 3rem;
+  overflow: scroll;
+  z-index: 3001;
+  a {
+    line-height: 3rem;
+    // background: #f00;
+    padding: 0 1rem;
+    // border-radius: 0.2rem;
+    color: white;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .nav {
