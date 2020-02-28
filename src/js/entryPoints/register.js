@@ -22,7 +22,7 @@ form.submit(function(event) {
     phone
   };
   $(".bar").width("50%");
-  fetch("https://festnimbus.com/adduser", {
+  fetch("/adduser", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

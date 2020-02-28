@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var User = require("./userSchema.js");
+var admin = require("./admin");
 //Creating Server using express()
 var app = express();
 
@@ -70,6 +71,11 @@ app.get("/sponsors", function(req, res) {
   console.log("sponsors");
   res.sendFile(path.resolve(__dirname + "/public/sponsors.html"));
 });
+app.get("/admin", function(req, res) {
+  console.log("Admin");
+  res.sendFile(path.resolve(__dirname + "/public/admin.html"));
+});
+app.post("/admin", admin);
 
 //Post Method
 app.post("/adduser", function(req, res) {

@@ -22,7 +22,8 @@ module.exports = {
     workshops: "./src/js/entryPoints/workshops.js",
     departmental_events: "./src/js/entryPoints/departmental_events.js",
     mega_events: "./src/js/entryPoints/mega_events.js",
-    team: "./src/js/entryPoints/team.js"
+    team: "./src/js/entryPoints/team.js",
+    admin: "./src/js/entryPoints/admin.js"
   },
   output: {
     path: path.resolve(__dirname, "public"),
@@ -150,6 +151,11 @@ module.exports = {
       filename: "mega_events.html",
       template: "./src/mega_events.html",
       chunks: ["mega_events"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "admin.html",
+      template: "./src/admin.html",
+      chunks: ["admin"]
     }),
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: ["public"]
