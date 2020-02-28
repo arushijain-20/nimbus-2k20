@@ -2,6 +2,7 @@
 // import "bootstrap/dist/js/bootstrap.bundle.js";
 import "../../sass/pages/lectures.scss";
 import "../../sass/components/navbar.scss";
+import "./menu";
 
 const anime = require("animejs/lib/anime");
 
@@ -95,24 +96,4 @@ t1.add({
   easing: "easeOutQuad",
   opacity: [0, 1],
   delay: anime.stagger(150)
-});
-
-// navbar
-$(document).ready(function() {
-  var navIcon = $(".menu-toggle");
-  // console.log(navIcon);
-  var menu = $(".menu");
-  var active = false;
-  var navIcon = $(".menu-toggle");
-  navIcon.click(function() {
-    if (!active) {
-      active = true;
-      navIcon.addClass("menu-toggle-active");
-      menu.addClass("menuActive");
-    } else {
-      active = false;
-      navIcon.removeClass("menu-toggle-active");
-      menu.removeClass("menuActive");
-    }
-  });
 });
