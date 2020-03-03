@@ -1,27 +1,74 @@
 @import "../common.scss";
 @import "../../sass/components/navbar.scss";
 
+body {
+  background: #dde;
+}
+
 .container {
+  font-family: roboto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 100vw;
+  width: 85%;
+  margin: auto;
   min-height: 100vh;
   font-size: 1.2rem;
-  background: #ddd;
 }
 
+h1 {
+  font-size: 5rem;
+  font-weight: lighter;
+  text-align: center;
+  position: absolute;
+  margin: 2rem 5rem;
+}
 .data {
-  box-shadow: 0 2px 12px 0 #0005;
+  // box-shadow: 0 2px 12px 0 #0005;
   padding: 2rem 3rem;
-  background: #fff;
+  // background: #fff;
   //   width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.entry {
+  width: 25rem;
+  margin: 1rem;
+  background: #fff;
+  box-shadow: -2px 2px 10px #0005;
+  padding: 1.5rem 3rem;
+  border-radius: 0.3rem;
+
+  .name {
+    font-weight: bold;
+    font-size: large;
+  }
+  .team {
+    color: #555;
+    font-style: italic;
+    font-size: larger;
+  }
+  .college,
+  .city {
+    display: inline-block;
+    font-size: medium;
+  }
+  .mob {
+    font-weight: bold;
+  }
+  .mob,
+  .email {
+    color: rgb(0, 119, 255);
+    font-size: small;
+  }
 }
 
 input {
   padding: 2rem 3rem;
   outline: none;
+  background: #fff;
   border: none;
   box-shadow: 0 2px 12px 0 #0005;
   font-size: 2rem;

@@ -26,8 +26,13 @@ $("form").submit(e => {
           $(".data").append(
             $("<div>")
               .addClass("entry")
-              .text(
-                `${user.fname} : ${user.team} | ${user.phone} - ${user.email} | ${user.college} - ${user.city}`
+              .html(
+                `<div class="name">${user.fname}</div>
+                <div class="team">${user.team}</div>
+                <div class="college">${user.college}</div>
+                <div class="city">${user.city}</div>
+                <div class="mob">${user.phone}</div>
+                <div class="email">${user.email}</div>`
               )
           );
         }
