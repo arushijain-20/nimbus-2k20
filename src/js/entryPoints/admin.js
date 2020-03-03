@@ -32,7 +32,8 @@ $("form").submit(e => {
                 <div class="college">${user.college}</div>
                 <div class="city">${user.city}</div>
                 <div class="mob">${user.phone}</div>
-                <div class="email">${user.email}</div>`
+                <div class="email">${user.email}</div>
+                <div class="hostel">${user.hostel ? "Hostel*" : ""}</div>`
               )
           );
         }

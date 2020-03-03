@@ -13,13 +13,17 @@ form.submit(function(event) {
   var city = $("#city").val();
   var email = $("#email").val();
   var phone = $("#phone").val();
+  var hostel = $("#hostel_acc").prop("checked") ? "yes" : "";
+  console.log($("#hostel_acc").prop("checked"));
+  console.log(hostel);
   var data = {
     fname,
     team,
     college,
     city,
     email,
-    phone
+    phone,
+    hostel: hostel
   };
   $(".bar").width("50%");
   fetch("/adduser", {
