@@ -7,6 +7,11 @@ import anime from "animejs";
 var form = $("#registration-form");
 form.submit(function(event) {
   event.preventDefault();
+
+  console.log("Registreations NOT Yet Started");
+  $("p").css({ color: "red" });
+  return;
+
   var fname = $("#fname").val();
   var team = $("#team").val();
   var college = $("#college").val();

@@ -14,8 +14,8 @@ var gradients = [
     to: "#FFEDBC"
   },
   {
-    from: "#24C6DC",
-    to: "#514A9D"
+    from: "#514A9D",
+    to: "#24C6DC"
   },
   {
     from: "#1CD8D2",
@@ -83,17 +83,16 @@ function createWorkshop(w, i) {
   node.innerHTML = `
     <div class="card-img">
       <img src="${w.img}" alt="" />
-    </div>
-    <div class="card-btn" style="background:linear-gradient(45deg,${gradients[i].from},${gradients[i].to})">Register</div>
+    </div> 
+    <a href="${w.link}">
+     <div class="card-btn" style="background:${gradients[i].from}">Register</div>
+    </a>
     <div class="card-body">
       <div class="title">${w.title}</div>
       <div class="desc">${w.desc}</div>
       <div class="venue">${w.venue}</div>
       <div class="date">${w.date}</div>
     </div>
-    <a href="${w.link}">
-    <div class="link"><span>Event Information</span></div>
-    </a>
   `;
 
   workshops_con.appendChild(node);

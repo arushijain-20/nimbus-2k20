@@ -47,8 +47,9 @@
   // background: #fff;
   display: grid;
   grid-template-columns: 4fr 5fr;
-  grid-template-areas: "img form";
-  box-shadow: 9px 9px 16px #0003;
+  // grid-template-areas: "img form";
+  grid-template-areas: "img img"; // Registration NOT Available
+  // box-shadow: 9px 9px 16px #0003;
 
   @include respond(tab-port) {
     margin-top: 0;
@@ -56,7 +57,8 @@
     height: auto;
     // min-height: 100%;
     margin: 1rem auto;
-    grid-template-areas: "form form";
+    // grid-template-areas: "form form";
+    grid-template-areas: "img img";
   }
 
   .image-container {
@@ -67,7 +69,7 @@
     grid-area: img;
     color: white;
     // background: url("../../img/bg-hills.jpg");
-    background: #2a0029;
+    // background: #2a0029;
     background-size: cover;
     position: relative;
 
@@ -75,9 +77,11 @@
       font-size: 3rem;
     }
     p {
-      font-size: 0.8rem;
-      display: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
       padding: 2rem 4rem;
+      text-align: center;
     }
     .contact {
       font-size: 0.8rem;
@@ -89,7 +93,8 @@
   }
   .form-container {
     grid-area: form;
-    display: flex;
+    // display: flex;
+    display: none; // DISABLED
     flex-direction: column;
     justify-content: center;
     background: #fff;

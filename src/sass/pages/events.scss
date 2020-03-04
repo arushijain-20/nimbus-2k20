@@ -20,6 +20,7 @@
 body {
   background: #fff;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 .container {
   width: 75%;
@@ -30,6 +31,10 @@ body {
   @include respond(tab-port) {
     width: 100%;
   }
+}
+
+.menu-toggle {
+  filter: invert(1);
 }
 
 .header {

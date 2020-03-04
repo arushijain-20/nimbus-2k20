@@ -3,6 +3,8 @@
 import "@primer/css/dist/primer.css";
 import "@primer/css/dist/primer.js";
 import "../../sass/pages/events.scss";
+import "./menu";
+
 const anime = require("animejs/lib/anime.js");
 import ScrollOut from "scroll-out";
 
