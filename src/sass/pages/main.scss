@@ -2,8 +2,11 @@
 @import "../components/navbar.scss";
 
 $nim-fill: #fff;
+$nim-fill-shadow: #f09;
 $logo-fill: #fff;
+$logo-fill-shadow: #f09;
 $theme-col: #fff;
+$theme-col-shadow: #00bcd4;
 $sub-col: #fff;
 $date: #fff;
 $nith-txt: #fff;
@@ -42,6 +45,7 @@ body {
   top: 5rem;
   font-size: 2rem;
   display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-end;
   text-shadow: 0 0 5px #fff;
@@ -204,6 +208,7 @@ body {
     height: 100%;
     fill: #fff0;
     stroke: $logo-fill;
+    filter: drop-shadow(0px 0px 10px $logo-fill-shadow);
     stroke-width: 4px;
     stroke-dasharray: 1500;
     stroke-dashoffset: 1500;
@@ -294,6 +299,7 @@ body {
 
 .nim-name {
   width: 68rem;
+  filter: drop-shadow(0px 0px 7px $nim-fill-shadow);
 }
 .nim-yr {
   width: 30rem;
@@ -303,6 +309,10 @@ body {
   font-family: sans-serif;
   .theme-title {
     margin-top: 5rem;
+
+    .char {
+      text-shadow: 0 0 10px $theme-col-shadow;
+    }
   }
   @include respond(tab-port) {
     margin-top: 10rem;

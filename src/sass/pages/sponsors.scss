@@ -13,6 +13,14 @@ body {
     font-weight: 100;
     color: white;
   }
+  &::before {
+    position: absolute;
+    top: 7rem;
+    color: #111;
+    font-size: 10rem;
+    letter-spacing: 2rem;
+    content: "Sponsors";
+  }
 }
 
 h1 {

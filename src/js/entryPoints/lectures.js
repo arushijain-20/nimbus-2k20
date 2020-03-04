@@ -5,6 +5,7 @@ import "../../sass/components/navbar.scss";
 import "./menu";
 
 const anime = require("animejs/lib/anime");
+import ScrollOut from "scroll-out";
 
 var workshops_con = document.querySelector(".workshops");
 
@@ -18,8 +19,8 @@ var gradients = [
     to: "#514A9D"
   },
   {
-    from: "#1CD8D2",
-    to: "#93EDC7"
+    from: "#93EDC7",
+    to: "#1CD8D2"
   },
   {
     from: "#4776E6",
@@ -38,7 +39,7 @@ var gradients = [
 var workshops = [
   {
     title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit",
+    desc: "ipsum dolor sit amet.",
     venue: "Auditorium, NITH",
     date: "27-Mar-2020",
     img: "http://picsum.photos/203",
@@ -46,7 +47,39 @@ var workshops = [
   },
   {
     title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit",
+    desc: "ipsum dolor sit amet.",
+    venue: "Auditorium, NITH",
+    date: "27-Mar-2020",
+    img: "http://picsum.photos/205",
+    link: "#"
+  },
+  {
+    title: "Lorem, Ipsum",
+    desc: "ipsum dolor sit amet.",
+    venue: "Auditorium, NITH",
+    date: "27-Mar-2020",
+    img: "http://picsum.photos/203",
+    link: "#"
+  },
+  {
+    title: "Lorem, Ipsum",
+    desc: "ipsum dolor sit amet.",
+    venue: "Auditorium, NITH",
+    date: "27-Mar-2020",
+    img: "http://picsum.photos/205",
+    link: "#"
+  },
+  {
+    title: "Lorem, Ipsum",
+    desc: "ipsum dolor sit amet.",
+    venue: "Auditorium, NITH",
+    date: "27-Mar-2020",
+    img: "http://picsum.photos/203",
+    link: "#"
+  },
+  {
+    title: "Lorem, Ipsum",
+    desc: "ipsum dolor sit amet.",
     venue: "Auditorium, NITH",
     date: "27-Mar-2020",
     img: "http://picsum.photos/205",
@@ -69,6 +102,7 @@ function createWorkshop(w, i) {
       <img src="${w.img}" alt="" />
     </div>
     <div class="card-body">
+      <div class="bar"  data-scroll style="background:${gradients[i].from};"></div>
       <div class="title">${w.title}</div>
       <div class="desc">${w.desc}</div>
       <div class="date">${w.date}</div>
