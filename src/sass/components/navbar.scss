@@ -25,8 +25,9 @@ body {
 
 .menu {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
+  overflow: hidden;
   left: 0;
   z-index: 10000;
   padding: 3rem 1rem 1rem;
@@ -45,6 +46,8 @@ body {
 }
 
 .menu ol {
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
@@ -182,6 +185,7 @@ body {
   display: none;
 }
 .menu-toggle-active {
+  position: fixed;
   span {
     transform: scaleX(0);
 

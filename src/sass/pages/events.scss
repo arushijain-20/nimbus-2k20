@@ -36,6 +36,9 @@ body {
 .menu-toggle {
   filter: invert(1);
 }
+.menu-toggle-active {
+  filter: invert(0);
+}
 
 .header {
   display: flex;
