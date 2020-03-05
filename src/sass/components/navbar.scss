@@ -83,10 +83,6 @@ body {
   }
 }
 
-.menu > ol > li:nth-child(n + 3) {
-  grid-column: span 2;
-}
-
 .menu .sub-menu {
   padding: 0;
   grid-template-columns: repeat(2, 1fr);
@@ -116,6 +112,10 @@ body {
       grid-column: span 1;
     }
   }
+}
+
+.sp2 {
+  grid-column: span 2;
 }
 
 .menu-toggle {

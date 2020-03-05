@@ -1,53 +1,95 @@
 @import "../common.scss";
 
-.dept-con {
-  background: #eee5;
-  min-height: 30rem;
-  padding: 2rem 2rem;
-  box-shadow: -2px 2px 5px #0003;
-  margin: 2rem auto;
-}
-.dept {
-  min-height: 100%;
-  background: #0009;
-  box-shadow: -2px 2px 5px #0003;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body {
+  background: #090909;
+  color: white;
 }
 
-.events-con,
-.events {
-  min-height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+h1 {
+  color: #fff;
+  z-index: 2;
   position: relative;
-  // overflow: hidden;
+  &::before {
+    position: absolute;
+    top: 7rem;
+    color: #111;
+    font-size: 10rem;
+    z-index: 1;
+    letter-spacing: 2rem;
+    content: "Departmental Events";
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
 }
-.events-con {
-  margin-left: 2rem;
+
+.data {
+  // font-family: monospace;
+  font-size: 2em;
+  padding: 1rem;
+  position: relative;
+  z-index: 4;
+  color: white;
+  display: flex;
+  flex-flow: row-reverse;
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  @include respond(tab-port) {
+    flex-direction: row;
+    width: 100%;
+    overflow: scroll;
+    flex-wrap: nowrap;
+  }
+}
+
+.tab-content {
+  padding: 1rem;
+  width: 100%;
+  h3 {
+    font-weight: bold;
+  }
+}
+
+ul .active {
+  background: #111;
+  color: #8e54e9;
+}
+
+li {
+  margin: 1rem 2rem;
 }
 
 .ev {
-  margin: 1rem;
-  padding: 1rem;
-  min-height: 10rem;
-  min-width: 10rem;
-  background: #aaa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: -2px 2px 5px #0003;
-  // transition: all 0.3s;
-  @include respond(phone) {
-    min-width: 50vw;
-    min-height: 50vw;
+  font-size: 2rem;
+  color: #ccc;
+  margin: 2rem 3rem;
+  .name {
+    color: #ed4264;
+    font-size: larger;
   }
+  .desc {
+    color: #ffedbc;
+    font-style: italic;
+  }
+  .date,
+  .venue {
+    display: inline-block;
+    margin: 1rem 2rem 0 0;
+  }
+}
+
+a {
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
   &:hover {
-    // transform: scale(1.1);
-    // min-width: 25rem;
-    // min-height: 15rem;
-    box-shadow: -3px 3px 7px #0003;
+    text-decoration: none;
   }
 }
