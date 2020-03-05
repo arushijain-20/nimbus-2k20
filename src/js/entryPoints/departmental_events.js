@@ -5,3 +5,5 @@ import "../../sass/pages/departmental_events.scss";
 import "./menu";
 
 const anime = require("animejs/lib/anime");
+
+$("[href='#exe']").click();

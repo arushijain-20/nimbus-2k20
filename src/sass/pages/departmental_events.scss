@@ -5,6 +5,10 @@ body {
   color: white;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 h1 {
   color: #fff;
   z-index: 2;
@@ -66,37 +70,55 @@ h1 {
 
 ul .active {
   background: #111;
-  color: #8e54e9;
+  color: #ff8008;
 }
 
 li {
   margin: 1rem 2rem;
+  transition: all 0.5s;
+}
+
+.club {
+  font-size: 1.6em;
+  color: #ff9800;
 }
 
 .ev {
   font-size: 2rem;
   color: #ccc;
-  margin: 2rem 3rem;
+  margin: 1rem 2rem;
+  padding: 1em;
+  transition: all 0.2s;
   .name {
-    color: #ed4264;
-    font-size: larger;
+    color: #ff0057;
+    font-size: 1.4em;
   }
   .desc {
-    color: #ffedbc;
+    color: #fff;
     font-style: italic;
   }
   .date,
   .venue {
     display: inline-block;
     margin: 1rem 2rem 0 0;
+    font-family: monospace;
+    color: #7fff00;
+    font-size: 0.8em;
+  }
+
+  &:hover {
+    // border-left: 2px solid #555;
+    background: #1117;
   }
 }
 
 a {
   padding: 1rem;
+  transition: all 0.2s;
   color: white;
   text-decoration: none;
   &:hover {
     text-decoration: none;
+    color: #ffc837;
   }
 }
