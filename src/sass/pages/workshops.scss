@@ -21,10 +21,14 @@ body {
 .heading {
   font-family: roboto;
   padding: 1rem 4rem;
+
   h1 {
     font-size: 5rem;
-    font-weight: 100;
+    font-weight: 400;
     color: white;
+    @include respond(tab-port) {
+      margin-top: 18rem;
+    }
   }
   &::before {
     position: absolute;
@@ -34,7 +38,8 @@ body {
     letter-spacing: 2rem;
     content: "Workshops";
     @include respond(tab-port) {
-      display: none;
+      // display: none;
+      font-size: 5rem;
     }
   }
 }
