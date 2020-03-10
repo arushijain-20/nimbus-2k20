@@ -31,7 +31,7 @@ body {
 
 body {
   background: #fbfbfb;
-  font-family: "bebas neue";
+  font-family: "Product Sans";
   scroll-behavior: smooth;
 }
 
@@ -40,7 +40,7 @@ body {
   scroll-behavior: smooth;
   position: absolute;
   right: 12rem;
-  font-family: roboto;
+  font-family: "Product Sans";
   opacity: 0.9;
   top: 5rem;
   font-size: 2rem;
@@ -121,7 +121,7 @@ body {
   left: 5rem;
   &::after {
     content: "NIT Hamirpur";
-    width: 10rem;
+    width: 15rem;
     margin-left: 1rem;
     font-size: 2rem;
     transition: all 0.5s;
@@ -170,7 +170,7 @@ body {
   }
   &::before {
     content: "Pixonoids";
-    font-family: roboto;
+    font-family: "Product Sans";
     font-size: 1.7rem;
     transition: all 0.5s;
     display: inline-block;
@@ -230,18 +230,25 @@ body {
     width: 4rem;
     margin: 1rem 0;
     opacity: 0.7;
+    display: flex;
+    align-items: center;
     position: relative;
     // &::after {
-    //   content: "";
+    //   content: "/festnimbus";
+    //   font-family: "Product Sans";
+    //   font-size: 1.7rem;
+    //   transition: all 0.2s;
+    //   display: inline-block;
+    //   color: white;
     //   position: absolute;
-    //   top: 0;
-    //   bottom: 0;
-    //   left: 0;
-    //   right: 0;
-    //   background: red;
+    //   // right: 6rem;
+    //   left: 0rem;
+    //   opacity: 0;
+    //   line-height: 1em;
+    // }
+    // &:hover::after {
     //   opacity: 1;
-    //   mix-blend-mode: darken;
-    //   border-radius: 50%;
+    //   left: 5rem;
     // }
     &:hover {
       opacity: 1;
@@ -277,9 +284,9 @@ body {
   right: 5rem;
   bottom: 50%;
   transform: translate(0, 50%);
-  font-family: "bebas neue";
+  font-family: monospace, "Product Sans", "roboto";
   opacity: 0.8;
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.3rem;
   color: $date;
   font-size: 2rem;
 
@@ -306,7 +313,7 @@ body {
 }
 .theme {
   margin-top: 7rem;
-  font-family: sans-serif;
+  font-family: "Product Sans", sans-serif;
   .theme-title {
     margin-top: 5rem;
 
@@ -324,7 +331,7 @@ body {
 .sub-theme {
   font-size: 2rem;
   margin-top: -1rem;
-  font-family: sans-serif;
+  font-family: "Product Sans", sans-serif;
   color: $sub-col;
 }
 text {

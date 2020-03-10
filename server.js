@@ -44,6 +44,10 @@ app.get("/events", function(req, res) {
   console.log("events");
   res.sendFile(__dirname + "/public/departmental_events.html");
 });
+app.get("/mega_events", function(req, res) {
+  console.log("mega events");
+  res.sendFile(__dirname + "/public/mega_events.html");
+});
 app.get("/schedule", function(req, res) {
   console.log("schedule");
   res.sendFile(__dirname + "/public/events.html");

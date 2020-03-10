@@ -3,7 +3,7 @@
 
 :root {
   font-size: 14px;
-  font-family: roboto;
+  font-family: "Product Sans", roboto;
 }
 .menu-toggle {
   // filter: invert(1);
@@ -138,7 +138,7 @@
       }
 
       .form-control {
-        font-family: roboto;
+        font-family: "Product Sans", roboto;
       }
 
       label[for="hostel_acc"] {
@@ -153,10 +153,10 @@
         color: #6c757d;
       }
       .card {
-        font-family: roboto;
+        font-family: "Product Sans", roboto;
       }
       .card-title {
-        font-family: roboto;
+        font-family: "Product Sans", roboto;
         font-weight: 600;
         font-size: 1.2rem;
       }

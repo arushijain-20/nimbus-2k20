@@ -3,10 +3,11 @@
 
 body {
   background: #000;
+  font-family: "Product Sans";
 }
 
 .heading {
-  font-family: roboto;
+  // font-family: roboto;
   padding: 1rem 4rem;
   h1 {
     font-size: 5rem;
@@ -43,8 +44,13 @@ h1 {
   flex-direction: column;
   color: #fff;
 
+  @include respond(tab-port) {
+    width: 80%;
+  }
+
   p {
     font-size: 2rem;
+    text-align: justify;
   }
 }
 

@@ -113,16 +113,15 @@ function createWorkshop(w, i) {
 }
 
 // animations
-var t1 = anime.timeline();
 
-t1.add({
+anime({
   targets: ".heading h1",
   translateX: [-200, 0],
   opacity: [0, 1],
   easing: "easeOutCubic",
   endDelay: 500
 });
-t1.add({
+anime({
   targets: ".card",
   translateY: [100, 0],
   // scale: [0.8, 1],
