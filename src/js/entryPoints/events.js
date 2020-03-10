@@ -9,6 +9,18 @@ const anime = require("animejs/lib/anime.js");
 import ScrollOut from "scroll-out";
 
 var timeline = document.querySelector(".timeline");
+var gradients = [
+  "#ED4264",
+  "#A6FFCB",
+  "#FFEDBC",
+  "#514A9D",
+  "#1CD8D2",
+  "#4776E6",
+  "#FF8008",
+  "#8E54E9",
+  "#FFC837",
+  "#1FA2FF"
+];
 
 var events = [
   {
@@ -122,12 +134,13 @@ var events = [
 
 let i = 0;
 let current_day = "";
-for (const ev of events) {
+for (let j = 0; j < events.length; ++j) {
+  const ev = events[j];
   if (ev.date != current_day) {
     createDayHeader(++i);
     current_day = ev.date;
   }
-  createEvent(ev);
+  createEvent(ev, j % events.length);
 }
 
 // Scroll the live element into view
@@ -140,7 +153,7 @@ setTimeout(() => {
 }, 2000);
 
 // Generator Functions
-function createEvent(ev) {
+function createEvent(ev, j) {
   let node = document.createElement("div");
   node.className = "ml-6 pl-3 node";
 
@@ -177,15 +190,16 @@ function createEvent(ev) {
   TimelineItem_badge.setAttribute("data-scroll", "");
 
   TimelineItem_body.innerHTML = `
-  <div class="d-block box-shadow-medium px-3 pt-4 pb-6 position-relative rounded-1 overflow-hidden no-underline card" data-scroll href="#">
-    <div class="bg-blue text-white position-absolute top-0 left-0 px-2 width-full" style="font-size:1rem; text-align:right; font-family:monospace; font-weight:bold;">${
+  <div class="d-block box-shadow-medium px-4 pt-4 pb-6 position-relative overflow-hidden no-underline card" data-scroll href="#">
+    <div class="banner text-white position-absolute top-0 left-0 px-1 height-full"></div>
+    <div class="team text-white position-absolute top-0 left-0 width-full">${
       ev.team
     }</div>
-    <h3 class="text-gray-dark">${ev.name}</h3>
-    <p class="text-gray">
+    <h3 style="color:${gradients[j]}">${ev.name}</h3>
+    <p>
         ${ev.desc}
     </p>
-    <ul class="position-absolute bottom-0 pb-3 text-small text-gray list-style-none ">
+    <ul class="position-absolute bottom-0 pb-3 text-small list-style-none ">
       <li class="d-inline-flex flex-items-center  text-bold mr-1">
         <img width=20 class="mr-1" src="./img/clock.png">
         <!-- ${new Date(String(ev.date + " " + ev.time)).toDateString()} -->
@@ -246,11 +260,11 @@ function createDayHeader(day) {
         </div>
 
         <div class="TimelineItem-body">
-          <a href="#" class="text-bold link-gray-dark mr-1">Day ${day}</a>
+          <a href="#" class="text-bold link-gray mr-1">Day ${day}</a>
           of the
-          <a href="#" class="text-bold link-gray-dark">Nimbus 2k20</a>
-          <a href="#" class="link-gray">at NIT Hamirpur</a>
-          <a href="#" class="text-bold link-gray-dark">${27 + day} Mar 2020</a>
+          <a href="#" class="text-bold link-gray">Nimbus 2k20</a>
+          <a href="#" class="link white">at NIT Hamirpur</a>
+          <a href="#" class="text-bold link-gray">${27 + day} Mar 2020</a>
         </div>
       </div>
     </div>

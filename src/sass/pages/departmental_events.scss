@@ -58,6 +58,15 @@ h1 {
     overflow: scroll;
     flex-wrap: nowrap;
   }
+  ul .active {
+    background: #111;
+    color: #ff8008;
+  }
+
+  li {
+    margin: 1rem 2rem;
+    transition: all 0.5s;
+  }
 }
 
 .tab-content {
@@ -66,16 +75,6 @@ h1 {
   h3 {
     font-weight: bold;
   }
-}
-
-ul .active {
-  background: #111;
-  color: #ff8008;
-}
-
-li {
-  margin: 1rem 2rem;
-  transition: all 0.5s;
 }
 
 .club {

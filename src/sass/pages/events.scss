@@ -17,8 +17,12 @@
   background: #eee8;
 }
 
+:root {
+  font-size: 14px;
+}
+
 body {
-  background: #fff;
+  background: #151515;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -33,9 +37,6 @@ body {
   }
 }
 
-.menu-toggle {
-  filter: invert(1);
-}
 .menu-toggle-active {
   filter: invert(0);
 }
@@ -51,6 +52,7 @@ body {
   h1 {
     font-size: 6rem;
     font-weight: 400;
+    color: #fff;
     @include respond(tab-port) {
       font-size: 5rem;
       // align-self: start;
@@ -97,20 +99,64 @@ body {
 
 .node {
   @include respond(tab-port) {
-    margin-left: 1rem !important;
+    margin-left: -2rem !important;
+    color: #fff;
 
     .TimelineItem-avatar {
+      display: none;
       left: -18px;
       top: 50px;
     }
   }
 }
 
+.white {
+  color: #fff;
+}
+
+.link-gray {
+  color: #777 !important;
+}
+
+.TimelineItem::before {
+  background: #555;
+}
+
+.TimelineItem-body {
+  color: #fff;
+}
+
+.TimelineItem-badge {
+  background: #aaa;
+}
+
 .card {
   cursor: pointer;
   max-width: 80rem;
+  color: white;
+  background: #272727;
   &:hover {
-    background: #eef;
+    background: #222;
+  }
+  .team {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    text-align: right;
+    font-family: monospace;
+    font-weight: bold;
+  }
+
+  h3 {
+    // color: #ff0057;
+    filter: saturate(300%);
+    font-size: 1.8rem;
+  }
+  p,
+  ul {
+    color: white;
+  }
+  .banner {
+    background: #979797;
   }
 }
 
