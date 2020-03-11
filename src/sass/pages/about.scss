@@ -34,6 +34,7 @@ body {
 
 h1 {
   font-size: 6rem;
+  color: #ffc107;
 }
 .container {
   width: 75%;
@@ -64,6 +65,9 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 10rem auto;
+  b {
+    color: #ff0057;
+  }
   div {
     margin: 1rem;
   }

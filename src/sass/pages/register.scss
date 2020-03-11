@@ -35,7 +35,7 @@
   position: absolute;
   height: 100%;
   width: 100vw;
-  background: #0007;
+  background: #0009;
   backdrop-filter: blur(5px);
 }
 
@@ -97,6 +97,10 @@
     background: #fff;
     position: relative;
     overflow-x: hidden;
+
+    input {
+      background: transparent;
+    }
 
     @include respond(tab-port) {
       justify-content: flex-start;
