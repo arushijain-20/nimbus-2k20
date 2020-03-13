@@ -7,29 +7,37 @@
 
 // @font-face {
 //   font-family: "Product Sans";
-//   src: url("../fonts/product-sans/Product-Sans-Regular.ttf") format("truetype");
+//   font-style: normal;
+//   font-weight: 400;
+//   src: local("Open Sans"), local("OpenSans"),
+//     url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
+//       format("woff2");
+// }
+
+// @font-face {
+//   font-family: "Product Sans";
+//   src: url("../fonts/ps/psRegular.ttf") format("truetype");
 //   font-weight: normal;
 //   font-style: normal;
 // }
 
 // @font-face {
 //   font-family: "Product Sans";
-//   src: url("../fonts/product-sans/Product-Sans-Italic.ttf") format("truetype");
+//   src: url("../fonts/ps/psItalic.ttf") format("truetype");
 //   font-weight: normal;
 //   font-style: italic;
 // }
 
 // @font-face {
 //   font-family: "Product Sans";
-//   src: url("../fonts/product-sans/Product-Sans-Bold.ttf") format("truetype");
+//   src: url("../fonts/ps/psBold.ttf") format("truetype");
 //   font-weight: bold;
 //   font-style: normal;
 // }
 
 // @font-face {
 //   font-family: "Product Sans";
-//   src: url("../fonts/product-sans/Product-Sans-Bold-Italic.ttf")
-//     format("truetype");
+//   src: url("../fonts/ps/psBoldItalic.ttf") format("truetype");
 //   font-weight: bold;
 //   font-style: italic;
 // }

@@ -22,9 +22,21 @@ var gradients = [
   "#1FA2FF"
 ];
 
+var teams = {
+  ".EXE": "#ED4264",
+  Medextrous: "#A6FFCB",
+  Hermetica: "#FFEDBC",
+  Helix: "#514A9D",
+  Ojas: "#1CD8D2",
+  Designocrats: "#4776E6",
+  Vibhav: "#FF8008",
+  "Meta Morph": "#8E54E9",
+  "C-Helix": "#FFC837"
+};
+
 var events = [
   {
-    team: "C-HELIX",
+    team: "C-Helix",
     type: "Institutional",
     name: "Clash Of Cranes",
     desc:
@@ -78,7 +90,7 @@ var events = [
     time: "12:00"
   },
   {
-    team: "OJAS",
+    team: "Ojas",
     type: "Institutional",
     name: "Water Boat Racing",
     desc:
@@ -89,7 +101,7 @@ var events = [
     time: "12:00"
   },
   {
-    team: "Team .EXE",
+    team: ".EXE",
     type: "Institutional",
     name: "NITH-CTF 1.0 (Capture The Flag)",
     desc:
@@ -195,7 +207,7 @@ function createEvent(ev, j) {
     <div class="team text-white position-absolute top-0 left-0 width-full">${
       ev.team
     }</div>
-    <h3 style="color:${gradients[j]}">${ev.name}</h3>
+    <h3 style="color:${teams[ev.team]}">${ev.name}</h3>
     <p>
         ${ev.desc}
     </p>
@@ -264,7 +276,7 @@ function createDayHeader(day) {
           of the
           <a href="#" class="text-bold link-gray">Nimbus 2k20</a>
           <a href="#" class="link white">at NIT Hamirpur</a>
-          <a href="#" class="text-bold link-gray">${27 + day} Mar 2020</a>
+          <a href="#" class="text-bold link-gray">${26 + day} Mar 2020</a>
         </div>
       </div>
     </div>

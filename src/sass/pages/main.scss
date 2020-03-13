@@ -35,6 +35,20 @@ body {
   scroll-behavior: smooth;
 }
 
+.note {
+  color: #ffffff;
+  background: #006eff;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  bottom: 5rem;
+  text-align: center;
+  position: absolute;
+  box-shadow: 0 2px 7px #006eff99;
+  @include respond(tab-port) {
+    bottom: 15rem;
+  }
+}
+
 .links {
   color: white;
   scroll-behavior: smooth;
@@ -289,6 +303,7 @@ body {
   letter-spacing: 0.3rem;
   color: $date;
   font-size: 2rem;
+  filter: blur(2px);
 
   @include respond(tab-port) {
     position: relative;

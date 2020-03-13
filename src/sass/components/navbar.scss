@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700|Shrikhand");
+@import "../common.scss";
 
 $nav-item-bg-clr: #1e1e1edd;
 $nav-item-bg-clr-hvr: #000e;
@@ -71,7 +72,7 @@ body {
     padding: 10px;
     width: 100%;
     height: 100%;
-    font-size: 1.25rem;
+    font-size: 26px;
     text-decoration: none;
     color: #fff;
     background-color: $nav-item-bg-clr;
@@ -81,7 +82,7 @@ body {
     }
 
     @media (min-width: 450px) {
-      font-size: 1.75rem;
+      font-size: 26px;
     }
   }
 }
@@ -95,7 +96,7 @@ body {
   }
 
   li a {
-    font-size: 0.85rem;
+    font-size: 18px;
     color: darken(#fff, 15%);
     background-color: darken($nav-item-bg-clr, 15%);
 
@@ -104,7 +105,7 @@ body {
     }
 
     @media (min-width: 450px) {
-      font-size: 1rem;
+      font-size: 20px;
     }
   }
 
@@ -134,6 +135,33 @@ body {
   cursor: pointer;
   width: 40px;
   height: 30px;
+
+  &::after {
+    content: "Note: Event is postponed due to COVID-19 till further orders";
+    position: absolute;
+    right: 60px;
+    color: #ffffff;
+    background: #006eff;
+    padding: 3px 6px;
+    font-size: 12px;
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    transition: all 0.5s;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  &:hover::after {
+    width: 350px;
+    opacity: 1;
+
+    @include respond(tab-port) {
+      width: 180px;
+      height: 50px;
+    }
+  }
 
   &:before {
     content: "×";
