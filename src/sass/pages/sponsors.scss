@@ -30,17 +30,22 @@ h1 {
   font-size: 6rem;
 }
 .container {
-  width: 75%;
-  min-height: 60vh;
+  width: 100%;
+  // min-height: 60vh;
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: #fff;
+  mix-blend-mode: darken;
 
   img {
-    border-radius: 50%;
-    opacity: 0.7;
+    // border-radius: 50%;
+    width: 100%;
+    opacity: 0.1;
+  }
+  .txt{
+    color: #fff;
   }
 }
