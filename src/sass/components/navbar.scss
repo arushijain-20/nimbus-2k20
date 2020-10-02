@@ -137,11 +137,11 @@ body {
   height: 30px;
 
   &::after {
-    content: "Note: Event is postponed due to COVID-19 till further orders";
+    content: "Note: Event was Cancelled due to COVID-19";
     position: absolute;
     right: 60px;
     color: #ffffff;
-    background: #006eff;
+    background: #ff0022;
     padding: 3px 6px;
     font-size: 12px;
     width: 50px;
