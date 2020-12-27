@@ -138,6 +138,7 @@ body {
 
   &::after {
     content: "Note: Event was Cancelled due to COVID-19";
+    display: none;
     position: absolute;
     right: 60px;
     color: #ffffff;
