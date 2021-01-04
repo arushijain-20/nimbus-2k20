@@ -1,0 +1,123 @@
+@import "../common.scss";
+
+body {
+  background: #090909;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+h1 {
+  color: #fff;
+  z-index: 2;
+  position: relative;
+  @include respond(tab-port) {
+    span {
+      font-size: smaller;
+    }
+    margin-top: 12rem;
+  }
+  &::before {
+    position: absolute;
+    top: 7rem;
+    color: #111;
+    font-size: 10rem;
+    z-index: 1;
+    letter-spacing: 2rem;
+    content: "Departmental Events";
+    @include respond(tab-port) {
+      display: none;
+      // font-size: 5rem;
+    }
+  }
+}
+
+.data {
+  // font-family: monospace;
+  font-size: 2em;
+  padding: 1rem;
+  position: relative;
+  z-index: 4;
+  color: white;
+  display: flex;
+  // flex-flow: row-reverse;
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+  @include respond(tab-port) {
+    flex-direction: row;
+    width: 100%;
+    overflow: scroll;
+    flex-wrap: nowrap;
+  }
+  ul .active {
+    background: #111;
+    color: #ff8008;
+  }
+
+  li {
+    margin: 1rem 2rem;
+    transition: all 0.5s;
+  }
+}
+
+.tab-content {
+  padding: 1rem;
+  width: 100%;
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.club {
+  font-size: 1.6em;
+  color: #ff9800;
+}
+
+.ev {
+  font-size: 2rem;
+  color: #ccc;
+  margin: 1rem 2rem;
+  padding: 1em;
+  transition: all 0.2s;
+  .name {
+    color: #ff0057;
+    font-size: 1.4em;
+  }
+  .desc {
+    color: #fff;
+    font-style: italic;
+  }
+  .date,
+  .venue {
+    display: inline-block;
+    margin: 1rem 2rem 0 0;
+    font-family: monospace;
+    color: #7fff00;
+    font-size: 0.8em;
+  }
+
+  &:hover {
+    // border-left: 2px solid #555;
+    background: #1117;
+  }
+}
+
+a {
+  padding: 1rem;
+  transition: all 0.2s;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    color: #ffc837;
+  }
+}

@@ -1,2 +1,54 @@
 @import "../common.scss";
 @import "../../sass/components/navbar.scss";
+
+body {
+  background: #000;
+}
+
+.heading {
+  font-family: "Product Sans", roboto;
+  padding: 1rem 4rem;
+  h1 {
+    font-size: 5rem;
+    font-weight: 100;
+    color: white;
+  }
+  &::before {
+    position: absolute;
+    top: 7rem;
+    color: #111;
+    font-size: 10rem;
+    letter-spacing: 2rem;
+    content: "Team";
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+}
+
+h1 {
+  font-size: 6rem;
+}
+.container {
+  width: 100%;
+  // min-height: 60vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  //   mix-blend-mode: darken;
+
+  .card {
+  }
+
+  img {
+    // border-radius: 50%;
+    width: 100%;
+    opacity: 0.1;
+  }
+  .txt {
+    color: #fff;
+  }
+}

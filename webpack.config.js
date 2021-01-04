@@ -21,6 +21,7 @@ module.exports = {
     technoworks: "./src/js/entryPoints/technoworks.js",
     workshops: "./src/js/entryPoints/workshops.js",
     departmental_events: "./src/js/entryPoints/departmental_events.js",
+    dept_events: "./src/js/entryPoints/dept_events.js",
     mega_events: "./src/js/entryPoints/mega_events.js",
     team: "./src/js/entryPoints/team.js",
     admin: "./src/js/entryPoints/admin.js",
@@ -147,6 +148,11 @@ module.exports = {
       filename: "departmental_events.html",
       template: "./src/departmental_events.html",
       chunks: ["departmental_events"]
+    }),
+    new HtmlWebpackPlugin({
+      filename: "dept_events.html",
+      template: "./src/dept_events.html",
+      chunks: ["dept_events"]
     }),
     new HtmlWebpackPlugin({
       filename: "mega_events.html",
