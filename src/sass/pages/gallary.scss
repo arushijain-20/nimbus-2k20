@@ -1,2 +1,88 @@
 @import "../common.scss";
 @import "../../sass/components/navbar.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+body{
+    background: black;
+}
+.container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+.gallery{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: -8rem;
+}
+.hex{
+    position: absolute;
+    outline: none;
+    filter: blur(1px);
+    transition: all .5s;
+}
+.hex:hover{
+    filter: none;
+}
+h1{
+    z-index: 10;
+    width: fit-content;
+    color: rgba(255,255,255, 0.8);
+    padding: 10px;
+    font-family: system-ui;
+    font-weight: 100;
+    letter-spacing: 2px;
+    cursor: default;
+    transition: 0.5s;
+}
+.galltext{
+    position: absolute;
+    z-index: -1;
+    width: fit-content;
+    cursor: default;
+    color: rgba(255,255,255, 0.1);
+    margin-top: -30px;
+    margin-left: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.galltext p{
+    font-size: 81px;
+    padding: 0px;
+    letter-spacing: 15px;
+    transition: 0.5s;
+}
+.galltext p:hover{
+    letter-spacing: 10px;
+
+}
+.text{
+    cursor: default;
+    color: rgba(255,255,255, 0.5);
+    width: 30%;
+    height: auto;
+    padding: 10px;
+    position: absolute;
+    top: 7rem;
+}
+.text p{
+    width: fit-content;
+    position: relative;
+
+    font-family: monospace;
+    font-size: 20px;
+}
+
+@keyframes cursorblink{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
