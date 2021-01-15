@@ -2,7 +2,8 @@ import '../../sass/pages/gallary.scss'
 
 let gallery = document.querySelector('.gallery')
 
-let txt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, magnam praesentium asperiores consequatur commodi corporis accusamus doloremque.";
+// this code for typing effect
+let txt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, magnam praesentium asperiores.";
 let i=0;
 function typing() {
     
@@ -15,6 +16,8 @@ function typing() {
 }
 typing();
 
+
+// this code for creating and arranging hexagn
 function createHex(side_len,image_index){
     let hex = document.createElement('div')
     hex.className = 'hex'
@@ -27,19 +30,45 @@ function createHex(side_len,image_index){
 
 function getPosArray(){
     let arr = [
-        [0,0,0,0,1,0,0],
-        [0,0,0,1,1,0,0],
-        [0,0,1,1,1,1,1],
-        [0,0,0,1,1,0,0]
+        [
+            [0,0,0,0,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,1,1],
+            [0,0,1,1,1,0,0]
+        ],
+        [
+            [0,0,0,0,1,0,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,1],
+            [0,0,1,1,1,0,0]
+        ],
+        [
+            [0,0,0,0,0,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,1],
+            [0,0,1,1,0,0,0]
+        ],
+        [
+            [0,0,0,0,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,1,1],
+            [0,0,0,0,1,1,0]
+        ],
+        [
+            [0,0,0,0,1,0,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,1],
+            [0,0,1,0,1,1,0]
+        ]
     ]
-    return arr
+    return arr[Math.floor(Math.random() * arr.length)]
 }
 
 function arrangeHex(side_len){
     let hex_width = 1.732*side_len + 10
     let hex_height = 2*side_len - 40
-    let hex_count_x = Math.floor(screen.width/hex_width)
-    let hex_count_y = Math.floor(screen.height/hex_height) 
+    let hex_count_x = 7 //Math.floor(screen.width/hex_width)
+    let hex_count_y =  4//Math.floor(screen.height/hex_height) 
     let pos_array = getPosArray()
     let index = 0
     for(let i=0;i<hex_count_x;i++){

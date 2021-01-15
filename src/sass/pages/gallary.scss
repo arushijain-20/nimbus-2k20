@@ -6,11 +6,39 @@
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
+    outline: none;
 }
 body{
     background: black;
 }
-.container{
+.heading {
+    // font-family: roboto;
+    padding: 1rem 4rem;
+    h1 {
+      font-size: 5rem;
+      font-weight: 400;
+      color: #555;
+      @include respond(tab-port) {
+        margin-top: 10rem;
+        margin-bottom: -7rem;
+      }
+    }
+    &::before {
+      position: absolute;
+      top: 7rem;
+      color: #111;
+      font-size: 10rem;
+      letter-spacing: 2rem;
+      content: "Gallery";
+      @include respond(tab-port) {
+        // display: none;
+        font-size: 5rem;
+      }
+    }
+  }
+
+
+  .container{
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -19,7 +47,7 @@ body{
     position: absolute;
     width: 100vw;
     height: 100vh;
-    top: -8rem;
+    top: -9rem;
 }
 .hex{
     position: absolute;
@@ -30,43 +58,12 @@ body{
 .hex:hover{
     filter: none;
 }
-h1{
-    z-index: 10;
-    width: fit-content;
-    color: rgba(255,255,255, 0.8);
-    padding: 10px;
-    font-family: system-ui;
-    font-weight: 100;
-    letter-spacing: 2px;
-    cursor: default;
-    transition: 0.5s;
-}
-.galltext{
-    position: absolute;
-    z-index: -1;
-    width: fit-content;
-    cursor: default;
-    color: rgba(255,255,255, 0.1);
-    margin-top: -30px;
-    margin-left: 12px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.galltext p{
-    font-size: 81px;
-    padding: 0px;
-    letter-spacing: 15px;
-    transition: 0.5s;
-}
-.galltext p:hover{
-    letter-spacing: 10px;
-
-}
 .text{
     cursor: default;
     color: rgba(255,255,255, 0.5);
     width: 30%;
     height: auto;
-    padding: 10px;
+    padding: .5rem 0 .5rem 4rem;
     position: absolute;
     top: 7rem;
 }
