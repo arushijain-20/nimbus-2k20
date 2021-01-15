@@ -56,10 +56,18 @@ body {
   outline: none;
   // filter: blur(1px);
   transition: all 0.5s;
-  filter: sepia(0.5);
+  filter: sepia(0.2);
+  background-size: 150%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  // we need square images here
+  animation: cursorblink 1s forwards;
 }
 .hex:hover {
   filter: none;
+  background-size: 100%;
+  // transform: scale(1.1);
 }
 .text {
   cursor: default;
@@ -81,8 +89,10 @@ body {
 @keyframes cursorblink {
   0% {
     opacity: 0;
+    // background-size: 300%;
   }
   100% {
     opacity: 1;
+    // background-size: 150%;
   }
 }
