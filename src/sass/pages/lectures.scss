@@ -75,9 +75,11 @@ body {
 
 .container {
   width: 75%;
+  // min-width: 60em;
+  max-width: 65em;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   font-size: 1.4rem;
@@ -89,7 +91,7 @@ body {
 }
 
 .card:nth-child(2n) {
-  top: 7rem;
+  top: 20rem;
   @include respond(tab-port) {
     top: 0;
   }
@@ -106,10 +108,14 @@ body {
   }
   &:hover {
     .card-img {
-      transform: scale(0.95);
+      transform: scale(1);
+      img {
+        transform: scale(1);
+      }
     }
     .card-body {
       top: -4rem;
+      left: 0;
     }
     .card-body .bar {
       height: 100%;
@@ -128,9 +134,12 @@ body {
     transition: 0.2s;
     width: 100%;
     position: relative;
+    transform: scale(0.95);
+
     img {
       width: 100%;
       transition: all 0.2s;
+      transform: scale(1.1);
     }
   }
 

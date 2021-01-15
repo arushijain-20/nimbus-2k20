@@ -114,7 +114,7 @@ body {
 
   &:hover {
     .card-img {
-      transform: translate(0, 1.4em);
+      transform: translate(0, 0em);
     }
   }
   .card-img {
@@ -123,6 +123,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: translate(0, 1.4em);
     transition: 0.2s;
     img {
       width: 100%;
