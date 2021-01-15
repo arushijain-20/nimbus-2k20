@@ -7,7 +7,7 @@ var userSchema = new Schema({
   phone: { type: Number, required: true },
   college: { type: String, required: true },
   city: { type: String, required: true },
-  hostel: { type: String, required: false }
+  // hostel: { type: String, required: false }
   // event:{type:String,required:true},
 });
 

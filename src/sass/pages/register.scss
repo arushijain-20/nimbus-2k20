@@ -21,7 +21,8 @@
   justify-content: center;
   align-items: center;
   // background: linear-gradient(-45deg, #eee 50%, white);
-  background: url("../../img/bg-hills.jpg");
+  // background: url("../../img/bg-hills.jpg");
+  background: #000;
   background-size: cover;
   position: relative;
 
@@ -67,12 +68,15 @@
     grid-area: img;
     color: white;
     // background: url("../../img/bg-hills.jpg");
-    // background: #2a0029;
+    background: #111;
     background-size: cover;
     position: relative;
+    overflow: hidden;
 
     .nim-name {
-      font-size: 3rem;
+      font-size: 50rem;
+      line-height: 50rem;
+      overflow: hidden;
     }
     p {
       font-size: 1.5rem;
@@ -94,12 +98,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #fff;
+    background: #111;
     position: relative;
     overflow-x: hidden;
 
     input {
       background: transparent;
+      border: none;
+      background: none;
+      color: #fff;
+      border-radius: 0;
+      outline: none !important;
+      border-bottom: 1px solid #222;
+      &::placeholder {
+        color: #222;
+      }
+
+      &:active {
+        outline: none;
+      }
     }
 
     @include respond(tab-port) {
@@ -107,13 +124,14 @@
     }
 
     .btn-primary {
-      background-color: #4f002c;
+      // background-color: #4f002c;
+      background-color: #2196f3;
       border-color: #2a0029;
       font-weight: bold;
       margin-left: 0.2rem;
     }
     .btn-link {
-      color: #2a0029;
+      color: #9e9e9e;
       margin-left: 2rem;
       font-size: 1.1rem;
       width: 10rem;
@@ -124,6 +142,7 @@
       display: flex;
       justify-content: left;
       align-items: center;
+      color: #fff;
       h1 {
         font-weight: 100;
         font-size: 3rem;
@@ -134,7 +153,8 @@
       }
     }
     label {
-      font-weight: bold;
+      // font-weight: bold;
+      color: #555;
     }
     .register-form {
       @include respond(tab-port) {
@@ -261,7 +281,7 @@
   background: red;
 }
 .green {
-  background: green;
+  background: #8bc34a;
 }
 
 @keyframes slide-down {

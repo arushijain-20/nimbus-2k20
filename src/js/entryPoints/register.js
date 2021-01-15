@@ -5,7 +5,7 @@ import "./menu";
 import anime from "animejs";
 
 var form = $("#registration-form");
-form.submit(function(event) {
+form.submit(function (event) {
   event.preventDefault();
 
   var fname = $("#fname").val();
@@ -14,9 +14,9 @@ form.submit(function(event) {
   var city = $("#city").val();
   var email = $("#email").val();
   var phone = $("#phone").val();
-  var hostel = $("#hostel_acc").prop("checked") ? "yes" : "";
-  console.log($("#hostel_acc").prop("checked"));
-  console.log(hostel);
+  // var hostel = $("#hostel_acc").prop("checked") ? "yes" : "";
+  // console.log($("#hostel_acc").prop("checked"));
+  // console.log(hostel);
   var data = {
     fname,
     team,
@@ -24,44 +24,33 @@ form.submit(function(event) {
     city,
     email,
     phone,
-    hostel: hostel
   };
   $(".bar").width("50%");
-  fetch("/adduser", {
+  fetch("https://festnimbus.com/adduser", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   })
-    .then(res => {
+    .then((res) => {
       console.log("response coming..");
       return res.json();
     })
-    .then(data => {
+    .then((data) => {
       if (data.message == "successfully registered") {
-        $(".response")
-          .removeClass("error")
-          .addClass("success");
+        $(".response").removeClass("error").addClass("success");
         $(".bar").width("100%");
-        $(".bar")
-          .removeClass("red")
-          .addClass("green");
+        $(".bar").removeClass("red").addClass("green");
       } else {
-        $(".response")
-          .removeClass("success")
-          .addClass("error");
+        $(".response").removeClass("success").addClass("error");
         $(".bar").width("100%");
-        $(".bar")
-          .removeClass("green")
-          .addClass("red");
+        $(".bar").removeClass("green").addClass("red");
       }
       $(".response").text(data.message);
     })
-    .catch(err => {
-      $(".response")
-        .removeClass("success")
-        .addClass("error");
+    .catch((err) => {
+      $(".response").removeClass("success").addClass("error");
       $(".response").text("Could not Connect...");
     });
 });
@@ -71,7 +60,7 @@ form.submit(function(event) {
 anime({
   targets: "h1",
   easing: "easeOutQuad",
-  opacity: [0, 1]
+  opacity: [0, 1],
 });
 
 // var emailPattern = new RegExp("[a-zA-Z0-9_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z]{2,5}");
