@@ -140,6 +140,7 @@ function listners() {
         hex.style.transform += "scale(3)";
       }
       hex.style.zIndex = 100;
+      hex.style.clipPath = "";
     });
     hex.addEventListener("mouseup", () => {
       if (hex.style.transform.indexOf("scale") != -1) {
@@ -151,6 +152,8 @@ function listners() {
         hex.style.transform += "scale(0.91)";
       }
       hex.style.zIndex = 1;
+      hex.style.clipPath =
+        "polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)";
     });
   });
 }
