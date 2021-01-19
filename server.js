@@ -9,6 +9,8 @@ var app = express();
 
 //use method for static files
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "spa", "build")));
+app.use(express.static(path.join(__dirname, "spa", "public")));
 
 //Connecting to mongodb loaclhost database
 mongoose
@@ -40,10 +42,10 @@ app.get("/register", function (req, res) {
   // res.sendFile(path.resolve(__dirname + "/public/register.html"));
 });
 
-app.get("/events", function (req, res) {
-  console.log("events");
-  res.sendFile(__dirname + "/public/departmental_events.html");
-});
+// app.get("/events", function (req, res) {
+//   console.log("events");
+//   res.sendFile(__dirname + "/public/departmental_events.html");
+// });
 app.get("/mega_events", function (req, res) {
   console.log("mega events");
   res.sendFile(__dirname + "/public/mega_events.html");
@@ -76,10 +78,22 @@ app.get("/sponsors", function (req, res) {
   console.log("sponsors");
   res.sendFile(path.resolve(__dirname + "/public/sponsors.html"));
 });
-app.get("/admin", function (req, res) {
-  console.log("Admin");
-  res.sendFile(path.resolve(__dirname + "/public/admin.html"));
+
+// SPA ROUTES
+app.get("/admin/*", (req, res) => {
+  console.log("React App");
+  res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));
 });
+app.get("/admin", (req, res) => {
+  console.log("React App");
+  res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));
+});
+app.get("/events", (req, res) => {
+  console.log("React App");
+  res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));
+});
+
+// POST ROUTES
 app.post("/admin", admin);
 
 //Post Method
@@ -110,6 +124,6 @@ app.use("/", (req, res) => {
 });
 
 // Listening to port-number
-app.listen(3000, function () {
+app.listen(5000, function () {
   console.log("localhost at 3000");
 });

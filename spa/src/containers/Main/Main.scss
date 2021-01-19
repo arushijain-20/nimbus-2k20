@@ -1,0 +1,46 @@
+@import "../../Styles/common.scss";
+body {
+  background: #080808;
+}
+.main {
+  background: #080808;
+  width: 100vw;
+  height: 100vh;
+  & > .heading {
+    font-family: "Product Sans", roboto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 4rem;
+    h1 {
+      font-size: 5rem;
+      font-weight: 100;
+      color: white;
+    }
+    &::before {
+      position: absolute;
+      z-index: 0;
+      top: 7rem;
+      color: #111;
+      font-size: 10rem;
+      letter-spacing: 2rem;
+      content: "Admin";
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+  .container {
+    width: 100%;
+    // min-height: 60vh;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+}
