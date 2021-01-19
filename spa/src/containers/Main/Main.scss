@@ -2,10 +2,15 @@
 body {
   background: #080808;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 .main {
   background: #080808;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   & > .heading {
     font-family: "Product Sans", roboto;
     display: flex;
@@ -37,10 +42,52 @@ body {
   .container {
     width: 100%;
     // min-height: 60vh;
+    max-width: 1280px;
+    font-size: 12px;
     position: relative;
     margin: auto;
     display: flex;
     flex-direction: column;
     color: #fff;
+  }
+
+  body {
+    background: #4d4d4d;
+  }
+
+  .progress-horizontal {
+    width: 50%;
+    height: 4px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.34);
+  }
+
+  .bar-horizontal {
+    width: 50%;
+    height: 100%;
+    margin-left: 0;
+    // background-color: #43b02a;
+    background-color: #fff5;
+
+    animation-name: spinner;
+    animation-duration: 750ms;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes spinner {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+      margin-left: 50%;
+    }
+    100% {
+      width: 0;
+      margin-left: 100%;
+    }
   }
 }

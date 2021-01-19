@@ -1,48 +1,18 @@
 @import "../../Styles/common.scss";
-.login {
-  font-size: 14px;
-  position: relative;
-  width: 100%;
-  max-width: 1280px;
-  margin: auto;
-  color: #aaa;
-  display: flex;
-  flex-direction: column;
 
-  .info {
-    max-width: 3em;
-    font-size: 3em;
-    // margin-top: 5em;
-    letter-spacing: 0.1em;
-    margin-right: 1em;
-    @include respond(tab-port) {
-      display: none;
-    }
-  }
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
 
-  .info-2 {
-    margin-top: 3em;
-    color: #222;
-    letter-spacing: 0.3em;
-    font-size: 4em;
-    max-width: 100em;
-    width: fit-content;
-    background: #777;
-  }
-
+.edit-event {
   .form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 30em;
-    width: 30em;
     background: #080808;
     // height: 30em;
-    margin-top: 5em;
     padding: 2em;
-    // background: #000;
-    position: absolute;
-    right: 0;
+
     overflow-x: hidden;
 
     .heading {
@@ -58,10 +28,16 @@
 
     .form-row {
       width: 100%;
+      display: flex;
+      //   flex-wrap: wrap;
+      @include respond(tab-port) {
+        flex-direction: column;
+      }
     }
     .form-group {
       width: 100%;
       margin-bottom: 1.5em;
+      margin-right: 1em;
     }
     label {
       font-weight: bold;
@@ -71,6 +47,7 @@
     .form-control {
       padding: 0.5em 1em;
       transition: all 0.2s;
+      min-width: 20em;
     }
     .error {
       color: red;
@@ -96,7 +73,9 @@
       }
     }
 
-    input {
+    input,
+    textarea,
+    select {
       background: transparent;
       border: none;
       width: 100%;
@@ -108,11 +87,25 @@
       border: none;
       border-bottom: 1px solid #222;
       &::placeholder {
-        color: #222;
+        color: #333;
       }
       &:focus {
         outline: none;
       }
+    }
+    textarea {
+      min-height: 10em;
+      height: fit-content;
+    }
+    option {
+      background: #080808;
+    }
+
+    .help-text {
+      padding: 0.5em;
+      font-size: 0.8em;
+      font-family: monospace;
+      color: #666;
     }
   }
 }

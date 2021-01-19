@@ -15,12 +15,17 @@ export default function Login() {
     password: "",
   });
 
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(null);
+
   const handleChange = (e) => {
     if (e.target) setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
     try {
       let response = await fetch(
         CONSTANTS.BASE_URL + "departments/auth/token/",
@@ -33,7 +38,11 @@ export default function Login() {
         }
       );
       let data = await response.json();
-      console.log(data);
+      setLoading(false);
+      if (response.status !== 200) {
+        setError(data);
+        return;
+      }
       if (data.access) {
         let _user = { name: data.name, image: data.image };
         setAuthToken(data.access);
@@ -49,6 +58,8 @@ export default function Login() {
       }
     } catch (err) {
       console.log("Error Getting Auth Token - Err : ", err.message);
+      setLoading(false);
+      setError({ detail: "Network Error" });
     }
   };
 
@@ -99,6 +110,16 @@ export default function Login() {
                   />
                 </div>
               </div>
+              <div className="form-row">
+                {error ? <div className="error">{error.detail}</div> : null}
+              </div>
+              {loading ? (
+                <div className="form-control">
+                  <div class="progress-horizontal">
+                    <div class="bar-horizontal"></div>
+                  </div>
+                </div>
+              ) : null}
               <div className="form-row">
                 <button type="submit" className="btn-submit">
                   Login
