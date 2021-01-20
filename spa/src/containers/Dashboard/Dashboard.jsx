@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import { CONSTANTS } from "../../config";
 import "./Dashboard.scss";
-import EditEvent from "../EditEvent/EditEvent";
+import EditEvent from "../../components/EditEvent/EditEvent";
+import EventCard from "../../components/EventCard/EventCard";
+import EventDetails from "../../components/EventDetails/EventDetails";
 
 export default function Dashboard() {
   const {
@@ -15,6 +17,7 @@ export default function Dashboard() {
 
   const [events, setEvents] = useState([]);
   const [editEvent, setEditEvent] = useState(null);
+  const [detailedEvent, setDetailedEvent] = useState(null);
 
   // FUNCTIONS
   const logOut = () => {
@@ -27,12 +30,16 @@ export default function Dashboard() {
     localStorage.removeItem("expires");
   };
 
-  const handleCreate = () => {
+  const handleCreateEvent = () => {
     if (editEvent) {
       setEditEvent(null);
     } else {
       setEditEvent({});
     }
+  };
+
+  const handleDeleteEvent = (eventId) => {
+    console.log("Event Deleted.");
   };
 
   // ! chenge this.
@@ -72,20 +79,25 @@ export default function Dashboard() {
         <div className="ctrl">
           <button
             className={`btn ${editEvent ? "cancel" : "create"}`}
-            onClick={handleCreate}
+            onClick={handleCreateEvent}
           >
             {editEvent ? "Cancel" : "Create Event"}
           </button>
         </div>
         {editEvent ? (
-          <EditEvent editEvent={editEvent} />
+          <EditEvent editEvent={editEvent} setEditEvent={setEditEvent} />
+        ) : detailedEvent ? (
+          <EventDetails
+            event={detailedEvent}
+            setDetailedEvent={setDetailedEvent}
+            setEditEvent={setEditEvent}
+            onDeleteEvent={handleDeleteEvent}
+          />
         ) : (
           <div className="events">
             {events.length ? (
               events.map((event) => (
-                <pre className="event">
-                  {JSON.stringify(event, undefined, 2)}
-                </pre>
+                <EventCard event={event} setDetailedEvent={setDetailedEvent} />
               ))
             ) : (
               <div className="empty">

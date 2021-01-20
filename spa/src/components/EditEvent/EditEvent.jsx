@@ -1,15 +1,82 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./EditEvent.scss";
+import { CONSTANTS } from "../../config";
+import GlobalContext from "../../context/GlobalContext";
 
-export default function EditEvent({ editEvent }) {
+export default function EditEvent({ editEvent, setEditEvent }) {
   const [event, setEvent] = useState(editEvent);
+  const [msg, setMsg] = useState(null);
+  const [loading, setLoading] = useState(false);
 
+  const { authToken } = useContext(GlobalContext);
   // FUCTIONS
   const handleChange = (e) => {
     setEvent({ ...event, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (loading) return;
+    console.log("Creating Event - ", event);
+    setMsg(null);
+    setLoading(true);
+    if (!event.id) {
+      // CREATE EVENT
+      try {
+        let formData = new FormData();
+        for (const prop in event) {
+          if (
+            [
+              "name",
+              "id",
+              "info",
+              "venue",
+              "start",
+              "end",
+              "regURL",
+              "Type",
+              "department",
+            ].includes(prop)
+          ) {
+            formData.append(prop, event[prop]);
+          }
+        }
+        let $image = document.querySelector("#image");
+        let $abstract = document.querySelector("#abstract");
+
+        if ($image.files[0]) {
+          formData.append("image", $image.files[0]);
+        }
+        if ($abstract.files[0]) {
+          formData.append("abstract", $abstract.files[0]);
+        }
+
+        let response = await fetch(CONSTANTS.BASE_URL + "events/", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: formData,
+        });
+        let data = await response.json();
+        if ([200, 201].includes(response.status)) {
+          setLoading(false);
+          setMsg("success");
+          setTimeout(() => {
+            setEditEvent(null);
+          }, 1000);
+        } else {
+          setLoading(false);
+          setMsg(JSON.stringify(data));
+        }
+        console.log("Created Event - ", data);
+      } catch (err) {
+        console.log("Error while Creating Event - ", err.message);
+        setLoading(false);
+        setMsg(err.message);
+      }
+    }
+  };
 
   // EFFECTS
   useEffect(() => {
@@ -20,8 +87,8 @@ export default function EditEvent({ editEvent }) {
         venue: "",
         start: "",
         end: "",
-        regUrl: "",
-        type: 2,
+        regURL: "",
+        Type: 2,
       });
     }
   }, [editEvent]);
@@ -72,7 +139,7 @@ export default function EditEvent({ editEvent }) {
                 type="datetime-local"
                 name="start"
                 id="start"
-                value={event.start}
+                value={event.start?.replace("Z", "")}
                 onChange={handleChange}
                 placeholder=""
                 className="form-control"
@@ -86,7 +153,7 @@ export default function EditEvent({ editEvent }) {
                 type="datetime-local"
                 name="end"
                 id="end"
-                value={event.end}
+                value={event.end?.replace("Z", "")}
                 onChange={handleChange}
                 placeholder=""
                 className="form-control"
@@ -112,7 +179,7 @@ export default function EditEvent({ editEvent }) {
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="type">Type * </label>
+              <label htmlFor="Type">Type * </label>
               {/* <input
                 required
                 type="text"
@@ -125,11 +192,11 @@ export default function EditEvent({ editEvent }) {
                 autoComplete="off"
               /> */}
               <select
-                name="type"
-                id="type"
+                name="Type"
+                id="Type"
                 className="form-control"
                 onChange={handleChange}
-                value={event.type}
+                value={event.Type}
               >
                 <option value="0">Mega Event</option>
                 <option value="1">Institutional Event</option>
@@ -139,13 +206,13 @@ export default function EditEvent({ editEvent }) {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="regUrl">Registration Url *</label>
+              <label htmlFor="regURL">Registration Url *</label>
               <input
                 required
                 type="url"
-                name="regUrl"
-                id="regUrl"
-                value={event.regUrl}
+                name="regURL"
+                id="regURL"
+                value={event.regURL}
                 onChange={handleChange}
                 placeholder="Google Form Registration URL"
                 className="form-control"
@@ -164,7 +231,9 @@ export default function EditEvent({ editEvent }) {
                 accept="image/*"
                 className="form-control"
               />
-              <div className="help-text">Event Image / thumbnail</div>
+              <div className="help-text">
+                Event Image / thumbnail [square fit]
+              </div>
             </div>
             <div className="form-group">
               <label htmlFor="abstract">Abstract</label>
@@ -178,10 +247,16 @@ export default function EditEvent({ editEvent }) {
                 autoComplete="off"
               />
               <div className="help-text">
-                pdf containing all the full details of the event
+                pdf containing full details of the event
               </div>
             </div>
           </div>
+          <div className="form-row ctrl">
+            <button disabled={loading} className="btn green lg">
+              {loading ? "Saving" : msg === "success" ? "Saved" : "Save"}
+            </button>
+          </div>
+          <div className="form-row error">{msg ? msg : null}</div>
         </form>
       </div>
     </div>

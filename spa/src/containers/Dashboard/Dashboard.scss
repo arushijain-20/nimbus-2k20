@@ -14,6 +14,27 @@
     &:hover {
       background: #222;
     }
+
+    &.yellow {
+      color: yellow;
+      background: #ffff0022;
+    }
+    &.red {
+      color: red;
+      background: #ff000022;
+    }
+    &.blue {
+      color: #4f4fff;
+      background: #4f4fff22;
+    }
+    &.green {
+      color: #7cfc00;
+      background: #7cfc0022;
+    }
+    &.lg {
+      font-size: larger;
+      letter-spacing: 0.1em;
+    }
   }
   .user-actions {
     display: flex;
@@ -71,10 +92,8 @@
     }
   }
   .events {
-    .event {
-      font-family: monospace;
-      margin-bottom: 1em;
-    }
+    display: flex;
+    flex-wrap: wrap;
     .empty {
       width: 100%;
       min-height: 20em;
