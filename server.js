@@ -79,7 +79,7 @@ app.get("/sponsors", function (req, res) {
   res.sendFile(path.resolve(__dirname + "/public/sponsors.html"));
 });
 
-// SPA ROUTES
+// SPA ROUTES -- Production
 app.get("/admin/*", (req, res) => {
   console.log("React App");
   res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));

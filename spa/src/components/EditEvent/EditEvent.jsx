@@ -3,7 +3,7 @@ import "./EditEvent.scss";
 import { CONSTANTS } from "../../config";
 import GlobalContext from "../../context/GlobalContext";
 
-export default function EditEvent({ editEvent, setEditEvent }) {
+export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
   const [event, setEvent] = useState(editEvent);
   const [msg, setMsg] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -17,11 +17,11 @@ export default function EditEvent({ editEvent, setEditEvent }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loading) return;
-    console.log("Creating Event - ", event);
     setMsg(null);
     setLoading(true);
     if (!event.id) {
       // CREATE EVENT
+      console.log("Creating Event - ", event);
       try {
         let formData = new FormData();
         for (const prop in event) {
@@ -62,6 +62,64 @@ export default function EditEvent({ editEvent, setEditEvent }) {
         if ([200, 201].includes(response.status)) {
           setLoading(false);
           setMsg("success");
+          getEvents();
+          setTimeout(() => {
+            setEditEvent(null);
+          }, 1000);
+        } else {
+          setLoading(false);
+          setMsg(JSON.stringify(data));
+        }
+        console.log("Created Event - ", data);
+      } catch (err) {
+        console.log("Error while Creating Event - ", err.message);
+        setLoading(false);
+        setMsg(err.message);
+      }
+    } else {
+      // UPDATE EVENT
+      console.log("Updating Event ", event);
+      try {
+        let formData = new FormData();
+        for (const prop in event) {
+          if (
+            [
+              "name",
+              "id",
+              "info",
+              "venue",
+              "start",
+              "end",
+              "regURL",
+              "Type",
+              "department",
+            ].includes(prop)
+          ) {
+            formData.append(prop, event[prop]);
+          }
+        }
+        let $image = document.querySelector("#image");
+        let $abstract = document.querySelector("#abstract");
+
+        if ($image.files[0]) {
+          formData.append("image", $image.files[0]);
+        }
+        if ($abstract.files[0]) {
+          formData.append("abstract", $abstract.files[0]);
+        }
+
+        let response = await fetch(CONSTANTS.BASE_URL + "events/" + event.id, {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+          body: formData,
+        });
+        let data = await response.json();
+        if ([200, 201].includes(response.status)) {
+          setLoading(false);
+          setMsg("success");
+          getEvents();
           setTimeout(() => {
             setEditEvent(null);
           }, 1000);

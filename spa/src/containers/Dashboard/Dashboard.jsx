@@ -42,10 +42,8 @@ export default function Dashboard() {
     console.log("Event Deleted.");
   };
 
-  // ! chenge this.
-  useEffect(() => {
-    if (!authToken) return;
-    fetch(CONSTANTS.BASE_URL + "events", {
+  const getEvents = () => {
+    fetch(CONSTANTS.BASE_URL + `events?department=${user.name}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${authToken}`,
@@ -58,6 +56,12 @@ export default function Dashboard() {
       .catch((err) => {
         console.log("Cant Get Events Error - ", err.message);
       });
+  };
+
+  //EFFECTS
+  useEffect(() => {
+    if (!authToken) return;
+    getEvents();
   }, [authToken]);
 
   if (!user) {
@@ -85,13 +89,18 @@ export default function Dashboard() {
           </button>
         </div>
         {editEvent ? (
-          <EditEvent editEvent={editEvent} setEditEvent={setEditEvent} />
+          <EditEvent
+            editEvent={editEvent}
+            setEditEvent={setEditEvent}
+            getEvents={getEvents}
+          />
         ) : detailedEvent ? (
           <EventDetails
             event={detailedEvent}
             setDetailedEvent={setDetailedEvent}
             setEditEvent={setEditEvent}
             onDeleteEvent={handleDeleteEvent}
+            getEvents={getEvents}
           />
         ) : (
           <div className="events">
