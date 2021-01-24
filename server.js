@@ -38,8 +38,7 @@ app.use((req, res, next) => {
 
 app.get("/register", function (req, res) {
   console.log("Register");
-  res.send("Coming Soon...");
-  // res.sendFile(path.resolve(__dirname + "/public/register.html"));
+  res.sendFile(path.resolve(__dirname + "/public/register.html"));
 });
 
 // app.get("/events", function (req, res) {
