@@ -88,6 +88,10 @@ app.get("/admin", (req, res) => {
   console.log("React App");
   res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));
 });
+app.get("/events/*", (req, res) => {
+  console.log("React App");
+  res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));
+});
 app.get("/events", (req, res) => {
   console.log("React App");
   res.sendFile(path.resolve(__dirname + "/spa/build/index.html"));
