@@ -9,6 +9,7 @@ export default function EventDetails({
   setEditEvent,
   onDeleteEvent,
   getEvents,
+  history,
 }) {
   const { authToken } = useContext(GlobalContext) ?? {};
 
@@ -46,9 +47,14 @@ export default function EventDetails({
   return (
     <div className="event-details">
       <div className="ctrl">
-        <button className="btn back lg" onClick={() => setDetailedEvent(null)}>
-          &lt;
-        </button>
+        {history ? null : (
+          <button
+            className="btn back lg"
+            onClick={() => setDetailedEvent(null)}
+          >
+            &lt;
+          </button>
+        )}
         {setEditEvent ? (
           <>
             <button className="btn blue" onClick={() => setEditEvent(event)}>

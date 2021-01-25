@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./EventCard.scss";
 
 export default function EventCard({ event, setDetailedEvent }) {
   return (
-    <div className="event-card" onClick={() => setDetailedEvent(event)}>
+    <div className="event-card">
       <div className="card">
         <div className="img">
           <img src={event.image ? event.image : ""} alt="Event" />
@@ -16,7 +18,9 @@ export default function EventCard({ event, setDetailedEvent }) {
             <div className="end">{event.end}</div>
           </div>
           <div className="venue">{event.venue}</div>
-          <div className="details">Details</div>
+          <div className="details">
+            <Link to={`/events/${event.id}`}>Details</Link>
+          </div>
         </div>
       </div>
     </div>

@@ -41,7 +41,11 @@ export default function Events() {
         ) : (
           <div className="events">
             {events.map((event) => (
-              <EventCard event={event} setDetailedEvent={setDetailedEvent} />
+              <EventCard
+                key={event.id}
+                event={event}
+                setDetailedEvent={setDetailedEvent}
+              />
             ))}
           </div>
         )}

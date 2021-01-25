@@ -106,7 +106,11 @@ export default function Dashboard() {
           <div className="events">
             {events.length ? (
               events.map((event) => (
-                <EventCard event={event} setDetailedEvent={setDetailedEvent} />
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  setDetailedEvent={setDetailedEvent}
+                />
               ))
             ) : (
               <div className="empty">

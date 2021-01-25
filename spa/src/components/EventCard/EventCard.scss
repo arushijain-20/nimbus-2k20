@@ -9,25 +9,33 @@
 
   .card {
     display: flex;
-
+    position: relative;
+    min-height: 15em;
     .img {
-      width: 15em;
-      height: 15em;
+      position: absolute;
+      right: 0;
+      // width: 15em;
+      height: 100%;
       overflow: hidden;
       text-align: center;
-      flex: 0.3;
+      z-index: 2;
       img {
         // width: 100%;
         height: 100%;
       }
     }
-
+    a {
+      color: white;
+    }
     .txt {
-      flex: 0.7;
+      width: 100%;
+      height: 100%;
       padding: 1em 1em;
-      background: linear-gradient(to right, #0000 1%, #000 100%);
-      // box-shadow: -1em 0 12px 10px #1118;
-      backdrop-filter: brightness(0.5) blur(10px);
+      position: absolute;
+      background: red;
+      z-index: 3;
+      background: linear-gradient(to right, #000, #000, #000, #0000);
+      // backdrop-filter: blur(1px);
       .title {
         font-size: 2em;
         margin-bottom: 0.5em;
