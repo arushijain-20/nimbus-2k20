@@ -1,0 +1,23 @@
+@import "../../Styles/common.scss";
+
+.events-page {
+  .heading {
+    &::before {
+      position: absolute;
+      z-index: 0;
+      top: 7rem;
+      color: #111;
+      font-size: 10rem;
+      letter-spacing: 2rem;
+      content: "";
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+  }
+
+  .events {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

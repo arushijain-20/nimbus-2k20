@@ -1,0 +1,147 @@
+@import "../../Styles/common.scss";
+body {
+  background: #080808;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.main {
+  background: #080808;
+  width: 100vw;
+  min-height: 100vh;
+  & > .heading {
+    font-family: "Product Sans", roboto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 4rem;
+    h1 {
+      font-size: 5rem;
+      font-weight: 100;
+      color: white;
+    }
+    &::before {
+      position: absolute;
+      z-index: 0;
+      top: 7rem;
+      color: #111;
+      font-size: 10rem;
+      letter-spacing: 2rem;
+      content: "Admin";
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+  .container {
+    width: 100%;
+    // min-height: 60vh;
+    max-width: 1280px;
+    font-size: 12px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+
+  body {
+    background: #4d4d4d;
+  }
+
+  .progress-horizontal {
+    width: 50%;
+    height: 4px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.34);
+  }
+
+  .bar-horizontal {
+    width: 50%;
+    height: 100%;
+    margin-left: 0;
+    // background-color: #43b02a;
+    background-color: #fff5;
+
+    animation-name: spinner;
+    animation-duration: 750ms;
+    animation-timing-function: ease-in-out;
+    animation-play-state: running;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes spinner {
+    0% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+      margin-left: 50%;
+    }
+    100% {
+      width: 0;
+      margin-left: 100%;
+    }
+  }
+
+  .error {
+    color: red;
+    padding: 0 1em 1em;
+    font-family: monospace;
+    font-size: 0.8em;
+  }
+
+  .btn {
+    padding: 0.5em 1em;
+    border: none;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    background: #111;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    margin-right: 1em;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+      background: #222;
+    }
+
+    &.yellow {
+      color: yellow;
+      background: #ffff0022;
+    }
+    &.red {
+      color: red;
+      background: #ff000022;
+    }
+    &.blue {
+      color: #4f4fff;
+      background: #4f4fff22;
+    }
+    &.green {
+      color: #7cfc00;
+      background: #7cfc0022;
+    }
+    &.lg {
+      font-size: larger;
+      letter-spacing: 0.1em;
+    }
+
+    &.back {
+      font-family: monospace;
+      // background: transparent;
+      border-radius: 50%;
+      width: 3em;
+      height: 3em;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@import "../../Styles/common.scss";
+.login {
+  font-size: 14px;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  color: #aaa;
+  display: flex;
+  flex-direction: column;
+
+  .info {
+    max-width: 3em;
+    font-size: 3em;
+    // margin-top: 5em;
+    letter-spacing: 0.1em;
+    margin-right: 1em;
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+
+  .info-2 {
+    margin-top: 3em;
+    color: #222;
+    letter-spacing: 0.3em;
+    font-size: 4em;
+    max-width: 100em;
+    width: fit-content;
+    background: #777;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30em;
+    width: 30em;
+    background: #080808;
+    // height: 30em;
+    margin-top: 5em;
+    padding: 2em;
+    // background: #000;
+    position: absolute;
+    right: 0;
+    overflow-x: hidden;
+
+    .heading {
+      margin-bottom: 3em;
+      h1 {
+        margin-bottom: 0.1em;
+      }
+      h3 {
+        color: #666;
+        font-family: monospace;
+      }
+    }
+
+    .form-row {
+      width: 100%;
+    }
+    .form-group {
+      width: 100%;
+      margin-bottom: 1.5em;
+    }
+    label {
+      font-weight: bold;
+      color: #888;
+    }
+
+    .form-control {
+      padding: 0.5em 1em;
+      transition: all 0.2s;
+    }
+    .error {
+      color: red;
+      padding: 0 1em 1em;
+      font-family: monospace;
+      font-size: 0.8em;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 1em 2em;
+      border: none;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      background: #111;
+      letter-spacing: 0.5em;
+      transition: all 0.3s;
+      user-select: none;
+      cursor: pointer;
+      &:hover {
+        background: #222;
+      }
+    }
+
+    input {
+      background: transparent;
+      border: none;
+      width: 100%;
+      background: none;
+      color: #fff;
+      border-radius: 0;
+      font-size: 1.2em;
+      outline: none !important;
+      border: none;
+      border-bottom: 1px solid #222;
+      &::placeholder {
+        color: #222;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

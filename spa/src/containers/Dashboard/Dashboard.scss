@@ -1,0 +1,76 @@
+.dashboard {
+  .user-actions {
+    display: flex;
+    align-items: center;
+    perspective: 400px;
+
+    .logout {
+      padding: 0.5em 1em;
+      border: none;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      background: #111;
+      transition: all 0.3s;
+      font-size: 1.2rem;
+      margin-right: 1em;
+      user-select: none;
+      cursor: pointer;
+      &:hover {
+        background: #222;
+      }
+    }
+
+    .avatar {
+      width: 5em;
+      height: 5em;
+      margin-left: 1em;
+      // position: absolute;
+      overflow: hidden;
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      transition: all 0.2s;
+      // box-shadow: 0 2px 30px #fff;
+      &:hover {
+        // box-shadow: 0 2px 30px #fff;
+      }
+    }
+  }
+
+  .ctrl {
+    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+
+    .create {
+      padding: 1em 2em;
+      color: #7cfc00;
+      letter-spacing: 0.2em;
+      &:hover {
+        background: #7cfc0022;
+      }
+    }
+    .cancel {
+      color: #ff0000;
+    }
+  }
+  .events {
+    display: flex;
+    flex-wrap: wrap;
+    .empty {
+      width: 100%;
+      min-height: 20em;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        font-size: 2em;
+        font-family: monospace;
+        letter-spacing: 0.2em;
+        color: #fff5;
+      }
+    }
+  }
+}
