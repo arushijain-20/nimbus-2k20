@@ -39,12 +39,37 @@
       .title {
         font-size: 2em;
         margin-bottom: 0.5em;
+        text-align: center;
       }
       .desc {
+        text-align: center;
         height: 5em;
+        display: flex;
+        align-items: center;
+        padding: 0 0.5rem;
         overflow: hidden;
 
         // font-family: monospace;
+      }
+      .start {
+        color: #ffff5b;
+        font-family: monospace;
+        padding: 0.3rem;
+      }
+      .end {
+        color: #ffff5b;
+        font-family: monospace;
+        padding: 0.3rem;
+      }
+      .venue {
+        color: #ffff5b;
+        font-family: monospace;
+        padding: 0.3rem;
+      }
+      .details {
+        color: #ffff5b;
+        font-family: monospace;
+        padding: 0.3rem;
       }
     }
   }
