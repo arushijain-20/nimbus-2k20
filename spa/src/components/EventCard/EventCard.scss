@@ -25,18 +25,43 @@
     .txt {
       flex: 0.7;
       padding: 1em 1em;
-      background: linear-gradient(to right, #0000 1%, #000 100%);
+      background: linear-gradient(to right, #0000 1%, #351515 100%);
       // box-shadow: -1em 0 12px 10px #1118;
       backdrop-filter: brightness(0.5) blur(10px);
       .title {
         font-size: 2em;
         margin-bottom: 0.5em;
+        text-align: center;
       }
       .desc {
+        text-align: center;
         height: 5em;
+        display: flex;
+        align-items: center;
+        padding: 0 .5rem;
         overflow: hidden;
 
         // font-family: monospace;
+      }
+      .start{
+        color: #ffff5b;
+        font-family: monospace;
+        padding: .3rem;
+      }
+      .end{
+        color: #ffff5b;
+        font-family: monospace;
+        padding: .3rem;
+      }
+      .venue{
+        color: #ffff5b;
+        font-family: monospace;
+        padding: .3rem;
+      }
+      .details{
+        color: #ffff5b;
+        font-family: monospace;
+        padding: .3rem;
       }
     }
   }
