@@ -69,6 +69,10 @@ app.get("/about", function (req, res) {
   console.log("About");
   res.sendFile(__dirname + "/public/about.html");
 });
+app.get("/gallery", function (req, res) {
+  console.log("gallery");
+  res.sendFile(__dirname + "/public/gallery.html");
+});
 app.get("/team", function (req, res) {
   console.log("team");
   res.sendFile(__dirname + "/public/team.html");

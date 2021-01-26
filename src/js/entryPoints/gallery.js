@@ -1,4 +1,4 @@
-import "../../sass/pages/gallary.scss";
+import "../../sass/pages/gallery.scss";
 
 let $gallery = document.querySelector(".gallery");
 
