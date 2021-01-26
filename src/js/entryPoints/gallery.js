@@ -1,5 +1,15 @@
 import "../../sass/pages/gallery.scss";
 
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+const images = importAll(
+  require.context("../../img", false, /\.(png|jpe?g|svg)$/)
+);
+
+console.log(images);
+
 let $gallery = document.querySelector(".gallery");
 
 const colors = [
@@ -23,7 +33,7 @@ function createHex(side_len, image_index) {
   hex.style.height = `${2 * side_len}px`;
   hex.style.clipPath =
     "polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%)";
-  hex.style.backgroundImage = `url(./src/img/img${image_index}.jpeg)`;
+  hex.style.backgroundImage = `url(img/img${image_index}.jpeg)`;
   //   hex.style.backgroundColor = colors[image_index % colors.length];
   return hex;
 }
