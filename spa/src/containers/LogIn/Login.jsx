@@ -115,8 +115,8 @@ export default function Login() {
               </div>
               {loading ? (
                 <div className="form-control">
-                  <div class="progress-horizontal">
-                    <div class="bar-horizontal"></div>
+                  <div className="progress-horizontal">
+                    <div className="bar-horizontal"></div>
                   </div>
                 </div>
               ) : null}
