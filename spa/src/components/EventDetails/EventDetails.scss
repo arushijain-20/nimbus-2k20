@@ -5,3 +5,96 @@
     align-items: center;
   }
 }
+
+.event-form{
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.event-data{
+  padding: 3rem;
+  font-family: sans-serif;
+  color: #c1efa6;
+}
+
+.event-name{
+  font-size: 3.2rem;
+  font-weight: 600;
+  padding: .5rem;  
+}
+
+.event-description{
+  font-family: sans-serif;
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+.event-club{
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: right;
+  padding: 1rem;
+}
+
+.btn-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.event-register-btn{
+    display: block;
+    width: fit-content;
+    padding: 1rem 1.5rem;
+    border: #426f2e outset 2px;
+    border-radius: 5px;
+    background-image: linear-gradient(45deg, #442121, #a0a044);
+    color: black;
+    font-weight: 600;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 3rem;
+}
+
+.event-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.event-pic img{
+  width: 40rem;
+  height: 40rem;
+  border: solid #c1efa6 1px;
+}
+
+.other-data{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem 0;
+}
+
+.event-timing p{
+  color: #e2e26e;
+  font-size: 1.5rem;
+  padding: .5rem;
+  text-align: right;
+}
+.event-venue p{
+  color: #e2e26e;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 700px){
+  .event-form{
+    grid-template-columns: 1fr;
+  }
+  .event-pic img{
+    width: 50rem;
+    height: 50rem;
+  }
+}

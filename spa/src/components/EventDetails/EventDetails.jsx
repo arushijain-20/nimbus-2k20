@@ -67,7 +67,47 @@ export default function EventDetails({
         ) : null}
       </div>
       <div className="ctrl error">{error ? error.detail : null}</div>
-      <pre className="event">{JSON.stringify(event, undefined, 2)}</pre>
+    
+      <div className = "event-form">
+        <div className = "event-pic">
+          <img src = {event.image}></img>
+        </div>
+        <div className = "event-data">
+          <div className = "event-name">
+            {event.name}
+          </div>
+          <div className = "event-description">
+              {event.info}
+          </div>
+          <div className = "event-club">
+            - Team {event.department}
+          </div> 
+          <div className ="btn-wrapper">
+            <div className = "event-register-btn">
+              <a href = {event.regURL}>Register</a>
+            </div>
+            <div className = "event-register-btn">
+              <a href = {event.abstract}>Abstract</a>
+            </div>
+          </div>
+          <div className = "other-data">
+            <div className = "event-venue">
+              <p>
+                Venue : {event.venue}
+              </p>
+            </div>
+            <div className = "event-timing">
+              <p>
+                From : {event.start}
+              </p>
+              <p>
+                To : {event.end}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <pre className="event">{JSON.stringify(event, undefined, 2)}</pre> */}
     </div>
   );
 }
