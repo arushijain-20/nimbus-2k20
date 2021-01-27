@@ -5,8 +5,11 @@ import "./EventCard.scss";
 
 export default function EventCard({ event, setDetailedEvent }) {
   return (
-    <div className="event-card">
-      <Link to={`/events/${event.id}`}>
+    <div
+      className="event-card"
+      onClick={setDetailedEvent ? () => setDetailedEvent(event) : () => null}
+    >
+      <Link to={setDetailedEvent ? `/admin` : `/events/${event.id}`}>
         <div className="card">
           <div className="img">
             {event.image ? (
