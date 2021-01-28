@@ -76,11 +76,11 @@ export default function EventDetails({
           <div className = "event-name">
             {event.name}
           </div>
-          <div className = "event-description">
-              {event.info}
-          </div>
           <div className = "event-club">
             - Team {event.department}
+          </div>
+          <div className = "event-description">
+              {event.info}
           </div> 
           <div className ="btn-wrapper">
             <div className = "event-register-btn">
@@ -97,12 +97,23 @@ export default function EventDetails({
               </p>
             </div>
             <div className = "event-timing">
-              <p>
-                From : {event.start}
-              </p>
-              <p>
-                To : {event.end}
-              </p>
+              <div className = "start">
+                <span className = "date">
+                  {new Date(event.start).toDateString()}
+                </span>
+                <span className = "time">
+                  {new Date(event.start).toLocaleTimeString()}
+                </span>
+              </div>
+              <span className = "to"> - </span>
+              <div className = "end">
+                <span className = "date">
+                  {new Date(event.end).toDateString()}
+                </span>
+                <span className = "time">
+                  {new Date(event.end).toLocaleTimeString()}
+                </span>
+              </div>
             </div>
           </div>
         </div>
