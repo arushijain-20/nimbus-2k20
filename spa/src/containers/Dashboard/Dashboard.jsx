@@ -42,7 +42,7 @@ export default function Dashboard() {
     console.log("Event Deleted.");
   };
 
-  const getEvents = () => {
+  function getEvents() {
     fetch(CONSTANTS.BASE_URL + `events?department=${user.name}`, {
       method: "GET",
       headers: {
@@ -56,17 +56,13 @@ export default function Dashboard() {
       .catch((err) => {
         console.log("Cant Get Events Error - ", err.message);
       });
-  };
+  }
 
   //EFFECTS
   useEffect(() => {
-    if (!authToken) return;
+    if (!authToken || !user) return;
     getEvents();
-  }, [authToken]);
-
-  if (!user) {
-    return null;
-  }
+  }, [authToken, user]);
 
   return (
     <div className="main dashboard">

@@ -5,35 +5,11 @@ import "../../sass/pages/workshops.scss";
 import "./menu";
 
 const anime = require("animejs/lib/anime");
+import { CONSTANTS } from "../config";
 
 var workshops_con = document.querySelector(".workshops");
 
-var gradients = [
-  {
-    from: "#ED4264",
-    to: "#FFEDBC"
-  },
-  {
-    from: "#514A9D",
-    to: "#24C6DC"
-  },
-  {
-    from: "#1CD8D2",
-    to: "#93EDC7"
-  },
-  {
-    from: "#4776E6",
-    to: "#8E54E9"
-  },
-  {
-    from: "#FF8008",
-    to: "#FFC837"
-  },
-  {
-    from: "#1FA2FF",
-    to: "#A6FFCB"
-  }
-];
+var GRADIENTS = CONSTANTS.GRADIENTS;
 
 var workshops = [
   {
@@ -42,56 +18,56 @@ var workshops = [
     venue: "Auditorium, NITH",
     date: "27-Mar-2020",
     img: "http://picsum.photos/200",
-    link: "#"
+    link: "#",
   },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/204",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/201",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet. Lorem ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/202",
-    link: "#"
-  }
 ];
 
-let n = gradients.length;
+let N = GRADIENTS.length;
 
-for (let i = 0; i < workshops.length; ++i) {
-  let w = workshops[i];
-  createWorkshop(w, i % n);
-}
+fetch(`${CONSTANTS.BASE_URL}/events?type=workshop`)
+  .then((response) => response.json())
+  .then((data) => {
+    workshops = data;
+    console.log("workshops", data);
+    workshops.sort(
+      (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
+    );
+    for (let i = 0; i < workshops.length; ++i) {
+      let workshop = workshops[i];
+      createWorkshop(workshop, i % N);
+    }
 
-function createWorkshop(w, i) {
+    anime({
+      targets: ".card",
+      translateY: [100, 0],
+      // scale: [0.8, 1],
+      duration: 200,
+      easing: "easeOutQuad",
+      opacity: [0, 1],
+      delay: anime.stagger(150),
+    });
+  })
+  .catch((err) => {
+    console.log("Cant Fetch Events - ", err);
+  });
+
+function createWorkshop(event, i) {
   let node = document.createElement("div");
   node.className = "card";
   node.innerHTML = `
     <div class="card-img">
-      <img src="${w.img}" alt="" />
+      <img src="${event.image ? event.image : ""}" alt="" />
     </div> 
-    <a href="${w.link}">
-     <div class="card-btn" style="background:${gradients[i].from}">Register</div>
+    <a href="${event.regURL}">
+     <div class="card-btn" style="background:${
+       GRADIENTS[i].from
+     }">Register</div>
     </a>
     <div class="card-body">
-      <div class="title">${w.title}</div>
-      <div class="desc">${w.desc}</div>
-      <div class="venue">${w.venue}</div>
-      <div class="date">${w.date}</div>
+      <div class="title">${event.name}</div>
+      <div class="desc">${event.info}</div>
+      <div class="venue">${event.venue}</div>
+      <div class="date">${event.start}</div>
     </div>
   `;
 
@@ -105,14 +81,5 @@ anime({
   translateX: [-200, 0],
   opacity: [0, 1],
   easing: "easeOutCubic",
-  endDelay: 500
-});
-anime({
-  targets: ".card",
-  translateY: [100, 0],
-  // scale: [0.8, 1],
-  duration: 200,
-  easing: "easeOutQuad",
-  opacity: [0, 1],
-  delay: anime.stagger(150)
+  endDelay: 500,
 });

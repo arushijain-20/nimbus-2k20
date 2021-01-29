@@ -126,7 +126,7 @@ body {
       }
     }
     .register {
-      bottom: 6em;
+      bottom: 10em;
     }
   }
 
@@ -214,6 +214,8 @@ body {
     .desc {
       margin-bottom: 1rem;
       color: #999;
+      max-height: 8em;
+      overflow: hidden;
       font-size: 1.4em;
       text-align: center;
     }

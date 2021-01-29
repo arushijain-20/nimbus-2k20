@@ -199,6 +199,8 @@ body {
       margin-bottom: 1rem;
       color: #999;
       font-size: 1.6em;
+      max-height: 4em;
+      overflow: hidden;
       text-align: center;
     }
     .date {

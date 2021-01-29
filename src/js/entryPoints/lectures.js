@@ -7,106 +7,72 @@ import "./menu";
 const anime = require("animejs/lib/anime");
 import ScrollOut from "scroll-out";
 
+import { CONSTANTS } from "../config";
+
 var workshops_con = document.querySelector(".workshops");
 
-var gradients = [
+var GRADIENTS = CONSTANTS.GRADIENTS;
+
+var lectures = [
   {
-    from: "#ED4264",
-    to: "#FFEDBC"
+    name: "Lorem, Ipsum",
+    info: "ipsum dolor sit amet.",
+    venue: "Auditorium, NITH",
+    start: "27-Mar-2020",
+    image: "http://picsum.photos/203",
+    link: "#",
   },
-  {
-    from: "#24C6DC",
-    to: "#514A9D"
-  },
-  {
-    from: "#93EDC7",
-    to: "#1CD8D2"
-  },
-  {
-    from: "#4776E6",
-    to: "#8E54E9"
-  },
-  {
-    from: "#FF8008",
-    to: "#FFC837"
-  },
-  {
-    from: "#1FA2FF",
-    to: "#A6FFCB"
-  }
 ];
 
-var workshops = [
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/203",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/205",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/203",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/205",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/203",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/205",
-    link: "#"
-  }
-];
+let N = GRADIENTS.length;
 
-let n = gradients.length;
+fetch(`${CONSTANTS.BASE_URL}/events?type=talk`)
+  .then((response) => response.json())
+  .then((data) => {
+    lectures = data;
+    console.log("lectures", data);
+    lectures.sort(
+      (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
+    );
+    for (let i = 0; i < lectures.length; ++i) {
+      let lecture = lectures[i];
+      createLecture(lecture, i % N);
+    }
+    // animations
+    anime({
+      targets: ".card",
+      translateY: [100, 0],
+      // scale: [0.8, 1],
+      duration: 200,
+      easing: "easeOutQuad",
+      opacity: [0, 1],
+      delay: anime.stagger(150),
+    });
+  })
+  .catch((err) => {
+    console.log("Cant Fetch Events - ", err);
+  });
 
-for (let i = 0; i < workshops.length; ++i) {
-  let w = workshops[i];
-  createWorkshop(w, i % n);
-}
-
-function createWorkshop(w, i) {
+// RENDER FUNCTION
+function createLecture(lecture, i) {
   let node = document.createElement("div");
   node.className = "card";
   node.innerHTML = `
-    <div class="card-img">
-      <img src="${w.img}" alt="" />
-    </div>
-    <div class="card-body">
-      <div class="bar"  data-scroll style="background:${gradients[i].from};"></div>
-      <div class="title">${w.title}</div>
-      <div class="desc">${w.desc}</div>
-      <div class="date">${w.date}</div>
-    </div>
+  <a href="/events/${lecture.id}">
+  <div class="card-img">
+    <img src="${lecture.image ? lecture.image : ""}" alt="" />
+  </div>
+  <div class="card-body">
+    <div
+      class="bar"
+      data-scroll
+      style="background:${GRADIENTS[i].from};"
+    ></div>
+    <div class="title">${lecture.name}</div>
+    <div class="desc">${lecture.info}</div>
+    <div class="date">${lecture.start}</div>
+  </div>
+</a>
   `;
 
   workshops_con.appendChild(node);
@@ -119,14 +85,5 @@ anime({
   translateX: [-200, 0],
   opacity: [0, 1],
   easing: "easeOutCubic",
-  endDelay: 500
-});
-anime({
-  targets: ".card",
-  translateY: [100, 0],
-  // scale: [0.8, 1],
-  duration: 200,
-  easing: "easeOutQuad",
-  opacity: [0, 1],
-  delay: anime.stagger(150)
+  endDelay: 500,
 });

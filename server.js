@@ -127,7 +127,7 @@ app.post("/adduser", function (req, res) {
 
 app.use("/", (req, res) => {
   console.log("404: Not found");
-  res.sendFile(path.resolve(__dirname + "/public/e404.html"));
+  res.status(404).sendFile(path.resolve(__dirname + "/public/e404.html"));
 });
 
 // Listening to port-number

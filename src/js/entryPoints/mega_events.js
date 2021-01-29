@@ -7,85 +7,74 @@ import "./menu";
 const anime = require("animejs/lib/anime");
 import ScrollOut from "scroll-out";
 
+import { CONSTANTS } from "../config";
+
 var workshops_con = document.querySelector(".workshops");
 
-var gradients = [
-  {
-    from: "#ED4264",
-    to: "#FFEDBC"
-  },
-  {
-    from: "#24C6DC",
-    to: "#514A9D"
-  },
+let GRADIENTS = CONSTANTS.GRADIENTS;
 
+var events = [
   {
-    from: "#4776E6",
-    to: "#8E54E9"
+    name: "Lorem, Ipsum",
+    info: "ipsum dolor sit amet.",
+    venue: "Auditorium, NITH",
+    start: "27-Mar-2020",
+    image: "http://picsum.photos/400/203",
+    regURL: "#",
   },
-  {
-    from: "#FF8008",
-    to: "#FFC837"
-  },
-  {
-    from: "#1FA2FF",
-    to: "#A6FFCB"
-  },
-  {
-    from: "#93EDC7",
-    to: "#1CD8D2"
-  }
 ];
 
-var workshops = [
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/400/203",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/400/205",
-    link: "#"
-  },
-  {
-    title: "Lorem, Ipsum",
-    desc: "ipsum dolor sit amet.",
-    venue: "Auditorium, NITH",
-    date: "27-Mar-2020",
-    img: "http://picsum.photos/400/204",
-    link: "#"
-  }
-];
+let n = GRADIENTS.length;
 
-let n = gradients.length;
+fetch(`${CONSTANTS.BASE_URL}/events?type=institutional`)
+  .then((response) => response.json())
+  .then((data) => {
+    events = data;
+    console.log("events", data);
+    events.sort(
+      (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
+    );
+    for (let i = 0; i < events.length; ++i) {
+      let event = events[i];
+      createEvent(event, i % n);
+    }
+    anime({
+      targets: ".card",
+      translateY: [100, 0],
+      // scale: [0.8, 1],
+      duration: 200,
+      easing: "easeOutQuad",
+      opacity: [0, 1],
+      delay: anime.stagger(150),
+    });
+  })
+  .catch((err) => {
+    console.log("Cant Fetch Events - ", err);
+  });
 
-for (let i = 0; i < workshops.length; ++i) {
-  let w = workshops[i];
-  createWorkshop(w, i % n);
-}
+// RENDER FUNCTION
 
-function createWorkshop(w, i) {
+function createEvent(event, i) {
   let node = document.createElement("div");
   node.className = "card";
   node.innerHTML = `
-    <div class="card-img">
-      <img src="${w.img}" alt="" />
-    </div>
-    <a href="${w.link}"><div class="register" style="background:${gradients[i].from};">Register</div></a>
+    <a href="/events/${event.id}">
+      <div class="card-img">
+         <img src="${event.image ? event.image : ""}" alt="" />
+      </div>
+    </a>
+    <a href="${event.regURL}"><div class="register" style="background:${
+    GRADIENTS[i].from
+  };">Register</div></a>
     <div class="card-body">
-      <div class="bar"  data-scroll style="background:${gradients[i].from};"></div>
-      <div class="title">${w.title}</div>
-      <div class="desc">${w.desc}</div>
+      <div class="bar"  data-scroll style="background:${
+        GRADIENTS[i].from
+      };"></div>
+      <div class="title">${event.name}</div>
+      <div class="desc">${event.info}</div>
       <div>
-        <div class="date">${w.date}</div>
-        <div class="venue">${w.venue}</div>
+        <div class="date">${event.start}</div>
+        <div class="venue">${event.venue}</div>
       </div>
     </div>
   `;
@@ -100,14 +89,5 @@ anime({
   translateX: [-200, 0],
   opacity: [0, 1],
   easing: "easeOutCubic",
-  endDelay: 500
-});
-anime({
-  targets: ".card",
-  translateY: [100, 0],
-  // scale: [0.8, 1],
-  duration: 200,
-  easing: "easeOutQuad",
-  opacity: [0, 1],
-  delay: anime.stagger(150)
+  endDelay: 500,
 });

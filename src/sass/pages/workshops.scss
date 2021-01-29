@@ -4,6 +4,7 @@
 body {
   background: #eee;
   font-family: "Product Sans", roboto;
+  min-height: 100vh;
 }
 
 ::-webkit-scrollbar {
@@ -156,7 +157,7 @@ body {
 
   .card-body {
     display: flex;
-    height: 10em;
+    min-height: 10em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -174,6 +175,8 @@ body {
       transition: 0.4s;
       margin-bottom: 1rem;
       color: #666;
+      max-height: 8em;
+      overflow: hidden;
       text-align: center;
     }
     .venue,

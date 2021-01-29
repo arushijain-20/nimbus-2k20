@@ -5,23 +5,13 @@ import "@primer/css/dist/primer.js";
 import "../../sass/pages/events.scss";
 import "./menu";
 
+import { CONSTANTS } from "../config";
+
 const anime = require("animejs/lib/anime.js");
 import ScrollOut from "scroll-out";
 
 var timeline = document.querySelector(".timeline");
 const START_DATE = 26; // Nimbus Start Date
-var gradients = [
-  "#ED4264",
-  "#A6FFCB",
-  "#FFEDBC",
-  "#514A9D",
-  "#1CD8D2",
-  "#4776E6",
-  "#FF8008",
-  "#8E54E9",
-  "#FFC837",
-  "#1FA2FF",
-];
 
 var teams = {
   ".EXE": "#ED4264",
@@ -37,7 +27,7 @@ var teams = {
 
 let events = [];
 
-fetch(`http://13.71.16.202:8000/events/`)
+fetch(`${CONSTANTS.BASE_URL}/events/`)
   .then((response) => response.json())
   .then((data) => {
     events = data;

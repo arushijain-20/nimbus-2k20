@@ -146,7 +146,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
         start: "",
         end: "",
         regURL: "",
-        Type: 2,
+        Type: 0,
       });
     }
   }, [editEvent]);
@@ -256,10 +256,10 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
                 onChange={handleChange}
                 value={event.Type}
               >
-                <option value="0">Mega Event</option>
+                <option value="0">Departmental Event</option>
                 <option value="1">Institutional Event</option>
-                <option value="2">Departmental Event</option>
-                <option value="3">Lecture</option>
+                <option value="2">Talk</option>
+                {/* <option value="3">Exhibition</option> */}
                 <option value="4">Workshop</option>
               </select>
             </div>

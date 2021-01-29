@@ -1,3 +1,3 @@
 export const CONSTANTS = {
-  BASE_URL: "https://13.71.16.202/",
+  BASE_URL: "https://spartanbhardwaj.hopto.org/",
 };
