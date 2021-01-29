@@ -5,3 +5,134 @@
     align-items: center;
   }
 }
+
+.event-form{
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.event-data{
+  padding: 3rem;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.event-name{
+  font-size: 3.2rem;
+  font-weight: 600;
+  padding: .5rem;  
+}
+
+.event-description{
+  font-family: sans-serif;
+  font-size: 1.8rem;
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.event-club{
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  background-color: #293a30;
+  width: fit-content;
+  margin: 1rem 0;
+  color: #c6ffa4;
+}
+
+.btn-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem;
+}
+
+.event-register-btn{
+    display: block;
+    width: fit-content;
+    padding: 1rem 2.5rem;
+    border: #405f4d outset 2px;
+    border-radius: 5px;
+    // background-image: linear-gradient(45deg, #442121, #a0a044);
+    font-weight: 600;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 0 4rem;
+    background-color: #293a30;
+}
+.event-register-btn a{
+  color: #e0b3b3;
+}
+
+.event-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.event-pic img{
+  width: 40rem;
+  height: 40rem;
+  border: solid #c1efa6 1px;
+}
+
+.other-data{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem 0;
+}
+
+.event-timing{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.start{
+  color: #a6ffcb;
+  background: #a6ffcb22;
+  padding: 0.3em 0.5em;
+  width: 11rem;
+  border-radius: 3px;
+}
+.end{
+  color: #ed4264;
+  background: #ed426422;
+  padding: 0.3em 0.5em;
+  width: 11rem;
+  border-radius: 3px;
+}
+.date {
+  margin-right: 0.5em;
+}
+.time {
+  color: #aaa;
+  padding: 0;
+  display: block;
+}
+
+.to{
+  display: inline-block;
+  padding: 0 0.5em;
+}
+
+.event-venue{
+  display:flex;
+  align-items:center
+}
+.event-venue p{
+  color: #656594;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+@media screen and (max-width: 700px){
+  .event-form{
+    grid-template-columns: 1fr;
+  }
+  .event-pic img{
+    width: 50rem;
+    height: 50rem;
+  }
+}

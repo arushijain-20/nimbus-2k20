@@ -36,7 +36,6 @@ export default function Events() {
             <EventCard key={event.id} event={event} />
           ))}
         </div>
-        )
       </div>
     </div>
   );
