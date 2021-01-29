@@ -1,4 +1,5 @@
 import "../../sass/pages/gallery.scss";
+import "./menu";
 
 function importAll(r) {
   return r.keys().map(r);

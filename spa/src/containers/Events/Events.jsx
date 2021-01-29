@@ -3,11 +3,9 @@ import "../Main/Main.scss";
 import "./Events.scss";
 import { CONSTANTS } from "../../config";
 import EventCard from "../../components/EventCard/EventCard";
-import EventDetails from "../../components/EventDetails/EventDetails";
 
 export default function Events() {
   const [events, setEvents] = useState([]);
-  const [detailedEvent, setDetailedEvent] = useState(null);
 
   const getAllEvents = async () => {
     try {
@@ -33,22 +31,12 @@ export default function Events() {
         <h1>Events</h1>
       </div>
       <div className="container">
-        {detailedEvent ? (
-          <EventDetails
-            event={detailedEvent}
-            setDetailedEvent={setDetailedEvent}
-          />
-        ) : (
-          <div className="events">
-            {events.map((event) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                setDetailedEvent={setDetailedEvent}
-              />
-            ))}
-          </div>
-        )}
+        <div className="events">
+          {events.map((event) => (
+            <EventCard key={event.id} event={event} />
+          ))}
+        </div>
+        )
       </div>
     </div>
   );
