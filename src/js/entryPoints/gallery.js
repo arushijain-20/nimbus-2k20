@@ -9,7 +9,7 @@ const images = importAll(
   require.context("../../img", false, /\.(png|jpe?g|svg)$/)
 );
 
-console.log(images);
+// console.log(images);
 
 let $gallery = document.querySelector(".gallery");
 
@@ -168,3 +168,10 @@ function listners() {
     });
   });
 }
+
+// for responsive gallery
+let all_images = document.querySelectorAll('.image')
+all_images.forEach((image,index) => {
+  console.log('hello')
+  image.style.backgroundImage = `url(../../img/img${index}.jpeg)`
+})
