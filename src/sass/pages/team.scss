@@ -49,13 +49,7 @@ h1 {
   margin-bottom: 10%;
 }
 
-.main-container h1 {
-  color: #fec135;
-  position: relative;
-  margin-top: 10%;
-  text-align: center;
-  font-size: 3.5rem;
-}
+
 .container {
   display: flex;
   justify-content: center;
@@ -69,6 +63,15 @@ h1 {
 	position: relative;
   overflow: hidden;
 }
+h2{
+  color: #fd7e14;
+  padding: 20px ;
+  text-align: center;
+  margin-top: 5% ;
+  font-size: 2.5rem;
+  
+}
+
 .img-wrapper:after {
   content: "";
   position: absolute;
@@ -109,7 +112,7 @@ h1 {
 .img-wrapper img
 {
 	filter: grayscale(100%);
-  transition: 2s;
+  transition: 1500ms;
   object-fit: contain;
 }
 .img-wrapper:hover img
@@ -118,7 +121,7 @@ h1 {
 	transform: scale(1.1);
 }
 
-.img-wrapper h2
+.img-wrapper h3
 {
 	background:#6c757d;;
 	font-family: Poppins;
@@ -128,17 +131,17 @@ h1 {
   padding: 10px 0;
 	width: 100%;
 	position: absolute;
-	transform: translate3d(0,100%,0);
-  transition: 1s;
+	transform: translate3d(0,80%,0);
+  transition: 500ms;
   
 }
-.img-wrapper h2 span{
+.img-wrapper h3 span{
   font-size: medium;
   font-style: italic;
   
 }
 
-.img-wrapper:hover h2
+.img-wrapper:hover h3
 {
 	transform:  translate3d(0,-100%,0);
 }
@@ -147,9 +150,7 @@ h1 {
 
 
 @media screen and (max-width: 800px) {
-  .main-container h1 {
-    margin-top: 30%;
-  }
+  
   .container {
     display: block;
     width: 80%;
