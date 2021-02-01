@@ -294,11 +294,12 @@ body {
 // }
 
 .date {
-  writing-mode: tb-rl;
-  position: absolute;
-  right: 5rem;
-  bottom: 50%;
-  transform: translate(0, 50%);
+  // writing-mode: tb-rl;
+  // position: absolute;
+  // right: 5rem;
+  // bottom: 50%;
+  // transform: translate(0, 50%);
+  margin-top: 1em;
   font-family: monospace, "Product Sans", "roboto";
   opacity: 0.8;
   letter-spacing: 0.3rem;
@@ -365,6 +366,7 @@ text {
 
 .char {
   display: inline-block;
+  margin: 0 0.3em;
   // opacity: 0;
 }
 
