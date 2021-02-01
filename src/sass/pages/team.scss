@@ -53,6 +53,7 @@ h1 {
   display: flex;
   justify-content: center;
   width: 80%;
+  height: 100%;
   position: relative;
 }
 
@@ -105,20 +106,19 @@ h2 {
   filter: grayscale(100%);
   transition: 500ms;
   object-fit: contain;
+  width: 100%;
 }
 .img-wrapper:hover img {
   filter: grayscale(0%);
   transform: scale(1.1);
 }
-
 .img-wrapper .desc {
   background: #6c757d;
   background: #111;
-  font-family: Poppins;
   color: #fff;
   text-align: center;
   margin: 0;
-  padding: 10px 0 30px;
+  padding: 10px 0 20px;
   width: 100%;
   position: absolute;
   transform: translate3d(0, 80%, 0);
@@ -127,14 +127,15 @@ h2 {
   font-size: 1rem;
   .name {
     font-weight: bold;
-    color: #ffeb3b;
+    color: #ff9800;
     font-size: 2em;
   }
   .desg {
-    color: #ff9800;
-    font-size: 1.5em;
+    
+    font-size: 1.4em;
   }
   .contact {
+    color: gray;
     font-size: 1.2em;
   }
 }
