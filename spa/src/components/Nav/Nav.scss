@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700|Shrikhand");
+@import "../../Styles/common.scss";
+
+$nav-item-bg-clr: #1e1e1edd;
+$nav-item-bg-clr-hvr: #000e;
+$nav-item-txt-clr: white;
+$ts: 0.3s;
+$td: 0.05s;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Product Sans", "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/225363/ales-krivec-38565-unsplash.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1473081556163-2a17de81fc97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  background-size: cover;
+
+  @media (min-width: 450px) {
+    font-size: 1.25rem;
+  }
+}
+
+.menu {
+  display: flex;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  left: 0;
+  z-index: 10000;
+  padding: 3rem 1rem 1rem;
+  width: 100vw;
+  min-height: 100vh;
+  text-align: center;
+  background-color: #fff;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity $ts * 1.5 $ts * 1.5 ease, transform 0s $ts * 4;
+
+  @supports (backdrop-filter: blur(5px)) {
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+  }
+}
+
+.menu ol {
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5px;
+  width: 100%;
+
+  @media (min-width: 820px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  li {
+    display: grid;
+    grid-column: span 1;
+    grid-gap: 5px;
+    overflow: hidden;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    font-size: 26px;
+    text-decoration: none;
+    color: #fff;
+    background-color: $nav-item-bg-clr;
+    border-radius: 2px;
+    &:hover {
+      background-color: $nav-item-bg-clr-hvr;
+    }
+
+    @media (min-width: 450px) {
+      font-size: 26px;
+    }
+  }
+}
+
+.menu .sub-menu {
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  li a {
+    font-size: 18px;
+    color: darken(#fff, 15%);
+    background-color: darken($nav-item-bg-clr, 15%);
+
+    &:hover {
+      background-color: $nav-item-bg-clr-hvr;
+    }
+
+    @media (min-width: 450px) {
+      font-size: 20px;
+    }
+  }
+
+  li:nth-child(3n) {
+    grid-column: span 2;
+
+    @media (min-width: 500px) {
+      grid-column: span 1;
+    }
+  }
+}
+
+.sp2 {
+  grid-column: span 2;
+}
+
+.menu-toggle {
+  z-index: 10000;
+  position: absolute;
+  right: 5rem;
+  top: 5.2rem;
+  z-index: 10001;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2px;
+  // position: relative;
+  cursor: pointer;
+  width: 40px;
+  height: 30px;
+
+  &::after {
+    content: "Note: Event was Cancelled due to COVID-19";
+    display: none;
+    position: absolute;
+    right: 60px;
+    color: #ffffff;
+    background: #ff0022;
+    padding: 3px 6px;
+    font-size: 12px;
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    transition: all 0.5s;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0.7;
+  }
+
+  &:hover::after {
+    width: 350px;
+    opacity: 1;
+
+    @include respond(tab-port) {
+      width: 180px;
+      height: 50px;
+    }
+  }
+
+  &:before {
+    content: "×";
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 4.8rem;
+    line-height: 0.4;
+    color: #fff;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity $ts ease;
+  }
+
+  span {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform $ts ease;
+    transform-origin: 100% 100%;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: $ts + ($td * $i);
+      }
+    }
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      grid-column: span 3;
+    }
+
+    &:nth-child(3),
+    &:nth-child(6) {
+      grid-column: span 2;
+    }
+
+    &:nth-child(4),
+    &:nth-child(5) {
+      grid-column: span 4;
+    }
+  }
+}
+
+#menu-toggle-input {
+  display: none;
+}
+.menu-toggle-active {
+  position: fixed;
+  span {
+    transform: scaleX(0);
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: $td * $i;
+      }
+    }
+  }
+
+  &:before {
+    opacity: 1;
+    transition-delay: $ts * 2.5;
+  }
+}
+
+.menuActive {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+
+  a {
+    color: $nav-item-txt-clr;
+    transform: translate(0, 0) !important;
+  }
+
+  @for $i from 1 through 5 {
+    > ol > li:nth-child(#{$i}) > a {
+      transition: color $ts ($ts * 2.75), transform $ts ($ts + $td * $i) ease;
+    }
+
+    .sub-menu > li:nth-child(#{$i}) > a {
+      transition: color $ts ($ts * 2.75),
+        transform $ts ($ts * 1.5 + $td * $i) ease;
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  .menu > ol > li:nth-child(#{$i}) > a {
+    transform: translate(calc(-100% - 12px), 0);
+    transition: color $ts, transform $ts ($ts / 2 + $td * $i) ease;
+  }
+
+  .sub-menu > li:nth-child(#{$i}) > a {
+    transform: translate(0, calc(-100% - 12px));
+    transition: color $ts, transform $ts ($ts / 2 + $td * $i) ease;
+  }
+}

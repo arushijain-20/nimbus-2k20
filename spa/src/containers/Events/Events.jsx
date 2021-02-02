@@ -3,6 +3,7 @@ import "../Main/Main.scss";
 import "./Events.scss";
 import { CONSTANTS } from "../../config";
 import EventCard from "../../components/EventCard/EventCard";
+import Nav from "../../components/Nav/Nav";
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -27,6 +28,7 @@ export default function Events() {
 
   return (
     <div className="main events-page">
+      <Nav />
       <div className="heading">
         <h1>Events</h1>
       </div>
@@ -35,6 +37,8 @@ export default function Events() {
           {events.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
+
+          {!events.length ? "loading..." : null}
         </div>
       </div>
     </div>

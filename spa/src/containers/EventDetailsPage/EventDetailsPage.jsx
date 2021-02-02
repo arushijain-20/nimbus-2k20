@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./EventDetailsPage.scss";
 import EventDetails from "../../components/EventDetails/EventDetails";
 import { CONSTANTS } from "../../config";
+import Nav from "../../components/Nav/Nav";
 
 export default function EventDetailsPage(route) {
   const [detailedEvent, setDetailedEvent] = useState(null);
@@ -25,6 +26,7 @@ export default function EventDetailsPage(route) {
   }, [route]);
   return (
     <div className="main event-details">
+      <Nav />
       <div className="heading">
         <h1>Events</h1>
       </div>
