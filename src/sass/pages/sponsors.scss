@@ -3,6 +3,7 @@
 
 body {
   background: #000;
+  @include dot-bg;
 }
 
 .heading {
@@ -26,6 +27,18 @@ body {
   }
 }
 
+.blur {
+  position: absolute;
+  display: block;
+  top: 0;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(to right, #000, #0000, #0000, #0000),
+    linear-gradient(#000, #0000, #0000);
+}
+
 h1 {
   font-size: 6rem;
 }
@@ -45,7 +58,7 @@ h1 {
     width: 100%;
     opacity: 0.1;
   }
-  .txt{
+  .txt {
     color: #fff;
   }
 }

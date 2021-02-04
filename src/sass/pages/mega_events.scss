@@ -6,6 +6,8 @@ body {
   //   width: 100vw;
   font-family: "Product Sans", roboto;
   min-height: 100vh;
+  background: #000;
+  @include dot-bg;
 }
 
 ::-webkit-scrollbar {
@@ -46,27 +48,16 @@ body {
   }
 }
 
-body {
-  background: #090909;
-  // background: url(../../img/lec1.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
-  overflow-x: hidden;
-}
-
 .blur {
   position: absolute;
-  display: none;
+  display: block;
   top: 0;
   bottom: 0;
+  z-index: -1;
   right: 0;
   left: 0;
-  // background: linear-gradient(#000, #0000, #000),
-  //   linear-gradient(to right, #000, #0000, #000);
-  background: linear-gradient(to right, #000, #0000, #000);
-  // backdrop-filter: blur(10px);
+  background: linear-gradient(to right, #000, #0000, #0000, #0000),
+    linear-gradient(#000, #0000, #0000);
 }
 
 .menu-toggle {

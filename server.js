@@ -2,7 +2,7 @@ var path = require("path");
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
-var User = require("./userSchema.js");
+var Feedback = require("./models.js");
 var admin = require("./admin");
 //Creating Server using express()
 var app = express();
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/register", function (req, res) {
+app.get("/contact", function (req, res) {
   console.log("Register");
   res.sendFile(path.resolve(__dirname + "/public/register.html"));
 });
@@ -104,23 +104,28 @@ app.get("/events", (req, res) => {
 app.post("/admin", admin);
 
 //Post Method
-app.post("/adduser", function (req, res) {
+app.post("/feedback", function (req, res) {
   var data = req.body;
   console.log("post request");
   console.log(req.body);
-  var user = new User(data); // ! Dont do it like this.
-  user
+  var feedback = new Feedback({
+    fname: data.fname,
+    email: data.email,
+    message: data.message,
+  });
+  feedback
     .save()
     .then((result) => {
-      console.log("added", user);
+      console.log("feedback added", feedback);
       res.status(200).json({
-        message: "successfully registered",
+        message: "success",
       });
     })
     .catch((err) => {
       console.log(err);
       res.status(500).json({
-        message: "Some Error Occured",
+        message: "error",
+        error: { message: err.message },
       });
     });
 });

@@ -3,6 +3,13 @@
 
 body {
   background: #000;
+  $size: 40px;
+  $dotSize: 10%;
+  // background-color: grey;
+  background-image: radial-gradient(#181818 $dotSize, transparent 0),
+    radial-gradient(#181818 $dotSize, transparent 0);
+  background-size: $size $size;
+  background-position: 0 0, ($size / 2) ($size / 2);
 }
 
 .heading {
@@ -131,7 +138,6 @@ h2 {
     font-size: 2em;
   }
   .desg {
-    
     font-size: 1.4em;
   }
   .contact {

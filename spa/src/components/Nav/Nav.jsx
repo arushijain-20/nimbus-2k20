@@ -57,7 +57,7 @@ export default function Nav() {
             <a href="/sponsors">Sponsors</a>
           </li>
           <li className="menu-item">
-            <a href="/register">Register</a>
+            <a href="/contact">Contact Us</a>
           </li>
           <li className="menu-item">
             <a href="/team">Team</a>

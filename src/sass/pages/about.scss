@@ -2,8 +2,15 @@
 @import "../../sass/components/navbar.scss";
 
 body {
-  background: #000;
-  font-family: "Product Sans";
+  background: #050505;
+  // $size: 40px;
+  // $dotSize: 10%;
+  // // background-color: grey;
+  // background-image: radial-gradient(#222 $dotSize, transparent 0),
+  //   radial-gradient(#222 $dotSize, transparent 0);
+  // background-size: $size $size;
+  // background-position: 0 0, ($size / 2) ($size / 2);
+  // font-family: "Product Sans";
 }
 
 .heading {
