@@ -16,7 +16,7 @@ body {
 }
 :root {
   font-size: 14px;
-  font-family: "Product Sans", roboto;
+  font-family: "Product Sans", "Open Sans", roboto;
 }
 .menu-toggle {
   // filter: invert(1);
@@ -99,13 +99,6 @@ body {
       padding: 2rem 4rem;
       text-align: center;
     }
-    .contact {
-      font-size: 0.8rem;
-      position: absolute;
-      bottom: 0.5rem;
-      right: 1rem;
-      display: none;
-    }
   }
   .form-container {
     grid-area: form;
@@ -115,6 +108,11 @@ body {
     background: #111;
     position: relative;
     overflow-x: hidden;
+
+    .contact {
+      font-size: 0.8em;
+      display: none;
+    }
 
     input,
     textarea {
@@ -178,7 +176,7 @@ body {
       }
 
       .form-control {
-        font-family: "Product Sans", roboto;
+        font-family: "Product Sans", "Open Sans", roboto;
       }
 
       label[for="hostel_acc"] {
@@ -193,10 +191,10 @@ body {
         color: #6c757d;
       }
       .card {
-        font-family: "Product Sans", roboto;
+        font-family: "Product Sans", "Open Sans", roboto;
       }
       .card-title {
-        font-family: "Product Sans", roboto;
+        font-family: "Product Sans", "Open Sans", roboto;
         font-weight: 600;
         font-size: 1.2rem;
       }

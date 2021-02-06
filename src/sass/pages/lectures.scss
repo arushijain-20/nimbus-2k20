@@ -3,7 +3,7 @@
 
 body {
   background: #000;
-  font-family: "Product Sans", roboto;
+  font-family: "Product Sans", "Open Sans", roboto;
   @include dot-bg;
 }
 
@@ -20,7 +20,7 @@ body {
 }
 
 .heading {
-  font-family: "Product Sans", roboto;
+  font-family: "Product Sans", "Open Sans", roboto;
   padding: 1rem 4rem;
   h1 {
     font-size: 5rem;

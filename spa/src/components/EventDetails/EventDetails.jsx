@@ -70,7 +70,7 @@ export default function EventDetails({
 
       <div className="event-form">
         <div className="event-pic">
-          <img src={event.image} alt="event"></img>
+          {event.image ? <img src={event.image} alt="event"></img> : null}
         </div>
         <div className="event-data">
           <div className="event-name">{event.name}</div>

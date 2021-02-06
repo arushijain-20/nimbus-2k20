@@ -5,6 +5,7 @@ import "./Dashboard.scss";
 import EditEvent from "../../components/EditEvent/EditEvent";
 import EventCard from "../../components/EventCard/EventCard";
 import EventDetails from "../../components/EventDetails/EventDetails";
+import Loader from "../../components/Loader/Loader";
 
 export default function Dashboard() {
   const {
@@ -15,7 +16,7 @@ export default function Dashboard() {
     setRefreshToken,
   } = useContext(GlobalContext);
 
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState();
   const [editEvent, setEditEvent] = useState(null);
   const [detailedEvent, setDetailedEvent] = useState(null);
 
@@ -54,6 +55,7 @@ export default function Dashboard() {
         setEvents(data);
       })
       .catch((err) => {
+        setEvents([]);
         console.log("Cant Get Events Error - ", err.message);
       });
   }
@@ -100,18 +102,22 @@ export default function Dashboard() {
           />
         ) : (
           <div className="events">
-            {events.length ? (
-              events.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  setDetailedEvent={setDetailedEvent}
-                />
-              ))
+            {events ? (
+              events.length ? (
+                events.map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
+                    setDetailedEvent={setDetailedEvent}
+                  />
+                ))
+              ) : (
+                <div className="empty">
+                  <p>You don't have any Events</p>
+                </div>
+              )
             ) : (
-              <div className="empty">
-                <p>You don't have any Events</p>
-              </div>
+              <Loader />
             )}
           </div>
         )}

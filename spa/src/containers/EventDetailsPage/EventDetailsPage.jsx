@@ -3,6 +3,7 @@ import "./EventDetailsPage.scss";
 import EventDetails from "../../components/EventDetails/EventDetails";
 import { CONSTANTS } from "../../config";
 import Nav from "../../components/Nav/Nav";
+import Loader from "../../components/Loader/Loader";
 
 export default function EventDetailsPage(route) {
   const [detailedEvent, setDetailedEvent] = useState(null);
@@ -38,7 +39,7 @@ export default function EventDetailsPage(route) {
             history={route.history}
           />
         ) : (
-          <div>Fetching Event</div>
+          <Loader />
         )}
       </div>
     </div>

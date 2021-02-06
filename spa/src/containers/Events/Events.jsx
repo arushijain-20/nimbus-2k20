@@ -4,6 +4,7 @@ import "./Events.scss";
 import { CONSTANTS } from "../../config";
 import EventCard from "../../components/EventCard/EventCard";
 import Nav from "../../components/Nav/Nav";
+import Loader from "../../components/Loader/Loader";
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -38,7 +39,7 @@ export default function Events() {
             <EventCard key={event.id} event={event} />
           ))}
 
-          {!events.length ? "loading..." : null}
+          {!events.length ? <Loader /> : null}
         </div>
       </div>
     </div>

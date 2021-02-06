@@ -4,7 +4,7 @@
 body {
   background: #eee;
   //   width: 100vw;
-  font-family: "Product Sans", roboto;
+  font-family: "Product Sans", "Open Sans", roboto;
   min-height: 100vh;
   background: #000;
   @include dot-bg;
@@ -23,7 +23,7 @@ body {
 }
 
 .heading {
-  font-family: "Product Sans", roboto;
+  font-family: "Product Sans", "Open Sans", roboto;
   padding: 1rem 4rem;
   h1 {
     font-size: 5rem;
@@ -118,10 +118,14 @@ body {
       }
     }
     .register {
-      bottom: 11em;
+      position: absolute;
+      top: -3.2em;
     }
   }
 
+  .card-con {
+    position: relative;
+  }
   .card-img {
     overflow: hidden;
     transition: 0.2s;
@@ -144,7 +148,7 @@ body {
     transition: 0.2s;
     z-index: 3;
     text-align: center;
-    bottom: 1em;
+    top: 2em;
     position: absolute;
   }
 
