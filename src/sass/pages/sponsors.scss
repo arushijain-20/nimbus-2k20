@@ -38,35 +38,44 @@ h1 {
   align-items: center;
   flex-direction: column;
   color: #fff;
-  mix-blend-mode: darken;
 
   img {
     // border-radius: 50%;
     width: 100%;
-    opacity: 0.1;
   }
-  .txt{
+  .txt {
     color: #fff;
   }
 }
 
-.container{
+.container {
   width: 100vw;
-  height: 100vh;
+  margin-top: 5em;
+  // height: 100vh;
   display: grid;
+  > p {
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 2em;
+    color: #fd7e14;
+  }
 }
 
-.sponcer-class{
+.sponcer-class {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.sponcer-block{
+.sponcer-block {
+  max-width: 30em;
   display: grid;
   grid-template-rows: 3fr 1fr;
 }
 
-.sponcer-block img{
+.sponcer-block img {
   width: 100%;
 }
