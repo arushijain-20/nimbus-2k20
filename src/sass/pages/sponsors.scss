@@ -3,11 +3,10 @@
 
 body {
   background: #000;
-  @include dot-bg;
 }
 
 .heading {
-  font-family: "Product Sans", "Open Sans", roboto;
+  font-family: "Product Sans", roboto;
   padding: 1rem 4rem;
   h1 {
     font-size: 5rem;
@@ -25,18 +24,6 @@ body {
       display: none;
     }
   }
-}
-
-.blur {
-  position: absolute;
-  display: block;
-  top: 0;
-  z-index: -1;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: linear-gradient(to right, #000, #0000, #0000, #0000),
-    linear-gradient(#000, #0000, #0000);
 }
 
 h1 {
@@ -58,8 +45,28 @@ h1 {
     width: 100%;
     opacity: 0.1;
   }
-  .txt {
+  .txt{
     color: #fff;
   }
 }
 
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+}
+
+.sponcer-class{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.sponcer-block{
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+
+.sponcer-block img{
+  width: 100%;
+}
