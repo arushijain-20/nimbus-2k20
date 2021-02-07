@@ -59,6 +59,7 @@ body {
   width: 80vw;
   opacity: 0.95;
   margin-top: 3rem;
+  border: 1px solid white;
   // background: #fff;
   display: grid;
   grid-template-columns: 4fr 5fr;
@@ -88,9 +89,18 @@ body {
     overflow: hidden;
 
     .nim-name {
-      font-size: 40vw;
-      line-height: 40vw;
+      // font-size: 40vw;
+      // line-height: 40vw;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
+      svg {
+        fill: white;
+        width: 100%;
+        height: 100%;
+      }
     }
     p {
       font-size: 1.5rem;

@@ -7,7 +7,7 @@ $logo-fill: #fff;
 $logo-fill-shadow: #ed4264;
 $theme-col: #fff;
 $theme-col-shadow: #1cd8d2;
-$sub-col: #fff;
+$sub-col: #eee;
 $date: #fff;
 $nith-txt: #fff;
 
@@ -135,7 +135,7 @@ body {
   top: 4rem;
   left: 5rem;
   &::after {
-    content: "NIT Hamirpur";
+    // content: "NIT Hamirpur";
     width: 15rem;
     margin-left: 1rem;
     font-size: 2rem;
@@ -346,7 +346,9 @@ body {
   }
 }
 .sub-theme {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  font-weight: bold;
   margin-top: -1rem;
   font-family: "Product Sans", "Open Sans", sans-serif;
   color: $sub-col;

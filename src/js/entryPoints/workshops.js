@@ -68,7 +68,7 @@ function createWorkshop(event, i) {
       <div class="title">${event.name}</div>
       <div class="desc">${event.info}</div>
       <div class="venue">${event.venue}</div>
-      <div class="date">${event.start}</div>
+      <div class="date">${new Date(event.start).toDateString()}</div>
     </div>
     </a>
   `;

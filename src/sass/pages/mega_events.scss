@@ -96,13 +96,13 @@ body {
     margin: 1em 0;
   }
   &:hover {
-    .card-img {
-      max-height: 30em;
-      transform: scale(1.1);
-      @include respond(tab-port) {
-        transform: scale(1);
-      }
-    }
+    // .card-img {
+    //   max-height: 30em;
+    //   transform: scale(1.1);
+    //   @include respond(tab-port) {
+    //     transform: scale(1);
+    //   }
+    // }
     .card-body {
       top: -4rem;
     }

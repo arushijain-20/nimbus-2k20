@@ -22,7 +22,7 @@ export default function Nav() {
   }, []);
   return (
     <div>
-      <label className="menu-toggle" for="menu-toggle-input">
+      <label className="menu-toggle" htmlFor="menu-toggle-input">
         <span></span>
         <span></span>
         <span></span>

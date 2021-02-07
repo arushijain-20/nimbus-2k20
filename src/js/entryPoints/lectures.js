@@ -70,7 +70,7 @@ function createLecture(lecture, i) {
     ></div>
     <div class="title">${lecture.name}</div>
     <div class="desc">${lecture.info}</div>
-    <div class="date">${lecture.start}</div>
+    <div class="date">${new Date(lecture.start).toDateString()}</div>
   </div>
 </a>
   `;

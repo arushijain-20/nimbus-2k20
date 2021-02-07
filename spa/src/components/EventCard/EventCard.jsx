@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 import "./EventCard.scss";
 
-export default function EventCard({ event, setDetailedEvent }) {
+export default function EventCard({ event, setDetailedEvent, active }) {
   return (
     <div
-      className="event-card"
+      className={`event-card ${active ? "active" : ""}`}
       onClick={setDetailedEvent ? () => setDetailedEvent(event) : () => null}
     >
       <Link to={setDetailedEvent ? `/admin` : `/events/${event.id}`}>
@@ -53,13 +53,13 @@ export default function EventCard({ event, setDetailedEvent }) {
                   </time>
                 </div>
               </div>
-              <div className="venue">
+              {/* <div className="venue">
                 {event.venue.includes("http") ? (
                   <a href={event.venue}>{event.venue}</a>
                 ) : (
                   event.venue
                 )}
-              </div>
+              </div> */}
             </div>
             {/* <div className="details">
             <Link to={`/events/${event.id}`}>View Event</Link>
