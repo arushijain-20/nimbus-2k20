@@ -16,9 +16,7 @@ module.exports = {
     sponsors: "./src/js/entryPoints/sponsors.js",
     about: "./src/js/entryPoints/about.js",
     e404: "./src/js/entryPoints/e404.js",
-    initiatives: "./src/js/entryPoints/initiatives.js",
     lectures: "./src/js/entryPoints/lectures.js",
-    technoworks: "./src/js/entryPoints/technoworks.js",
     workshops: "./src/js/entryPoints/workshops.js",
     departmental_events: "./src/js/entryPoints/departmental_events.js",
     dept_events: "./src/js/entryPoints/dept_events.js",
@@ -63,7 +61,7 @@ module.exports = {
         use: ["html-loader"],
       },
       {
-        test: /\.(png|jpeg|gif|jpg|svg|ttf|woff)$/,
+        test: /\.(png|jpeg|gif|jpg|svg)$/,
         use: [
           {
             loader: "file-loader",
@@ -75,6 +73,12 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(woff|woff2|ttf)$/,
+        use: {
+          loader: "url-loader",
+        },
       },
     ],
   },
@@ -124,21 +128,13 @@ module.exports = {
       template: "./src/e404.html",
       chunks: ["e404"],
     }),
-    new HtmlWebpackPlugin({
-      filename: "initiatives.html",
-      template: "./src/initiatives.html",
-      chunks: ["initiatives"],
-    }),
+
     new HtmlWebpackPlugin({
       filename: "lectures.html",
       template: "./src/lectures.html",
       chunks: ["lectures"],
     }),
-    new HtmlWebpackPlugin({
-      filename: "technoworks.html",
-      template: "./src/technoworks.html",
-      chunks: ["technoworks"],
-    }),
+
     new HtmlWebpackPlugin({
       filename: "workshops.html",
       template: "./src/workshops.html",

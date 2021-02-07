@@ -9,24 +9,15 @@ form.submit(function (event) {
   event.preventDefault();
 
   var fname = $("#fname").val();
-  var team = $("#team").val();
-  var college = $("#college").val();
-  var city = $("#city").val();
   var email = $("#email").val();
-  var phone = $("#phone").val();
-  // var hostel = $("#hostel_acc").prop("checked") ? "yes" : "";
-  // console.log($("#hostel_acc").prop("checked"));
-  // console.log(hostel);
+  var message = $("textarea#message").val();
   var data = {
     fname,
-    team,
-    college,
-    city,
     email,
-    phone,
+    message,
   };
   $(".bar").width("50%");
-  fetch("https://festnimbus.com/adduser", {
+  fetch("https://festnimbus.com/feedback", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -34,11 +25,10 @@ form.submit(function (event) {
     body: JSON.stringify(data),
   })
     .then((res) => {
-      console.log("response coming..");
       return res.json();
     })
     .then((data) => {
-      if (data.message == "successfully registered") {
+      if (data.message == "success") {
         $(".response").removeClass("error").addClass("success");
         $(".bar").width("100%");
         $(".bar").removeClass("red").addClass("green");

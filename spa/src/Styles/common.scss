@@ -4,40 +4,42 @@
 @import "./base";
 @import "./keyframes";
 @import "./elements";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,700|Shrikhand");
 
-// @font-face {
-//   font-family: "Product Sans";
-//   font-style: normal;
-//   font-weight: 400;
-//   src: local("Open Sans"), local("OpenSans"),
-//     url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
-//       format("woff2");
-// }
+@font-face {
+  font-family: "Product Sans";
+  src: url("./fonts/ps/psRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: "Product Sans";
-//   src: url("../fonts/ps/psRegular.ttf") format("truetype");
-//   font-weight: normal;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "Product Sans";
+  src: url("./fonts/ps/psItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
 
-// @font-face {
-//   font-family: "Product Sans";
-//   src: url("../fonts/ps/psItalic.ttf") format("truetype");
-//   font-weight: normal;
-//   font-style: italic;
-// }
+@font-face {
+  font-family: "Product Sans";
+  src: url("./fonts/ps/psBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: "Product Sans";
-//   src: url("../fonts/ps/psBold.ttf") format("truetype");
-//   font-weight: bold;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "Product Sans";
+  src: url("./fonts/ps/psBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
 
-// @font-face {
-//   font-family: "Product Sans";
-//   src: url("../fonts/ps/psBoldItalic.ttf") format("truetype");
-//   font-weight: bold;
-//   font-style: italic;
-// }
+@mixin dot-bg {
+  $size: 40px;
+  $dotSize: 10%;
+  // background-color: grey;
+  background-image: radial-gradient(#181818 $dotSize, transparent 0),
+    radial-gradient(#181818 $dotSize, transparent 0);
+  background-size: $size $size;
+  background-position: 0 0, ($size / 2) ($size / 2);
+}

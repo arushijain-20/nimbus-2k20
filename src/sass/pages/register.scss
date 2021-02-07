@@ -1,9 +1,22 @@
 @import "../common";
 @import "../../sass/components/navbar.scss";
 
+body {
+  $size: 40px;
+  $holeSize: 40%;
+  $reflective: hsla(0, 0%, 10%, 0.74);
+  background: radial-gradient(black $holeSize, transparent 0) 0 0,
+    radial-gradient(black $holeSize, transparent 0) ($size / 2) ($size / 2),
+    radial-gradient($reflective $holeSize, transparent 20%) 0 1px,
+    radial-gradient($reflective $holeSize, transparent 20%) ($size / 2)
+      ($size / 2 + 1px);
+  background-color: #181818;
+  background-size: $size $size;
+  background-clip: content-box;
+}
 :root {
   font-size: 14px;
-  font-family: "Product Sans", roboto;
+  font-family: "Product Sans", "Open Sans", roboto;
 }
 .menu-toggle {
   // filter: invert(1);
@@ -22,7 +35,7 @@
   align-items: center;
   // background: linear-gradient(-45deg, #eee 50%, white);
   // background: url("../../img/bg-hills.jpg");
-  background: #000;
+  // background: #000;
   background-size: cover;
   position: relative;
 
@@ -36,6 +49,7 @@
   position: absolute;
   height: 100%;
   width: 100vw;
+  z-index: -1;
   background: #0009;
   backdrop-filter: blur(5px);
 }
@@ -74,8 +88,8 @@
     overflow: hidden;
 
     .nim-name {
-      font-size: 50rem;
-      line-height: 50rem;
+      font-size: 40vw;
+      line-height: 40vw;
       overflow: hidden;
     }
     p {
@@ -84,13 +98,6 @@
       font-style: italic;
       padding: 2rem 4rem;
       text-align: center;
-    }
-    .contact {
-      font-size: 0.8rem;
-      position: absolute;
-      bottom: 0.5rem;
-      right: 1rem;
-      display: none;
     }
   }
   .form-container {
@@ -102,8 +109,15 @@
     position: relative;
     overflow-x: hidden;
 
-    input {
+    .contact {
+      font-size: 0.8em;
+      display: none;
+    }
+
+    input,
+    textarea {
       background: transparent;
+      width: 100%;
       border: none;
       background: none;
       color: #fff;
@@ -162,7 +176,7 @@
       }
 
       .form-control {
-        font-family: "Product Sans", roboto;
+        font-family: "Product Sans", "Open Sans", roboto;
       }
 
       label[for="hostel_acc"] {
@@ -177,10 +191,10 @@
         color: #6c757d;
       }
       .card {
-        font-family: "Product Sans", roboto;
+        font-family: "Product Sans", "Open Sans", roboto;
       }
       .card-title {
-        font-family: "Product Sans", roboto;
+        font-family: "Product Sans", "Open Sans", roboto;
         font-weight: 600;
         font-size: 1.2rem;
       }

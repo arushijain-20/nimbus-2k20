@@ -30,7 +30,7 @@ export default function EventDetails({
           console.log("Deleted Event - ", response.status);
           setError({ detail: "Deleted Event Successfully." });
           getEvents();
-        } else if (response.status == 403) {
+        } else if (response.status === 403) {
           console.log("Cant Delete Event -", response.status);
           setError({ detail: "UnAuthorized Access." });
         } else {
@@ -67,58 +67,90 @@ export default function EventDetails({
         ) : null}
       </div>
       <div className="ctrl error">{error ? error.detail : null}</div>
-    
-      <div className = "event-form">
-        <div className = "event-pic">
-          <img src = {event.image}></img>
+
+      <div className="event-form">
+        <div className="event-pic">
+          {event.image ? <img src={event.image} alt="event"></img> : null}
         </div>
-        <div className = "event-data">
-          <div className = "event-name">
-            {event.name}
-          </div>
-          <div className = "event-club">
-            - Team {event.department}
-          </div>
-          <div className = "event-description">
-              {event.info}
-          </div> 
-          <div className ="btn-wrapper">
-            <div className = "event-register-btn">
-              <a href = {event.regURL}>Register</a>
+        <div className="event-data">
+          <div className="event-name">{event.name}</div>
+          <div className="meta">
+            <div
+              className="type"
+              style={{
+                color: ["#ff5722", "#8bc34a", "#00bcd4", "#514A9D", "#ffeb3b"][
+                  event.Type
+                ],
+                background: [
+                  "#ff572222",
+                  "#8bc34a22",
+                  "#00bcd422",
+                  "#514A9D22",
+                  "#ffeb3b22",
+                ][event.Type],
+              }}
+            >
+              {
+                [
+                  "Departmental Event",
+                  "Institutional Event",
+                  "Lecture",
+                  "Exhibition",
+                  "Workshop",
+                ][event.Type]
+              }
             </div>
-            <div className = "event-register-btn">
-              <a href = {event.abstract}>Abstract</a>
+            <div className="event-club">{event.department}</div>
+          </div>
+          <pre className="event-description">{event.info}</pre>
+
+          <div className="abstract">
+            <div className="btn">
+              <a href={event.abstract}>Read More</a>
             </div>
           </div>
-          <div className = "other-data">
-            <div className = "event-venue">
-              <p>
-                Venue : {event.venue}
-              </p>
+
+          <div className="other-data">
+            <div className="event-venue">
+              <p>{event.venue}</p>
             </div>
-            <div className = "event-timing">
-              <div className = "start">
-                <span className = "date">
+            <div className="event-timing">
+              <div className="start">
+                <span className="date">
                   {new Date(event.start).toDateString()}
                 </span>
-                <span className = "time">
+                <span className="time">
                   {new Date(event.start).toLocaleTimeString()}
                 </span>
               </div>
-              <span className = "to"> - </span>
-              <div className = "end">
-                <span className = "date">
+              <span className="to"> - </span>
+              <div className="end">
+                <span className="date">
                   {new Date(event.end).toDateString()}
                 </span>
-                <span className = "time">
+                <span className="time">
                   {new Date(event.end).toLocaleTimeString()}
                 </span>
               </div>
             </div>
           </div>
+
+          <div
+            className="btn register"
+            style={{
+              background: [
+                "#ff5722",
+                "#8bc34a",
+                "#00bcd4",
+                "#514A9D",
+                "#ffeb3b",
+              ][event.Type],
+            }}
+          >
+            <a href={event.regURL}>Register</a>
+          </div>
         </div>
       </div>
-      {/* <pre className="event">{JSON.stringify(event, undefined, 2)}</pre> */}
     </div>
   );
 }

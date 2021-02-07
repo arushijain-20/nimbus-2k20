@@ -168,7 +168,7 @@ function createDayHeader(day) {
         <div class="TimelineItem-body">
           <a href="#" class="text-bold link-gray mr-1">Day ${day}</a>
           of the
-          <a href="#" class="text-bold link-gray">Nimbus 2k20</a>
+          <a href="#" class="text-bold link-gray">Nimbus 2k21</a>
           <a href="#" class="link white">at NIT Hamirpur</a>
           <a href="#" class="text-bold link-gray">${
             START_DATE + day

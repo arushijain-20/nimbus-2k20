@@ -1,7 +1,9 @@
 @import "../../Styles/common.scss";
 
 .events-page {
-  background: #151515;
+  background: #0a0a0a;
+  @include dot-bg;
+
   .heading {
     &::before {
       position: absolute;

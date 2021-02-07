@@ -55,6 +55,7 @@ function createWorkshop(event, i) {
   let node = document.createElement("div");
   node.className = "card";
   node.innerHTML = `
+  <a href="/events/${event.id}">
     <div class="card-img">
       <img src="${event.image ? event.image : ""}" alt="" />
     </div> 
@@ -69,6 +70,7 @@ function createWorkshop(event, i) {
       <div class="venue">${event.venue}</div>
       <div class="date">${event.start}</div>
     </div>
+    </a>
   `;
 
   workshops_con.appendChild(node);

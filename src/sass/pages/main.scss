@@ -31,7 +31,7 @@ body {
 
 body {
   background: #fbfbfb;
-  font-family: "Product Sans";
+  font-family: "Product Sans", "Open Sans";
   scroll-behavior: smooth;
 }
 
@@ -55,7 +55,7 @@ body {
   scroll-behavior: smooth;
   position: absolute;
   right: 12rem;
-  font-family: "Product Sans";
+  font-family: "Product Sans", "Open Sans";
   opacity: 0.9;
   top: 5rem;
   font-size: 2rem;
@@ -185,7 +185,7 @@ body {
   }
   &::before {
     content: "Pixonoids";
-    font-family: "Product Sans";
+    font-family: "Product Sans", "Open Sans";
     font-size: 1.7rem;
     transition: all 0.5s;
     display: inline-block;
@@ -250,7 +250,7 @@ body {
     position: relative;
     // &::after {
     //   content: "/festnimbus";
-    //   font-family: "Product Sans";
+    //   font-family: "Product Sans","Open Sans";
     //   font-size: 1.7rem;
     //   transition: all 0.2s;
     //   display: inline-block;
@@ -294,12 +294,13 @@ body {
 // }
 
 .date {
-  writing-mode: tb-rl;
-  position: absolute;
-  right: 5rem;
-  bottom: 50%;
-  transform: translate(0, 50%);
-  font-family: monospace, "Product Sans", "roboto";
+  // writing-mode: tb-rl;
+  // position: absolute;
+  // right: 5rem;
+  // bottom: 50%;
+  // transform: translate(0, 50%);
+  margin-top: 1em;
+  font-family: monospace, "Product Sans", "Open Sans", "roboto";
   opacity: 0.8;
   letter-spacing: 0.3rem;
   color: $date;
@@ -329,7 +330,7 @@ body {
 }
 .theme {
   margin-top: 7rem;
-  font-family: "Product Sans", sans-serif;
+  font-family: "Product Sans", "Open Sans", sans-serif;
   .theme-title {
     margin-top: 5rem;
 
@@ -347,7 +348,7 @@ body {
 .sub-theme {
   font-size: 2rem;
   margin-top: -1rem;
-  font-family: "Product Sans", sans-serif;
+  font-family: "Product Sans", "Open Sans", sans-serif;
   color: $sub-col;
 }
 text {
@@ -365,6 +366,7 @@ text {
 
 .char {
   display: inline-block;
+  margin: 0 0.3em;
   // opacity: 0;
 }
 

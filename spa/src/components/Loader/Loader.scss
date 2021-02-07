@@ -1,0 +1,47 @@
+.loader-con {
+  $logo-fill: #fff;
+  $logo-fill-shadow: #ed4264;
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo {
+    perspective: 400px;
+    transform-style: preserve-3d;
+    text-align: center;
+    height: 10rem;
+    svg {
+      height: 100%;
+      fill: #fff0;
+      stroke: $logo-fill;
+      filter: drop-shadow(0px 0px 10px $logo-fill-shadow);
+      stroke-width: 4px;
+      stroke-dasharray: 1500;
+      stroke-dashoffset: 1500;
+      animation: stroke_on_logo 5s infinite;
+      // ,wiggle 2s 4s ease-in-out alternate infinite;
+    }
+  }
+  @keyframes stroke_on_logo {
+    0% {
+      stroke-dashoffset: 1500;
+    }
+    45% {
+      fill: #fff0;
+    }
+    65% {
+      stroke-dashoffset: 0;
+      fill: $logo-fill;
+    }
+    75% {
+      stroke-dashoffset: 0;
+      fill: $logo-fill;
+    }
+    100% {
+      stroke-dashoffset: 1500;
+      fill: #fff0;
+    }
+  }
+}

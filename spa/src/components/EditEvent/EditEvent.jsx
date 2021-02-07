@@ -149,6 +149,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
         Type: 0,
       });
     }
+    console.log({ event });
   }, [editEvent]);
 
   if (!event) {
@@ -197,7 +198,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
                 type="datetime-local"
                 name="start"
                 id="start"
-                value={event.start?.replace("Z", "")}
+                value={event.start?.replace(/\+[0-9Z:]*/, "")}
                 onChange={handleChange}
                 placeholder=""
                 className="form-control"
@@ -211,7 +212,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
                 type="datetime-local"
                 name="end"
                 id="end"
-                value={event.end?.replace("Z", "")}
+                value={event.end?.replace(/\+[0-9Z:]*/, "")}
                 onChange={handleChange}
                 placeholder=""
                 className="form-control"
@@ -229,7 +230,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
                 id="info"
                 value={event.info}
                 onChange={handleChange}
-                placeholder="Textual description of Event Which will be shown on website - Full detailed description can be provided seperately in the PDF"
+                placeholder="Try to describe the key points of the event in first line, as only first line may be visible in some places on website. - Full detailed description can be provided seperately in the PDF."
                 className="form-control"
                 autoComplete="off"
               />
@@ -262,6 +263,9 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
                 {/* <option value="3">Exhibition</option> */}
                 <option value="4">Workshop</option>
               </select>
+              {/* <div className="help-text">
+                Clubs will have Type - Departmental Event most of the time
+              </div> */}
             </div>
             <div className="form-group">
               <label htmlFor="regURL">Registration Url *</label>

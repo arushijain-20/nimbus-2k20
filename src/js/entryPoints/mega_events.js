@@ -63,19 +63,21 @@ function createEvent(event, i) {
          <img src="${event.image ? event.image : ""}" alt="" />
       </div>
     </a>
+    <div class="card-con">
     <a href="${event.regURL}"><div class="register" style="background:${
     GRADIENTS[i].from
   };">Register</div></a>
-    <div class="card-body">
-      <div class="bar"  data-scroll style="background:${
-        GRADIENTS[i].from
-      };"></div>
-      <div class="title">${event.name}</div>
-      <div class="desc">${event.info}</div>
-      <div>
-        <div class="date">${event.start}</div>
-        <div class="venue">${event.venue}</div>
-      </div>
+      <div class="card-body">
+        <div class="bar"  data-scroll style="background:${
+          GRADIENTS[i].from
+        };"></div>
+        <div class="title">${event.name}</div>
+        <div class="desc">${event.info}</div>
+        <div>
+          <div class="date">${event.start}</div>
+          <div class="venue">${event.venue}</div>
+        </div>
+      </div> 
     </div>
   `;
 

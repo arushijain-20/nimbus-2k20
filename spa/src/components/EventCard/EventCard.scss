@@ -44,7 +44,7 @@
       padding: 2em;
       position: absolute;
       background: red;
-      font-family: "Product Sans";
+      font-family: "Product Sans", "Open Sans";
       z-index: 3;
       background: linear-gradient(to right, #000, #000, #000, #0000);
       background-size: 110%;
@@ -53,18 +53,40 @@
       // backdrop-filter: blur(1px);
       .title {
         font-size: 2em;
-        margin-bottom: 0.5em;
+        // margin-bottom: 0.5em;
       }
+
       .desc {
-        height: 6em;
+        margin-top: 0.5em;
+        height: 5.4em;
         display: flex;
         padding: 0 0.5rem;
         width: 80%;
+        font-size: 1.1em;
         overflow: hidden;
         color: #bbb;
         // font-size: 1.1em;
 
         // font-family: monospace;
+      }
+      .event-club {
+        border-radius: 1em;
+        // display: none;
+        position: absolute;
+        top: -0.2em;
+        left: -0.4em;
+        font-size: 0.9em;
+        padding: 0.3em 2em 0.1em;
+        background: #fff3;
+        color: #000;
+        font-weight: bold;
+        width: fit-content;
+      }
+      .bottom {
+        margin-top: 0.8em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .date {
         display: flex;
@@ -85,7 +107,7 @@
         }
         .start {
           color: #a6ffcb;
-          background: #a6ffcb22;
+          // background: #a6ffcb22;
           padding: 0.3em 0.5em;
         }
         .to {
@@ -94,13 +116,14 @@
         }
         .end {
           color: #ed4264;
-          background: #ed426422;
+          // background: #ed426422;
           padding: 0.3em 0.5em;
         }
       }
       .venue {
         color: #1fa2ff;
         margin-top: 0.5em;
+        display: none;
         padding: 0.5rem;
       }
       .details {
