@@ -143,8 +143,8 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
         name: "",
         info: "",
         venue: "",
-        start: "",
-        end: "",
+        start: null,
+        end: null,
         regURL: "",
         Type: 0,
       });
@@ -176,9 +176,9 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="venue">Venue * </label>
+              <label htmlFor="venue">Venue </label>
               <input
-                required
+                // required
                 type="text"
                 name="venue"
                 id="venue"
@@ -192,7 +192,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
           </div>
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="start">Start * </label>
+              <label htmlFor="start">Start </label>
               <input
                 required
                 type="datetime-local"
@@ -206,7 +206,7 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="end">End * </label>
+              <label htmlFor="end">End </label>
               <input
                 required
                 type="datetime-local"
@@ -268,9 +268,9 @@ export default function EditEvent({ editEvent, setEditEvent, getEvents }) {
               </div> */}
             </div>
             <div className="form-group">
-              <label htmlFor="regURL">Registration Url *</label>
+              <label htmlFor="regURL">Registration Url </label>
               <input
-                required
+                // required
                 type="url"
                 name="regURL"
                 id="regURL"

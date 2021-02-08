@@ -115,23 +115,29 @@ export default function EventDetails({
               <p>{event.venue}</p>
             </div>
             <div className="event-timing">
-              <div className="start">
-                <span className="date">
-                  {new Date(event.start).toDateString()}
-                </span>
-                <span className="time">
-                  {new Date(event.start).toLocaleTimeString()}
-                </span>
-              </div>
-              <span className="to"> - </span>
-              <div className="end">
-                <span className="date">
-                  {new Date(event.end).toDateString()}
-                </span>
-                <span className="time">
-                  {new Date(event.end).toLocaleTimeString()}
-                </span>
-              </div>
+              {event.start ? (
+                <>
+                  <div className="start">
+                    <span className="date">
+                      {new Date(event.start).toDateString()}
+                    </span>
+                    <span className="time">
+                      {new Date(event.start).toLocaleTimeString()}
+                    </span>
+                  </div>
+                  <span className="to"> - </span>
+                  <div className="end">
+                    <span className="date">
+                      {new Date(event.end).toDateString()}
+                    </span>
+                    <span className="time">
+                      {new Date(event.end).toLocaleTimeString()}
+                    </span>
+                  </div>
+                </>
+              ) : (
+                <div className="start">Coming Soon</div>
+              )}
             </div>
           </div>
 
