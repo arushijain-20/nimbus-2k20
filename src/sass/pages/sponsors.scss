@@ -38,11 +38,6 @@ h1 {
   align-items: center;
   flex-direction: column;
   color: #fff;
-
-  img {
-    // border-radius: 50%;
-    width: 100%;
-  }
   .txt {
     color: #fff;
   }
@@ -51,15 +46,16 @@ h1 {
 .container {
   width: 100vw;
   margin-top: 5em;
+  font-size: 8px;
   // height: 100vh;
   display: grid;
   .class-name {
-    font-size: 2em;
+    font-size: 2rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     width: fit-content;
     margin: auto;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     color: #fd7e14;
   }
 }
@@ -78,14 +74,14 @@ h1 {
   grid-template-rows: 5fr 1fr;
   opacity: 0.9;
   border-radius: 6px;
-  margin: 1rem 1rem 5rem 1rem;
+  margin: 1em 1em 5em 1em;
 
   img {
-    width: 300px;
-    height: 300px;
+    // width: 30em;
+    height: 30em;
   }
   p {
-    font-size: 2.2rem;
+    font-size: 2.2em;
     transition: all 0.3s;
     width: 100%;
     padding: 0.5em;

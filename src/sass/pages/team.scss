@@ -39,6 +39,7 @@ h1 {
 .main-container {
   width: 100%;
   // min-height: 60vh;
+  font-size: 8px;
   margin: auto;
   display: flex;
   justify-content: center;
@@ -63,7 +64,7 @@ h1 {
   position: relative;
 }
 .card {
-  margin: 5%;
+  margin: 2em 3%;
 }
 .card:hover {
   // transform: scale(1.1);
@@ -73,6 +74,10 @@ h1 {
   position: relative;
   overflow: hidden;
   min-width: 10em;
+  width: 30em;
+  height: 40em;
+  max-height: 70em;
+  border: 2px solid #fda014;
 }
 h2 {
   color: #fd7e14;
@@ -81,7 +86,7 @@ h2 {
   letter-spacing: 0.5em;
   text-align: center;
   margin-top: 5%;
-  font-size: 3.5rem;
+  font-size: 3.5em;
 }
 
 .img-wrapper:after {
@@ -118,17 +123,19 @@ h2 {
 
 .img-wrapper img {
   filter: grayscale(100%);
+  overflow: hidden;
+  transform: scale(1.05);
   transition: 500ms;
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
-  min-height: 20em;
   height: 100%;
 }
 .img-wrapper:hover img {
   filter: grayscale(0%);
 }
 .card .desc {
-  font-size: 1rem;
+  font-size: 1em;
+  margin: 1em 0;
   text-align: center;
   // background: #000;
 
