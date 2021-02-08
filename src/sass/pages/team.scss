@@ -62,20 +62,17 @@ h1 {
   height: 100%;
   position: relative;
 }
-.card{
+.card {
   margin: 5%;
-  
 }
-.card:hover{
-  transform: scale(1.1);
+.card:hover {
+  // transform: scale(1.1);
   transition: 500ms;
 }
 .img-wrapper {
-  
   position: relative;
   overflow: hidden;
   min-width: 10em;
-  
 }
 h2 {
   color: #fd7e14;
@@ -126,17 +123,15 @@ h2 {
   width: 100%;
   min-height: 20em;
   height: 100%;
- 
-  
 }
 .img-wrapper:hover img {
   filter: grayscale(0%);
-  
 }
 .card .desc {
   font-size: 1rem;
   text-align: center;
-  
+  // background: #000;
+
   .name {
     font-weight: bold;
     color: #ff9800;
@@ -151,15 +146,13 @@ h2 {
   }
 }
 
-
-
 @media screen and (max-width: 800px) {
   .container {
     display: block;
     width: 80%;
     margin: auto;
   }
-  .card{
+  .card {
     margin: 10%;
   }
   .img-wrapper img {
