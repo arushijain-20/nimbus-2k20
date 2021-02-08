@@ -4,6 +4,7 @@ import EventDetails from "../../components/EventDetails/EventDetails";
 import { CONSTANTS } from "../../config";
 import Nav from "../../components/Nav/Nav";
 import Loader from "../../components/Loader/Loader";
+import { Link } from "react-router-dom";
 
 export default function EventDetailsPage(route) {
   const [detailedEvent, setDetailedEvent] = useState(null);
@@ -29,7 +30,9 @@ export default function EventDetailsPage(route) {
     <div className="main event-details">
       <Nav />
       <div className="heading">
-        <h1>Events</h1>
+        <Link to="/events">
+          <h1>Events</h1>
+        </Link>
       </div>
       <div className="container">
         {detailedEvent ? (

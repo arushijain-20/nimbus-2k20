@@ -48,6 +48,11 @@
         border-radius: 0.5em;
         margin: 0.5em 1em 0.5em 0;
         background: #666;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: #000;
         cursor: pointer;
         transition: all 0.3s;
         &:active {

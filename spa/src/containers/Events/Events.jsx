@@ -36,9 +36,12 @@ export default function Events() {
     let _displayEvents = [];
     if (text !== undefined) {
       text = text.toLowerCase().trim();
-      _displayEvents = events.filter(
-        (ev) => ev.name.toLowerCase().indexOf(text) !== -1
-      );
+      _displayEvents = events.filter((ev) => {
+        let str = ev.name.toLowerCase();
+        str += ` ${ev.department}`;
+
+        return str.indexOf(text) !== -1;
+      });
       setDisplayedEvents(_displayEvents);
     } else if (type !== undefined) {
       if (type === null) {
@@ -73,6 +76,7 @@ export default function Events() {
 
   useEffect(() => {
     if (typeFilter === null) {
+      filter({ text: "" });
       return;
     }
     filter({ type: typeFilter });
@@ -104,7 +108,9 @@ export default function Events() {
                 background:
                   typeFilter === null || typeFilter === 0 ? "#ff5722" : "#666",
               }}
-            ></div>
+            >
+              D
+            </div>
             <div
               className="type"
               onClick={() => setTypeFilter((tf) => (tf === 1 ? null : 1))}
@@ -114,7 +120,9 @@ export default function Events() {
                 background:
                   typeFilter === null || typeFilter === 1 ? "#8bc34a" : "#666",
               }}
-            ></div>
+            >
+              I
+            </div>
             <div
               className="type"
               onClick={() => setTypeFilter((tf) => (tf === 2 ? null : 2))}
@@ -124,7 +132,9 @@ export default function Events() {
                 background:
                   typeFilter === null || typeFilter === 2 ? "#00bcd4" : "#666",
               }}
-            ></div>
+            >
+              L
+            </div>
             <div
               className="type"
               onClick={() => setTypeFilter((tf) => (tf === 4 ? null : 4))}
@@ -134,7 +144,9 @@ export default function Events() {
                 background:
                   typeFilter === null || typeFilter === 4 ? "#ffeb3b" : "#666",
               }}
-            ></div>
+            >
+              W
+            </div>
           </div>
         </div>
         <div className="events">
